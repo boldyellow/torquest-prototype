@@ -1,0 +1,19 @@
+// typography 
+
+
+
+p {
+	
+	font-size: rem-calc(14);
+
+	@include breakpoint(medium) {
+		font-size: rem-calc(17);
+	}
+	@include breakpoint(large) {
+		font-size: rem-calc(20);
+	}
+	@include breakpoint(xlarge) {
+		font-size: rem-calc(24);
+	}
+	
+}

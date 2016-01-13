@@ -1,0 +1,29 @@
+.container {
+}
+
+.main-container {
+background: #fff;
+position: relative;
+
+}
+
+.main-container:before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: -80px;
+  width: 100%;
+  height: 180px;
+  background: #fff;
+  transform: skewY(-3.5deg);
+  backface-visibility: hidden;
+
+}
+
+section {
+  margin: 0;
+  padding: 0 20px;
+  padding-bottom: 10px;
+  position: relative;
+}
+
