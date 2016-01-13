@@ -45,10 +45,14 @@
 
 
 // custom styles
-@import 'custom/nav',
+@import 'custom/variables',
+		'custom/type',
+		'custom/nav',
+		'custom/page-home',
 		'custom/blocks',
 		'custom/skew',
+		'custom/images',
 		'custom/modal',
 		'custom/video',
 		'custom/animate',
-		'custom/type';
+		'custom/links';

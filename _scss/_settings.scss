@@ -75,7 +75,7 @@ $rem-base: 16px;
 
 $breakpoints: (
   small: 0,
-  medium: 360px,
+  medium: 460px,
   large: 767px,
   xlarge: 1200px,
   xxlarge: 1440px,
@@ -116,24 +116,24 @@ $header-sizes: (
     'h6': 16,
   ),
   large: (
-    'h1': 48,
+    'h1': 51,
     'h2': 40,
     'h3': 33,
-    'h4': 25,
+    'h4': 26,
     'h5': 20,
     'h6': 16,
   ),
   xlarge: (
-    'h1': 60,
+    'h1': 70,
     'h2': 50,
     'h3': 36,
-    'h4': 25,
+    'h4': 26,
     'h5': 20,
     'h6': 16,
   ),
 );
 $header-color: inherit;
-$header-lineheight: 1.4;
+$header-lineheight: 1.1;
 $header-margin-bottom: 0.5rem;
 $header-text-rendering: optimizeLegibility;
 $small-font-size: 80%;

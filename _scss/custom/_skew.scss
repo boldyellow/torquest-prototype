@@ -1,13 +1,17 @@
-.container {
+/* |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+  
+   SKEWS 
+   
+|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| */
+
+
+
+.panel-skew-top {
+	background: #fff;
+	position: relative;
 }
 
-.main-container {
-background: #fff;
-position: relative;
-
-}
-
-.main-container:before {
+.panel-skew-top:before {
   content: '';
   position: absolute;
   left: 0;
@@ -20,10 +24,18 @@ position: relative;
 
 }
 
-section {
-  margin: 0;
-  padding: 0 20px;
-  padding-bottom: 10px;
-  position: relative;
+.panel-skew-top-inner {
+	position: relative;
+	padding: 0 5vw 7vw 5vw;
+	
+	@include breakpoint(large) {
+		padding: 0 10vw 6vw 10vw;
+	}
+
+	@include breakpoint(xlarge) {
+		padding: 0 14vw 6vw 14vw;
+	}
+	
+	
 }
 
