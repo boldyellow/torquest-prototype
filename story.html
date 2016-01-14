@@ -1,0 +1,152 @@
+<!doctype html>
+<html class="no-js" lang="en">
+
+	
+<head>
+	
+	<meta charset="utf-8">
+	
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+	<title>Story | Prototype</title>
+	
+	<link rel="stylesheet" href="_assets/css/app.css">
+	
+</head>
+	
+
+<body>
+	
+	<div class="titlebar">
+		
+			<div class="medium-4 columns">
+				<p>Pellentesque </p>
+			</div>
+			
+			<div class="medium-6 columns">
+				<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo</p>
+			</div>
+							
+	</div>
+	
+
+
+	
+	<div class="block block-story-header">
+
+		<figure class="content dark">
+			
+			<img src="_assets/img/fpo-story.jpg" alt="Story">
+			
+			<figcaption>
+				
+				<span>
+					<h2>Pat Grozier</h2>
+					<h4>CEO, Pinova Holdings</h4>
+				</span>
+				
+			</figcaption>
+			
+		</figure>
+		
+		<div class="row content light">
+			
+			<div class="block-pad-md">
+		
+				<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>					
+			</div>
+			
+		</div>	
+		
+	</div>
+
+	
+
+
+			
+
+
+	<footer class="text-center wow fadeIn" data-wow-delay=".1s">
+		
+		<div class="row expanded">
+			
+			<h2>Every successful relationship <br class="show-for-medium"> starts with a&nbsp;conversation.</h2>
+			
+			<p>
+				416-956-7022
+				<span class="show-for-small-only"><br></span>
+				<span class="bullet">&bull;</span>
+				<a href="#">brock@torquest.com</a>
+			</p>
+		
+		</div>
+		
+		<div class="row logo">
+			
+			<a href="index.html"></a>
+			
+		</div>
+		
+	</footer>
+
+
+
+
+
+
+
+
+
+	
+	<script src="_assets/js/min/app-min.js"></script>
+
+    <script>
+	    
+
+	    
+		// hamburger animation
+		function togglescroll() {
+		  $('body').on('touchstart');
+		}
+		
+		$(document).ready(function() {
+		  togglescroll()
+		  $(".icon").click(function() {
+		    $(".mobilenav").fadeToggle(500);
+		    $(".top-menu").toggleClass("top-animate");
+		    $("body").toggleClass("noscroll");
+		    $(".mid-menu").toggleClass("mid-animate");
+		    $(".bottom-menu").toggleClass("bottom-animate");
+		  });
+		});
+		
+		// hamburger color over dark/light panels
+		var stickyOffset = $("#hamburger").offset();
+		var $contentDivs = $(".content");
+		$(document).scroll(function() {
+			$contentDivs.each(function(k) {
+				var _thisOffset = $(this).offset();
+				var _actPosition = _thisOffset.top - $(window).scrollTop();
+				if (_actPosition < stickyOffset.top && _actPosition + $(this).height() > 0) {
+					$("#hamburger").removeClass("light dark").addClass($(this).hasClass("light") ? "light" : "dark");
+					return false;
+				}
+			});
+		});		
+		
+		// animate brand div on scroll
+		$(document).scroll(function(){
+			$('#brand').toggleClass('scrolled', $(this).scrollTop() > 1);
+		});
+		
+		// fade in page content divs on scroll
+		new WOW().init();
+		
+	</script>
+
+
+</body>
+
+</html>
