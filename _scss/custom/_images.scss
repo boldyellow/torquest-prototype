@@ -8,9 +8,10 @@
 // vertical center text
 
 figure {
-	margin: 0;
 	position: relative;
+	margin: 0;
 	display: table;
+	table-layout: fixed;
 	width: 100%;
 }
 
