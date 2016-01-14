@@ -1,0 +1,177 @@
+<!doctype html>
+<html class="no-js" lang="en">
+
+	
+<head>
+	
+	<meta charset="utf-8">
+	
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+	<title>Team Bio | Prototype</title>
+	
+	<link rel="stylesheet" href="_assets/css/app.css">
+	
+</head>
+	
+
+<body>
+	
+	
+	<div class="close-bar">
+		
+		<div class="row">
+		
+			<div class="medium-4 columns left">
+				<a href="#">Close</a>
+			</div>
+			
+			<div class="medium-8 columns right">
+				<a href="#">Previous</a><a href="#">Next</a>
+			</div>
+			
+		</div>
+							
+	</div>
+	
+
+
+	
+	<div class="block block-team-bio-header content dark">
+		
+		<div class="row vertical-center-row">
+			
+			<div class="medium-4 columns">
+
+				<img src="_assets/img/fpo-portrait-1.png" alt="Story 1">
+				
+			</div>
+
+
+			<div class="medium-8 columns">
+				
+				<div class="xyz">
+				
+					<h2>Andrew<br>Kolupanowicz</h2>
+					<h4>Vice President</h4>
+				</div>
+				
+			</div>
+				
+		
+		</div>
+		
+	</div>
+	
+	
+
+	<div class="block block-pad-sm block-team-bio-text content light wow fadeIn" data-wow-delay=".1s">
+		
+		<div class="row">
+			
+			<div class="medium-4 columns">
+			
+				<p>Poop</p>
+				
+			</div>
+
+			<div class="medium-8 columns">
+				
+				<p>Trundle</p>
+			
+			</div>
+		</div>
+		
+	</div>
+		
+	
+	
+
+
+			
+
+
+	<footer class="text-center wow fadeIn" data-wow-delay=".1s">
+		
+		<div class="row expanded">
+			
+			<h2>Every successful relationship <br class="show-for-medium"> starts with a&nbsp;conversation.</h2>
+			
+			<p>
+				416-956-7022
+				<span class="show-for-small-only"><br></span>
+				<span class="bullet">&bull;</span>
+				<a href="#">brock@torquest.com</a>
+			</p>
+		
+		</div>
+		
+		<div class="row logo">
+			
+			<a href="index.html"></a>
+			
+		</div>
+		
+	</footer>
+
+
+
+
+
+
+
+
+
+	
+	<script src="_assets/js/min/app-min.js"></script>
+
+    <script>
+	    
+
+	    
+		// hamburger animation
+		function togglescroll() {
+		  $('body').on('touchstart');
+		}
+		
+		$(document).ready(function() {
+		  togglescroll()
+		  $(".icon").click(function() {
+		    $(".mobilenav").fadeToggle(500);
+		    $(".top-menu").toggleClass("top-animate");
+		    $("body").toggleClass("noscroll");
+		    $(".mid-menu").toggleClass("mid-animate");
+		    $(".bottom-menu").toggleClass("bottom-animate");
+		  });
+		});
+		
+		// hamburger color over dark/light panels
+		var stickyOffset = $("#hamburger").offset();
+		var $contentDivs = $(".content");
+		$(document).scroll(function() {
+			$contentDivs.each(function(k) {
+				var _thisOffset = $(this).offset();
+				var _actPosition = _thisOffset.top - $(window).scrollTop();
+				if (_actPosition < stickyOffset.top && _actPosition + $(this).height() > 0) {
+					$("#hamburger").removeClass("light dark").addClass($(this).hasClass("light") ? "light" : "dark");
+					return false;
+				}
+			});
+		});		
+		
+		// animate brand div on scroll
+		$(document).scroll(function(){
+			$('#brand').toggleClass('scrolled', $(this).scrollTop() > 1);
+		});
+		
+		// fade in page content divs on scroll
+		new WOW().init();
+		
+	</script>
+
+
+</body>
+
+</html>

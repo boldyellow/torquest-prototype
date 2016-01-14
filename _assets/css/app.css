@@ -2830,13 +2830,13 @@ blockquote {
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/boldyellow\/Development\/torquest-prototype\/_bower_components\/foundation-sites\/scss\/typography\/_base\.scss}line{font-family:\00003397}}
   blockquote, blockquote p {
     line-height: 1.6;
-    color: #8a8a8a; }
+    color: #141f25; }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/boldyellow\/Development\/torquest-prototype\/_bower_components\/foundation-sites\/scss\/typography\/_base\.scss}line{font-family:\00003404}}
 cite {
   display: block;
   font-size: 0.8125rem;
-  color: #8a8a8a; }
+  color: #141f25; }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/boldyellow\/Development\/torquest-prototype\/_bower_components\/foundation-sites\/scss\/typography\/_base\.scss}line{font-family:\00003409}}
   cite:before {
     content: '\2014 \0020'; }
@@ -2870,7 +2870,7 @@ kbd {
   margin-bottom: 0.5rem;
   font-weight: normal;
   line-height: 1.4;
-  color: #8a8a8a; }
+  color: #141f25; }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/boldyellow\/Development\/torquest-prototype\/_bower_components\/foundation-sites\/scss\/typography\/_helpers\.scss}line{font-family:\0000357}}
 .lead {
@@ -3227,7 +3227,7 @@ textarea {
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/boldyellow\/Development\/torquest-prototype\/_bower_components\/foundation-sites\/scss\/forms\/_text\.scss}line{font-family:\0000388}}
   [type='text']:focus, [type='password']:focus, [type='date']:focus, [type='datetime']:focus, [type='datetime-local']:focus, [type='month']:focus, [type='week']:focus, [type='email']:focus, [type='number']:focus, [type='search']:focus, [type='tel']:focus, [type='time']:focus, [type='url']:focus, [type='color']:focus,
   textarea:focus {
-    border: 1px solid #8a8a8a;
+    border: 1px solid #141f25;
     background-color: #fefefe;
     outline: none;
     box-shadow: 0 0 5px #cacaca;
@@ -3848,7 +3848,7 @@ select {
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/boldyellow\/Development\/torquest-prototype\/_bower_components\/foundation-sites\/scss\/components\/_close-button\.scss}line{font-family:\0000358}}
 .close-button {
   position: absolute;
-  color: #8a8a8a;
+  color: #141f25;
   right: 1rem;
   top: 0.5rem;
   font-size: 2em;
@@ -4473,10 +4473,10 @@ body {
     border-radius: 50%; }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/boldyellow\/Development\/torquest-prototype\/_bower_components\/foundation-sites\/scss\/components\/_orbit\.scss}line{font-family:\00003141}}
     .orbit-bullets button:hover {
-      background-color: #8a8a8a; }
+      background-color: #141f25; }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/boldyellow\/Development\/torquest-prototype\/_bower_components\/foundation-sites\/scss\/components\/_orbit\.scss}line{font-family:\00003145}}
     .orbit-bullets button.is-active {
-      background-color: #8a8a8a; }
+      background-color: #141f25; }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/boldyellow\/Development\/torquest-prototype\/_bower_components\/foundation-sites\/scss\/components\/_pagination\.scss}line{font-family:\00003127}}
 .pagination {
@@ -5136,7 +5136,7 @@ table.hover tr:nth-of-type(even):hover {
 
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/boldyellow\/Development\/torquest-prototype\/_bower_components\/foundation-sites\/scss\/components\/_tooltip\.scss}line{font-family:\0000393}}
 .has-tip {
-  border-bottom: dotted 1px #8a8a8a;
+  border-bottom: dotted 1px #141f25;
   font-weight: bold;
   position: relative;
   display: inline-block;
@@ -6204,6 +6204,24 @@ blockquote {
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/boldyellow\/Development\/torquest-prototype\/_scss\/custom\/_close-bar\.scss}line{font-family:\000039}}
 .close-bar {
   background-color: #141f25;
+  /*
+  	display: flex;
+  	flex-direction: row;
+  	align-items: center;
+  	justify-content: center;
+  	color: #fff;
+  	text-transform: uppercase;
+  	letter-spacing: 0.05em;
+  	height: 3rem;
+  
+  	@include breakpoint(medium) {
+  		height: 7rem;
+  	}
+  */ }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/boldyellow\/Development\/torquest-prototype\/_scss\/custom\/_close-bar\.scss}line{font-family:\0000327}}
+.close-bar .row {
+  background-color: #141f25;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -6224,13 +6242,14 @@ blockquote {
   color: #fff;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  height: 3rem; }
+  height: 3rem;
+  max-width: 75rem; }
   @media screen and (min-width: 28.75em) {
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/boldyellow\/Development\/torquest-prototype\/_scss\/custom\/_close-bar\.scss}line{font-family:\000039}}
-    .close-bar {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/boldyellow\/Development\/torquest-prototype\/_scss\/custom\/_close-bar\.scss}line{font-family:\0000327}}
+    .close-bar .row {
       height: 7rem; } }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/boldyellow\/Development\/torquest-prototype\/_scss\/custom\/_close-bar\.scss}line{font-family:\0000325}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/boldyellow\/Development\/torquest-prototype\/_scss\/custom\/_close-bar\.scss}line{font-family:\0000344}}
 .close-bar .left a {
   color: #fff;
   display: inline-block;
@@ -6240,16 +6259,16 @@ blockquote {
   background-size: 1rem 1rem;
   background-position: 0 50%; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/boldyellow\/Development\/torquest-prototype\/_scss\/custom\/_close-bar\.scss}line{font-family:\0000335}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/boldyellow\/Development\/torquest-prototype\/_scss\/custom\/_close-bar\.scss}line{font-family:\0000354}}
 .close-bar .left a:hover {
   opacity: 0.75; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/boldyellow\/Development\/torquest-prototype\/_scss\/custom\/_close-bar\.scss}line{font-family:\0000339}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/boldyellow\/Development\/torquest-prototype\/_scss\/custom\/_close-bar\.scss}line{font-family:\0000358}}
 .close-bar .right {
   text-align: right;
   color: #c4c0bd; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/boldyellow\/Development\/torquest-prototype\/_scss\/custom\/_close-bar\.scss}line{font-family:\0000344}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/boldyellow\/Development\/torquest-prototype\/_scss\/custom\/_close-bar\.scss}line{font-family:\0000363}}
 .close-bar .right span {
   display: inline-block;
   padding: 0.5rem 0;
@@ -6260,11 +6279,11 @@ blockquote {
    HOME PAGE 
    
 |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/boldyellow\/Development\/torquest-prototype\/_scss\/custom\/_page-home\.scss}line{font-family:\0000311}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/boldyellow\/Development\/torquest-prototype\/_scss\/custom\/_pages\.scss}line{font-family:\0000311}}
 .region-ideals h1 {
   font-size: 2.75rem; }
   @media screen and (min-width: 28.75em) {
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/boldyellow\/Development\/torquest-prototype\/_scss\/custom\/_page-home\.scss}line{font-family:\0000311}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/boldyellow\/Development\/torquest-prototype\/_scss\/custom\/_pages\.scss}line{font-family:\0000311}}
     .region-ideals h1 {
       font-size: 10vw; } }
 
@@ -6273,54 +6292,54 @@ blockquote {
 /* vertical border treatment
 ........................................................................ */
 @media screen and (min-width: 28.75em) {
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/boldyellow\/Development\/torquest-prototype\/_scss\/custom\/_page-home\.scss}line{font-family:\0000334}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/boldyellow\/Development\/torquest-prototype\/_scss\/custom\/_pages\.scss}line{font-family:\0000334}}
   .region-glance .glance-wrap .columns:nth-of-type(odd) {
     box-shadow: 1px 0 0 0 #fff; } }
 
 @media screen and (min-width: 28.75em) {
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/boldyellow\/Development\/torquest-prototype\/_scss\/custom\/_page-home\.scss}line{font-family:\0000341}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/boldyellow\/Development\/torquest-prototype\/_scss\/custom\/_pages\.scss}line{font-family:\0000341}}
   .region-glance .glance-wrap .columns:nth-of-type(even) {
     box-shadow: 1px 0 0 0 #fff inset; } }
 
 /* ..................................................................... */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/boldyellow\/Development\/torquest-prototype\/_scss\/custom\/_page-home\.scss}line{font-family:\0000352}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/boldyellow\/Development\/torquest-prototype\/_scss\/custom\/_pages\.scss}line{font-family:\0000352}}
 .region-glance {
   border-top: 1px solid #ddd; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/boldyellow\/Development\/torquest-prototype\/_scss\/custom\/_page-home\.scss}line{font-family:\0000356}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/boldyellow\/Development\/torquest-prototype\/_scss\/custom\/_pages\.scss}line{font-family:\0000356}}
 .region-glance > .row {
   padding: 9vw 0 3vw 0; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/boldyellow\/Development\/torquest-prototype\/_scss\/custom\/_page-home\.scss}line{font-family:\0000360}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/boldyellow\/Development\/torquest-prototype\/_scss\/custom\/_pages\.scss}line{font-family:\0000360}}
 .region-glance .glance-wrap .row {
   background-color: #141f25;
   color: #fff; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/boldyellow\/Development\/torquest-prototype\/_scss\/custom\/_page-home\.scss}line{font-family:\0000365}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/boldyellow\/Development\/torquest-prototype\/_scss\/custom\/_pages\.scss}line{font-family:\0000365}}
 .region-glance .glance-wrap .columns {
   padding: 11vw 5vw 9vw 5vw;
   border-bottom: 1px solid #fff; }
   @media screen and (min-width: 28.75em) {
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/boldyellow\/Development\/torquest-prototype\/_scss\/custom\/_page-home\.scss}line{font-family:\0000365}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/boldyellow\/Development\/torquest-prototype\/_scss\/custom\/_pages\.scss}line{font-family:\0000365}}
     .region-glance .glance-wrap .columns {
       border-bottom: none; } }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/boldyellow\/Development\/torquest-prototype\/_scss\/custom\/_page-home\.scss}line{font-family:\0000376}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/boldyellow\/Development\/torquest-prototype\/_scss\/custom\/_pages\.scss}line{font-family:\0000376}}
 .region-glance .glance-wrap .row:nth-of-type(2) {
   border-top: none; }
   @media screen and (min-width: 28.75em) {
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/boldyellow\/Development\/torquest-prototype\/_scss\/custom\/_page-home\.scss}line{font-family:\0000376}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/boldyellow\/Development\/torquest-prototype\/_scss\/custom\/_pages\.scss}line{font-family:\0000376}}
     .region-glance .glance-wrap .row:nth-of-type(2) {
       border-top: 1px solid #fff; } }
 
 /* head with shortened top/bot rule 
 ........................................................................ */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/boldyellow\/Development\/torquest-prototype\/_scss\/custom\/_page-home\.scss}line{font-family:\0000390}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/boldyellow\/Development\/torquest-prototype\/_scss\/custom\/_pages\.scss}line{font-family:\0000390}}
 .region-glance .glance-wrap h2 {
   position: relative;
   margin-bottom: 4rem; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/boldyellow\/Development\/torquest-prototype\/_scss\/custom\/_page-home\.scss}line{font-family:\0000395}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/boldyellow\/Development\/torquest-prototype\/_scss\/custom\/_pages\.scss}line{font-family:\0000395}}
 .region-glance .glance-wrap h2:after {
   content: '';
   position: absolute;
@@ -6335,26 +6354,26 @@ blockquote {
 /* ..................................................................... */
 /* INVESTMENTS 
 ======================================================================== */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/boldyellow\/Development\/torquest-prototype\/_scss\/custom\/_page-home\.scss}line{font-family:\00003114}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/boldyellow\/Development\/torquest-prototype\/_scss\/custom\/_pages\.scss}line{font-family:\00003114}}
 .investments {
   position: relative; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/boldyellow\/Development\/torquest-prototype\/_scss\/custom\/_page-home\.scss}line{font-family:\00003118}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/boldyellow\/Development\/torquest-prototype\/_scss\/custom\/_pages\.scss}line{font-family:\00003118}}
 .investments .company {
   float: left;
   width: 100%;
   padding: 2rem;
   box-shadow: 1px 1px 0 0 #666; }
   @media screen and (min-width: 28.75em) {
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/boldyellow\/Development\/torquest-prototype\/_scss\/custom\/_page-home\.scss}line{font-family:\00003118}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/boldyellow\/Development\/torquest-prototype\/_scss\/custom\/_pages\.scss}line{font-family:\00003118}}
     .investments .company {
       width: 50%; } }
   @media screen and (min-width: 47.9375em) {
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/boldyellow\/Development\/torquest-prototype\/_scss\/custom\/_page-home\.scss}line{font-family:\00003118}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/boldyellow\/Development\/torquest-prototype\/_scss\/custom\/_pages\.scss}line{font-family:\00003118}}
     .investments .company {
       width: 33.333%; } }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/boldyellow\/Development\/torquest-prototype\/_scss\/custom\/_page-home\.scss}line{font-family:\00003134}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/boldyellow\/Development\/torquest-prototype\/_scss\/custom\/_pages\.scss}line{font-family:\00003134}}
 .border-override {
   position: absolute;
   top: -1px;
@@ -6362,6 +6381,51 @@ blockquote {
   left: -1px;
   right: -1px;
   border: 2px solid #fff; }
+
+/* |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+  
+   TEAM PAGE 
+   
+|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/boldyellow\/Development\/torquest-prototype\/_scss\/custom\/_pages\.scss}line{font-family:\00003155}}
+.region-team-headshots {
+  padding-bottom: 0; }
+  @media screen and (min-width: 28.75em) {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/boldyellow\/Development\/torquest-prototype\/_scss\/custom\/_pages\.scss}line{font-family:\00003155}}
+    .region-team-headshots {
+      padding-bottom: 3rem; } }
+  @media screen and (min-width: 47.9375em) {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/boldyellow\/Development\/torquest-prototype\/_scss\/custom\/_pages\.scss}line{font-family:\00003155}}
+    .region-team-headshots {
+      padding-bottom: 7rem; } }
+
+/*
+.region-team-headshots .row {
+	
+	padding-bottom: 3rem;
+
+	@include breakpoint(large) {
+	    padding-bottom: 7rem;
+	}
+	
+}
+*/
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/boldyellow\/Development\/torquest-prototype\/_scss\/custom\/_pages\.scss}line{font-family:\00003181}}
+.region-team-headshots a {
+  background-color: #141f25;
+  display: inline-block; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/boldyellow\/Development\/torquest-prototype\/_scss\/custom\/_pages\.scss}line{font-family:\00003186}}
+.region-team-headshots a img {
+  opacity: 0.65; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/boldyellow\/Development\/torquest-prototype\/_scss\/custom\/_pages\.scss}line{font-family:\00003190}}
+.region-team-headshots a:hover {
+  background-color: white; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/boldyellow\/Development\/torquest-prototype\/_scss\/custom\/_pages\.scss}line{font-family:\00003194}}
+.region-team-headshots a img:hover {
+  opacity: 1; }
 
 /* |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
   
@@ -6464,46 +6528,71 @@ blockquote {
           -ms-flex-direction: row;
               flex-direction: row; } }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/boldyellow\/Development\/torquest-prototype\/_scss\/custom\/_blocks\.scss}line{font-family:\0000391}}
+@media screen and (min-width: 28.75em) {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/boldyellow\/Development\/torquest-prototype\/_scss\/custom\/_blocks\.scss}line{font-family:\0000388}}
+  .vertical-center-row {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: row;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+        -ms-flex-pack: center;
+            justify-content: center; } }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/boldyellow\/Development\/torquest-prototype\/_scss\/custom\/_blocks\.scss}line{font-family:\00003103}}
 .block-skew-wrap {
   padding: 0;
   z-index: 1000; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/boldyellow\/Development\/torquest-prototype\/_scss\/custom\/_blocks\.scss}line{font-family:\0000399}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/boldyellow\/Development\/torquest-prototype\/_scss\/custom\/_blocks\.scss}line{font-family:\00003111}}
 .block-story-images {
   background-color: #e6e4e3; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/boldyellow\/Development\/torquest-prototype\/_scss\/custom\/_blocks\.scss}line{font-family:\00003103}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/boldyellow\/Development\/torquest-prototype\/_scss\/custom\/_blocks\.scss}line{font-family:\00003115}}
 .block-story-company-logo img {
   padding: 3rem 0;
   max-width: 50vw;
   max-height: 50vw; }
   @media screen and (min-width: 28.75em) {
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/boldyellow\/Development\/torquest-prototype\/_scss\/custom\/_blocks\.scss}line{font-family:\00003103}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/boldyellow\/Development\/torquest-prototype\/_scss\/custom\/_blocks\.scss}line{font-family:\00003115}}
     .block-story-company-logo img {
       padding: 0;
       max-width: 25vw;
       max-height: 25vw; } }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/boldyellow\/Development\/torquest-prototype\/_scss\/custom\/_blocks\.scss}line{font-family:\00003115}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/boldyellow\/Development\/torquest-prototype\/_scss\/custom\/_blocks\.scss}line{font-family:\00003127}}
 .block-story-text .left,
 .block-story-text .right {
   width: 90%;
   margin-left: 5%; }
   @media screen and (min-width: 47.9375em) {
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/boldyellow\/Development\/torquest-prototype\/_scss\/custom\/_blocks\.scss}line{font-family:\00003115}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/boldyellow\/Development\/torquest-prototype\/_scss\/custom\/_blocks\.scss}line{font-family:\00003127}}
     .block-story-text .left,
     .block-story-text .right {
       width: 80%;
       margin-left: 10%; } }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/boldyellow\/Development\/torquest-prototype\/_scss\/custom\/_blocks\.scss}line{font-family:\00003130}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/boldyellow\/Development\/torquest-prototype\/_scss\/custom\/_blocks\.scss}line{font-family:\00003142}}
 .block-pad-sm {
-  padding: 4vw 3vw; }
+  padding: 4vw 0; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/boldyellow\/Development\/torquest-prototype\/_scss\/custom\/_blocks\.scss}line{font-family:\00003134}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/boldyellow\/Development\/torquest-prototype\/_scss\/custom\/_blocks\.scss}line{font-family:\00003146}}
 .block-pad-md {
   padding: 7vw 3vw; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/boldyellow\/Development\/torquest-prototype\/_scss\/custom\/_blocks\.scss}line{font-family:\00003153}}
+.block-team-bio-header {
+  background-color: #588191; }
 
 /* |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
   
@@ -6520,9 +6609,9 @@ blockquote {
   content: '';
   position: absolute;
   left: 0;
-  top: -80px;
+  top: -75px;
   width: 100%;
-  height: 120px;
+  height: 130px;
   background: #fff;
   -webkit-transform: skewY(-3.5deg);
       -ms-transform: skewY(-3.5deg);

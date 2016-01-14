@@ -144,6 +144,57 @@
 
 
 
+/* |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+  
+   TEAM PAGE 
+   
+|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| */
+
+
+
+.region-team-headshots{
+	
+	padding-bottom: 0;
+
+	@include breakpoint(medium) {
+	    padding-bottom: 3rem;
+	}
+	
+	@include breakpoint(large) {
+	    padding-bottom: 7rem;
+	}
+	
+}
+
+/*
+.region-team-headshots .row {
+	
+	padding-bottom: 3rem;
+
+	@include breakpoint(large) {
+	    padding-bottom: 7rem;
+	}
+	
+}
+*/
+
+.region-team-headshots a {
+    background-color: $dark-gray;
+    display: inline-block;
+}
+
+.region-team-headshots a img {
+    opacity: 0.65;
+}
+
+.region-team-headshots a:hover {
+    background-color: white;
+}
+
+.region-team-headshots a img:hover {
+    opacity: 1;
+}
+
 
 
 
