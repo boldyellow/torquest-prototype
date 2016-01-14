@@ -6196,8 +6196,8 @@ small {
    TITLE BAR 
    
 |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/boldyellow\/Development\/torquest-prototype\/_scss\/custom\/_titlebar\.scss}line{font-family:\000039}}
-.titlebar {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/boldyellow\/Development\/torquest-prototype\/_scss\/custom\/_close-bar\.scss}line{font-family:\000039}}
+.close-bar {
   background-color: #141f25;
   display: -webkit-box;
   display: -webkit-flex;
@@ -6216,11 +6216,39 @@ small {
   -webkit-justify-content: center;
       -ms-flex-pack: center;
           justify-content: center;
-  color: #fff; }
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  height: 3rem; }
+  @media screen and (min-width: 28.75em) {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/boldyellow\/Development\/torquest-prototype\/_scss\/custom\/_close-bar\.scss}line{font-family:\000039}}
+    .close-bar {
+      height: 7rem; } }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/boldyellow\/Development\/torquest-prototype\/_scss\/custom\/_titlebar\.scss}line{font-family:\0000318}}
-.titlebar p {
-  margin: 0; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/boldyellow\/Development\/torquest-prototype\/_scss\/custom\/_close-bar\.scss}line{font-family:\0000325}}
+.close-bar .left a {
+  color: #fff;
+  display: inline-block;
+  padding: 1rem 1rem 1rem 1.5rem;
+  background-image: url("../img/btn-close.svg");
+  background-repeat: no-repeat;
+  background-size: 1rem 1rem;
+  background-position: 0 50%; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/boldyellow\/Development\/torquest-prototype\/_scss\/custom\/_close-bar\.scss}line{font-family:\0000335}}
+.close-bar .left a:hover {
+  opacity: 0.75; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/boldyellow\/Development\/torquest-prototype\/_scss\/custom\/_close-bar\.scss}line{font-family:\0000339}}
+.close-bar .right {
+  text-align: right;
+  color: #c4c0bd; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/boldyellow\/Development\/torquest-prototype\/_scss\/custom\/_close-bar\.scss}line{font-family:\0000344}}
+.close-bar .right span {
+  display: inline-block;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #c4c0bd; }
 
 /* |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
   
@@ -6506,6 +6534,35 @@ figcaption span h3 {
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/boldyellow\/Development\/torquest-prototype\/_scss\/custom\/_images\.scss}line{font-family:\0000348}}
 figcaption.tint {
   background: rgba(50, 50, 50, 0.5); }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/boldyellow\/Development\/torquest-prototype\/_scss\/custom\/_images\.scss}line{font-family:\0000352}}
+figcaption a.btn-play {
+  display: block;
+  height: 2rem;
+  width: 2rem;
+  margin: 2vh auto 0 auto;
+  background-image: url("../img/btn-play.svg");
+  background-repeat: no-repeat;
+  background-size: 2rem 2rem;
+  background-position: 50% 50%; }
+  @media screen and (min-width: 28.75em) {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/boldyellow\/Development\/torquest-prototype\/_scss\/custom\/_images\.scss}line{font-family:\0000352}}
+    figcaption a.btn-play {
+      height: 8vw;
+      width: 8vw;
+      background-size: 8vw 8vw;
+      margin: 6vh auto 0 auto; } }
+  @media screen and (min-width: 47.9375em) {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/boldyellow\/Development\/torquest-prototype\/_scss\/custom\/_images\.scss}line{font-family:\0000352}}
+    figcaption a.btn-play {
+      height: 4rem;
+      width: 4rem;
+      background-size: 4rem 4rem;
+      margin: 7rem auto 0 auto; } }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/boldyellow\/Development\/torquest-prototype\/_scss\/custom\/_images\.scss}line{font-family:\0000378}}
+figcaption a.btn-play:hover {
+  opacity: 0.75; }
 
 /* |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
   

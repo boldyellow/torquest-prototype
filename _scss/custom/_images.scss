@@ -48,3 +48,33 @@ figcaption span h3 {
 figcaption.tint {
 	background: rgba(50, 50, 50, 0.5); 
 }
+
+figcaption a.btn-play {
+	display: block;
+	height: 2rem;
+	width: 2rem;
+	margin: 2vh auto 0 auto;
+	background-image: url('../img/btn-play.svg');
+	background-repeat: no-repeat;
+	background-size: 2rem 2rem;
+	background-position: 50% 50%;
+
+	@include breakpoint(medium) {
+		height: 8vw;
+		width: 8vw;
+		background-size: 8vw 8vw;
+		margin: 6vh auto 0 auto;
+	}
+
+	@include breakpoint(large) {
+		height: 4rem;
+		width: 4rem;
+		background-size: 4rem 4rem;
+		margin: 7rem auto 0 auto;
+	}
+
+}
+
+figcaption a.btn-play:hover {
+	opacity: 0.75;
+}
