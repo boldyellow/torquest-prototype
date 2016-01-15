@@ -48,6 +48,62 @@
 }
 
 
+
+
+
+
+.block-skew {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 50vh;
+	background-color: #fc0;
+	margin-bottom: 5rem;
+}
+
+.block-skew:after {
+	background: inherit;
+	bottom: 0;
+	content: '';
+	display: block;
+	height: 50%;
+	left: 0;
+	position: absolute;
+	right: 0;
+	transform: skewY(-2.5deg);
+	transform-origin: 100%;
+	z-index: -1;
+}
+
+
+
+
+
+.video-shim-skew {
+	position: relative;
+	height: 12rem;
+	background-color: #fc0;
+}
+
+.video-shim-skew:before {
+	background: inherit;
+    top: -4.5rem;
+    content: '';
+    display: block;
+    height: 75%;
+    left: 0;
+    position: absolute;
+    right: 0;
+    transform: skewY(-2.5deg);
+    transform-origin: 50%;
+    z-index: 1000;
+}
+
+
+
+
+
+
 // page header bkgrd colors
 
 .dark-gray {
