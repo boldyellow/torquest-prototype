@@ -83,6 +83,41 @@ video#bgvid {
 
 
 
+.video-shim-skew {
+	position: relative;
+	background-color: #fff;
+    z-index: 100;
+}
+
+.video-shim-skew:before {
+	background: inherit;
+    top: -4.5rem;
+    content: '';
+    display: block;
+    height: 75%;
+    left: 0;
+    position: absolute;
+    right: 0;
+    transform: skewY(-2.5deg);
+    transform-origin: 50%;
+}
+
+.video-shim-skew .headline {
+	position: relative;
+	padding: 0 5vw 7vw 5vw;
+	z-index: 200;
+	
+	@include breakpoint(large) {
+		padding: 0 10vw 6vw 10vw;
+	}
+
+	@include breakpoint(xlarge) {
+		padding: 0 14vw 6vw 14vw;
+	}
+
+}
+
+
 
 
 

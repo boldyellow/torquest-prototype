@@ -9,20 +9,28 @@
 a.view-more {
 	display: inline-block;
 	margin-top: 2rem;
-	padding: 0 2rem 0 3.35rem;
+	padding: 0.5rem 2rem 0 0;
 	text-align: center;
 	color: #000;
 	opacity: 0.5;
-	font-size: 1.25rem;
+	font-size: 1.35rem;
+	border-top: 1px solid #151f25;
+	background-image: url('../img/arrow-view-more.svg');
+	background-repeat: no-repeat;
+	background-size: 21px 15px;
+	background-position: 100% 75%;
 }
 
+/*
 a.view-more span.link-text {
 	display: inline-block;
 	border-top: 1px solid #151f25;
 	padding-top: 0.5rem;
 	margin: 0 0.5rem;
 }
+*/
 
+/*
 a.view-more span.link-arrow {
 	display: inline-block;
 	padding-top: 0.5rem;
@@ -33,6 +41,7 @@ a.view-more span.link-arrow {
 	background-size: 21px 15px;
 	background-position: 100% 100%;
 }
+*/
 
 a.view-more:hover {
 	opacity: 1;

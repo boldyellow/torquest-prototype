@@ -59,7 +59,7 @@ $black: #0a0a0a;
 $white: #fefefe;
 $body-background: $white;
 $body-font-color: $black;
-$body-font-family: 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif;
+$body-font-family: 'proxima-nova', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 $body-antialiased: true;
 $global-margin: 1rem;
 $global-padding: 1rem;
@@ -101,35 +101,35 @@ $font-family-monospace: Consolas, 'Liberation Mono', Courier, monospace;
 $header-sizes: (
   small: (
     'h1': 24,
-    'h2': 20,
+    'h2': 40,
     'h3': 19,
     'h4': 18,
     'h5': 17,
-    'h6': 16,
+    'h6': 20,
   ),
   medium: (
     'h1': 36,
-    'h2': 30,
+    'h2': 50,
     'h3': 25,
     'h4': 22,
     'h5': 19,
-    'h6': 16,
+    'h6': 24,
   ),
   large: (
     'h1': 51,
-    'h2': 40,
+    'h2': 60,
     'h3': 33,
     'h4': 26,
     'h5': 20,
-    'h6': 16,
+    'h6': 28,
   ),
   xlarge: (
     'h1': 70,
-    'h2': 50,
+    'h2': 70,
     'h3': 36,
     'h4': 26,
     'h5': 20,
-    'h6': 16,
+    'h6': 32,
   ),
 );
 $header-color: inherit;
