@@ -1,0 +1,177 @@
+<!doctype html>
+<html class="no-js" lang="en">
+
+	
+<head>
+	
+	<meta charset="utf-8">
+	
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+	<title>News | Prototype</title>
+	
+	<link rel="stylesheet" href="_assets/css/app.css">
+	
+</head>
+	
+
+<body>
+	
+	<nav class="navbar">
+			
+		<div id="brand"><a href="index.html">TorQuest</a></div>
+	
+		<ul class="mobilenav">
+			<li><a href="strategy.html">Strategy</a></li>
+			<li><a href="stories.html">Stories</a></li>
+			<li><a href="team.html">Team</a></li>
+			<li><a href="investments.html">Investments</a></li>
+			<li><a href="news.html">News</a></li>
+			<li><a href="contact.html">Contact</a></li>
+			<li><a href="#">Login</a></li>
+		</ul>
+		
+		<a href="javascript:void(0)" id="hamburger" class="icon">
+			<div class="hamburger">
+				<div class="menui top-menu"></div>
+				<div class="menui mid-menu"></div>
+				<div class="menui bottom-menu"></div>
+			</div>
+		</a>
+							
+	</nav>
+	
+
+
+	<div class="block block-page-head dark-gray content dark">
+
+		<div class="text-containerx">
+			<div class="valignx">
+				<h1>How to contact us</h1>
+			</div>
+		</div>
+
+	</div>
+
+    
+	     
+	<div class="block block-skew-wrap content light">
+
+		<div class="panel-skew-top">
+			
+			<div class="panel-skew-top-inner">
+				
+				<div class="row">
+					
+					<div class="medium-6 columns">
+
+						<h3>Our Investments</h3>
+						
+						<p>Brookfield Place,<br>161 Bay St, Suite 4240<br>Toronto, ON<br>M5J 2S1, Canada</p>
+						
+					</div>
+
+					<div class="medium-6 columns">
+
+						<h3>General inquiries</h3>
+						
+						<p>416-956-7022<br>brent@torquest.com</p>
+						
+					</div>
+					
+				</div>
+				
+			</div>
+			
+		</div>
+		
+	</div>			
+			
+				
+			
+
+
+	<footer class="text-center wow fadeIn" data-wow-delay=".1s">
+		
+		<div class="row expanded">
+			
+			<h2>Every successful relationship <br class="show-for-medium"> starts with a&nbsp;conversation.</h2>
+			
+			<p>
+				416-956-7022
+				<span class="show-for-small-only"><br></span>
+				<span class="bullet">&bull;</span>
+				<a href="#">brock@torquest.com</a>
+			</p>
+		
+		</div>
+		
+		<div class="row logo">
+			
+			<a href="index.html"></a>
+			
+		</div>
+		
+	</footer>
+
+
+
+
+
+
+
+
+
+	
+	<script src="_assets/js/min/app-min.js"></script>
+
+    <script>
+	    
+
+	    
+		// hamburger animation
+		function togglescroll() {
+		  $('body').on('touchstart');
+		}
+		
+		$(document).ready(function() {
+		  togglescroll()
+		  $(".icon").click(function() {
+		    $(".mobilenav").fadeToggle(500);
+		    $(".top-menu").toggleClass("top-animate");
+		    $("body").toggleClass("noscroll");
+		    $(".mid-menu").toggleClass("mid-animate");
+		    $(".bottom-menu").toggleClass("bottom-animate");
+		  });
+		});
+		
+		// hamburger color over dark/light panels
+		var stickyOffset = $("#hamburger").offset();
+		var $contentDivs = $(".content");
+		$(document).scroll(function() {
+			$contentDivs.each(function(k) {
+				var _thisOffset = $(this).offset();
+				var _actPosition = _thisOffset.top - $(window).scrollTop();
+				if (_actPosition < stickyOffset.top && _actPosition + $(this).height() > 0) {
+					$("#hamburger").removeClass("light dark").addClass($(this).hasClass("light") ? "light" : "dark");
+					return false;
+				}
+			});
+		});		
+		
+		// animate brand div on scroll
+		$(document).scroll(function(){
+			$('#brand').toggleClass('scrolled', $(this).scrollTop() > 1);
+		});
+		
+		// fade in page content divs on scroll
+		new WOW().init();
+		
+	</script>
+
+
+</body>
+
+</html>

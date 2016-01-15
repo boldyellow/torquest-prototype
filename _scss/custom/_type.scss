@@ -13,22 +13,52 @@ h1 {
 	}
 }
 
+h2 {
+    font-size: 1.75rem;
+    
+	@include breakpoint(medium) {
+		font-size: 6vw;
+	}
+	@include breakpoint(large) {
+		font-size: 5vw;
+	}
+	@include breakpoint(xlarge) {
+		font-size: 4rem;
+	}
+}
+
 h4 {
 	color: $warm-gray-2;
 }
 
 p {
 	
-	font-size: rem-calc(14);
+	font-size: rem-calc(13);
 
 	@include breakpoint(medium) {
-		font-size: rem-calc(17);
+		font-size: rem-calc(15);
 	}
 	@include breakpoint(large) {
-		font-size: rem-calc(20);
+		font-size: rem-calc(18);
 	}
 	@include breakpoint(xlarge) {
-		font-size: rem-calc(24);
+		font-size: rem-calc(21);
+	}
+	
+}
+
+p.intro {
+
+	font-size: rem-calc(16);
+
+	@include breakpoint(medium) {
+		font-size: rem-calc(21);
+	}
+	@include breakpoint(large) {
+		font-size: rem-calc(25);
+	}
+	@include breakpoint(xlarge) {
+		font-size: rem-calc(28);
 	}
 	
 }
