@@ -8,20 +8,6 @@
 
 .close-bar {
 	background-color: $dark-gray;
-/*
-	display: flex;
-	flex-direction: row;
-	align-items: center;
-	justify-content: center;
-	color: #fff;
-	text-transform: uppercase;
-	letter-spacing: 0.05em;
-	height: 3rem;
-
-	@include breakpoint(medium) {
-		height: 7rem;
-	}
-*/
 }
 
 .close-bar .row {
