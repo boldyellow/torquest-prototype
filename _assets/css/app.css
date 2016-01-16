@@ -3791,6 +3791,9 @@ blockquote {
 .sidebar h5 {
   margin-top: 0.5rem; }
 
+.child-list h4 {
+  margin-top: 1.5rem; }
+
 /* |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
   
    NAVIGATION 
@@ -4081,6 +4084,11 @@ blockquote {
    HOME PAGE 
    
 |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| */
+.desktop-video-wrap h1,
+.mobile-static-wrap h1 {
+  font-style: italic;
+  color: #fff; }
+
 .region-ideals h1 {
   font-size: 2.75rem; }
   @media screen and (min-width: 28.75em) {
@@ -4689,12 +4697,15 @@ figcaption a.btn-play:hover {
   box-sizing: border-box;
   margin: 0;
   width: 100%;
-  height: 116vh;
+  height: 65vh;
   min-height: 100%;
   z-index: 0;
   background: url(../videos/sample2.jpg) no-repeat center center;
   background-size: cover;
   text-decoration: none; }
+  @media screen and (min-width: 28.75em) {
+    .desktop-intro-block {
+      height: 116vh; } }
 
 .desktop-video-wrap {
   display: none; }
@@ -4712,10 +4723,13 @@ figcaption a.btn-play:hover {
   position: absolute;
   top: 0;
   left: 0;
-  height: 90vh;
+  height: 60vh;
   margin: 0;
   width: 100%;
   z-index: 100; }
+  @media screen and (min-width: 28.75em) {
+    .text-container {
+      height: 90vh; } }
 
 .valign {
   position: relative;
@@ -4734,6 +4748,18 @@ figcaption a.btn-play:hover {
   width: auto;
   height: auto;
   z-index: -100; }
+
+.video-overlay-tint {
+  position: absolute;
+  overflow: hidden;
+  top: 0;
+  left: 0;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  background-color: #3a454b;
+  opacity: 0.5; }
 
 video#bgvid {
   position: absolute;

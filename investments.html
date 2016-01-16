@@ -47,7 +47,7 @@
 
     <div class="block block-skew dark-gray content dark">
 	    
-		<h1><a href="investments-test-2.html">Breadth <i>and</i> Versatility</a></h1>
+		<h1>Breadth <i>and</i> Versatility</h1>
 	    
     </div>
 
@@ -63,19 +63,24 @@
 
 	<div class="block content light text-center wow fadeIn" data-wow-delay=".1s">
 		
-
-		<div class="row">
+		<div class="row ">
 			
 			<div class="large-10 large-centered columns">
-						
+							
 				<div class="parent-categories">
+					
 					<span>Sort By:</span>
-					<a href="#">Industry</a>
-					<a href="#">Deal Type</a>
-					<a href="#">Fund</a>
-					<a href="#">Status</a>
+
+					<a data-foo="industry" href="javascript:void(0)" class="parent-filter active" target="industry">Industry</a>
+	
+					<a data-foo="deal-type" href="javascript:void(0)" class="parent-filter" target="deal-type">Deal Type</a>
+	
+					<a data-foo="fund" href="javascript:void(0)" class="parent-filter" target="fund">Fund</a>
+	
+					<a data-foo="status" href="javascript:void(0)" class="parent-filter" target="status">Status</a>
+
 				</div>
-				
+			
 			</div>
 			
 		</div>	
@@ -90,22 +95,45 @@
 			
 		</div>	
 		
+
 		<div class="row">
 			
 			<div class="large-8 large-centered columns">
 						
-				<div class="child-categories">
-					<a href="#">All</a>
-					<a href="#">Corporate Carve-Outs</a>
-					<a href="#">Entrepreneurial Transitions</a>
-					<a href="#">Management Buyout</a>
-					<a href="#">Recapitalization</a>
+				<div id="child-industry" class="child-categories industry-list">
+					<a data-subcat="all" href="#">All</a>
+					<a data-subcat="technology" href="#">Technology</a>
+					<a data-subcat="genetics" href="#">Genetics</a>
+					<a data-subcat="consumer" href="#">Consumer</a>
+					<a data-subcat="manufacturing" href="#">Manufacturing</a>
+				</div>
+
+				<div id="child-deal-type" class="child-categories">
+					<a data-subcat="all" href="#">All</a>
+					<a data-subcat="corporate-carve-outs" href="#">Corporate Carve-Outs</a>
+					<a data-subcat="entrepreneurs" href="#">Entrepreneurs</a>
+					<a data-subcat="management-buyout" href="#">Management Buyout</a>
+					<a data-subcat="recapitalization" href="#">Recapitalization</a>
+				</div>
+
+				<div id="child-fund" class="child-categories">
+					<a data-subcat="all" href="#">All</a>
+					<a data-subcat="fund-i-" href="#">Fund I</a>
+					<a data-subcat="fund-ii-" href="#">Fund II</a>
+					<a data-subcat="fund-iii-" href="#">Fund III</a>
+					<a data-subcat="harrington" href="#">Harrington</a>
+				</div>
+
+				<div id="child-status" class="child-categories">
+					<a data-subcat="all" href="#">All</a>
+					<a data-subcat="current" href="#">Current</a>
+					<a data-subcat="realized" href="#">Realized</a>
 				</div>
 				
+			
 			</div>
 			
-		</div>	
-		
+		</div>			
 				
 	
 	</div><!-- block -->
@@ -113,44 +141,231 @@
 
 
 
-	<div class="block block-pad-md content light text-center wow fadeIn" data-wow-delay=".1s">
+	<div id="panel-content" class="block block-pad-sm content light text-center wow fadeIn" data-wow-delay=".1s">
 		
 
-		<div class="row investments">
+		<!-- START INDUSTRY CHILD CATEGORY 1: TECHNOLOGY -->
+		<div class="child-list">
 			
-			<!-- <span class="border-override"></span> -->
-			
-			<div class="company">
-				<a href="investments-company.html">
-					<img src="//placehold.it/400x400" alt="">
-				</a>
-			</div>
-			<div class="company">
-				<img src="//placehold.it/400x400" alt="">
-			</div>
-			<div class="company">
-				<img src="//placehold.it/400x400" alt="">
-			</div>
-			<div class="company">
-				<img src="//placehold.it/400x400" alt="">
-				</div>
-			<div class="company">
-				<img src="//placehold.it/400x400" alt="">
-			</div>
-			<div class="company">
-				<img src="//placehold.it/400x400" alt="">
-			</div>
-			<div class="company">
-				<img src="//placehold.it/400x400" alt="">
-			</div>
-			<div class="company">
-				<img src="//placehold.it/400x400" alt="">
-			</div>
-			<div class="company">
-				<img src="//placehold.it/400x400" alt="">
-			</div>
+			<div class="row">
 				
-		</div>
+				<div class="medium-10 medium-offset-1 columns child-title">
+					<h4>Technology</h4>
+				</div>
+	
+			</div>
+			
+			<div class="row small-collapse">
+		
+				<div class="small-12 columns logos">
+					
+					<!-- item 1 -->
+					<div class="company" data-industry="technology" data-deal-type="corporate-carve-outs" data-fund="fund-iii-" data-status="current">
+						<a href="investments-company.html" class="" data-content="#entry_id_1">
+							<div class="company-filter-placeholder"><p>1 - Industry: Tech<br>Deal: Carve<br>Fund: III<br>Status: Curr</p></div>
+							<img src="_assets/img/fpo-dev-logo.jpg" alt="Company Name">
+						</a>
+					</div>
+	
+					<!-- item 2 -->
+					<div class="company" data-industry="technology" data-deal-type="management-buyout, recapitalization" data-fund="fund-ii-" data-status="realized">
+						<a href="investments-company.html" class="" data-content="#entry_id_2">
+							<div class="company-filter-placeholder"><p>2 - Industry: Tech<br>Deal: Buyout, Recap<br>Fund: II<br>Status: Real</p></div>
+							<img src="_assets/img/fpo-dev-logo.jpg" alt="Company Name">
+						</a>
+					</div>
+						
+					<!-- item 3 -->
+					<div class="company" data-industry="technology" data-deal-type="entrepreneurs, management-buyout" data-fund="fund-i-" data-status="current">
+						<a href="javascript:void(0)" class="" data-content="#entry_id_3">
+							<div class="company-filter-placeholder"><p>3 - Industry: Tech<br>Deal: Entrep, Buyout<br>Fund: I<br>Status: Curr</p></div>
+							<img src="_assets/img/fpo-dev-logo.jpg" alt="Company Name">
+						</a>
+					</div>
+
+					<!-- item 4 -->
+					<div class="company" data-industry="technology" data-deal-type="entrepreneurs, management-buyout" data-fund="fund-i-" data-status="current">
+						<a href="javascript:void(0)" class="" data-content="#entry_id_4">
+							<div class="company-filter-placeholder"><p>4 - Industry: Tech<br>Deal: Entrep, Buyout<br>Fund: I<br>Status: Curr</p></div>
+							<img src="_assets/img/fpo-dev-logo.jpg" alt="Company Name">
+						</a>
+					</div>
+					
+				</div><!-- small-12 columns -->
+			
+			</div><!-- row -->
+				
+		</div><!-- child-list -->
+		<!-- END INDUSTRY CHILD CATEGORY 1: TECHNOLOGY -->
+		
+		
+		
+		<!-- START INDUSTRY CHILD CATEGORY 2: GENETICS -->
+		<div class="child-list">
+			
+			<div class="row">
+				
+				<div class="medium-10 medium-offset-1 columns child-title">
+					<h4>Genetics</h4>
+				</div>
+	
+			</div>
+			
+			<div class="row small-collapse">
+		
+				<div class="small-12 columns logos">
+					
+					<!-- item 1 -->
+					<div class="company" data-industry="genetics" data-deal-type="recapitalization" data-fund="fund-iii-" data-status="current">
+						<a href="investments-company.html" class="" data-content="#entry_id_5">
+							<div class="company-filter-placeholder"><p>5 - Industry: Genetics<br>Deal: Recap<br>Fund: III<br>Status: Curr</p></div>
+							<img src="_assets/img/fpo-dev-logo.jpg" alt="Company Name">
+						</a>
+					</div>
+	
+					<!-- item 2 -->
+					<div class="company" data-industry="genetics" data-deal-type="corporate-carve-outs, recapitalization" data-fund="fund-ii-" data-status="realized">
+						<a href="investments-company.html" class="" data-content="#entry_id_6">
+							<div class="company-filter-placeholder"><p>6 - Industry: Genetics<br>Deal: Carve, Recap<br>Fund: II<br>Status: Real</p></div>
+							<img src="_assets/img/fpo-dev-logo.jpg" alt="Company Name">
+						</a>
+					</div>
+						
+					<!-- item 3 -->
+					<div class="company" data-industry="genetics" data-deal-type="management-buyout" data-fund="fund-i-" data-status="current">
+						<a href="javascript:void(0)" class="" data-content="#entry_id_7">
+							<div class="company-filter-placeholder"><p>7 - Industry: Genetics<br>Deal: Buyout<br>Fund: I<br>Status: Curr</p></div>
+							<img src="_assets/img/fpo-dev-logo.jpg" alt="Company Name">
+						</a>
+					</div>
+
+				</div><!-- small-12 columns -->
+			
+			</div><!-- row -->
+				
+		</div><!-- child-list -->
+		<!-- END INDUSTRY CHILD CATEGORY 2: GENETICS -->
+		
+		
+		
+		<!-- START INDUSTRY CHILD CATEGORY 3: CONSUMER -->
+		<div class="child-list">
+			
+			<div class="row">
+				
+				<div class="medium-10 medium-offset-1 columns child-title">
+					<h4>Consumer</h4>
+				</div>
+	
+			</div>
+			
+			<div class="row small-collapse">
+		
+				<div class="small-12 columns logos">
+					
+					<!-- item 1 -->
+					<div class="company" data-industry="consumer" data-deal-type="management-buyout" data-fund="fund-i-" data-status="current">
+						<a href="investments-company.html" class="" data-content="#entry_id_8">
+							<div class="company-filter-placeholder"><p>8 - Industry: Consumer<br>Deal: Buyout<br>Fund: I<br>Status: Curr</p></div>
+							<img src="_assets/img/fpo-dev-logo.jpg" alt="Company Name">
+						</a>
+					</div>
+	
+					<!-- item 2 -->
+					<div class="company" data-industry="consumer" data-deal-type="corporate-carve-outs, recapitalization" data-fund="fund-ii-" data-status="realized">
+						<a href="investments-company.html" class="" data-content="#entry_id_9">
+							<div class="company-filter-placeholder"><p>9 - Industry: Consumer<br>Deal: Carve, Recap<br>Fund: II<br>Status: Real</p></div>
+							<img src="_assets/img/fpo-dev-logo.jpg" alt="Company Name">
+						</a>
+					</div>
+						
+					<!-- item 3 -->
+					<div class="company" data-industry="consumer" data-deal-type="entrepreneurs" data-fund="fund-iii-" data-status="realized">
+						<a href="javascript:void(0)" class="" data-content="#entry_id_10">
+							<div class="company-filter-placeholder"><p>10 - Industry: Consumer<br>Deal: Entrep<br>Fund: III<br>Status: Real</p></div>
+							<img src="_assets/img/fpo-dev-logo.jpg" alt="Company Name">
+						</a>
+					</div>
+
+					<!-- item 4 -->
+					<div class="company" data-industry="consumer" data-deal-type="management-buyout" data-fund="harrington" data-status="current">
+						<a href="javascript:void(0)" class="" data-content="#entry_id_11">
+							<div class="company-filter-placeholder"><p>11 - Industry: Consumer<br>Deal: Buyout<br>Fund: Harr<br>Status: Curr</p></div>
+							<img src="_assets/img/fpo-dev-logo.jpg" alt="Company Name">
+						</a>
+					</div>
+
+					<!-- item 5 -->
+					<div class="company" data-industry="consumer" data-deal-type="recapitalization" data-fund="harrington" data-status="current">
+						<a href="javascript:void(0)" class="" data-content="#entry_id_12">
+							<div class="company-filter-placeholder"><p>12 - Industry: Consumer<br>Deal: Recap<br>Fund: Harr<br>Status: Curr</p></div>
+							<img src="_assets/img/fpo-dev-logo.jpg" alt="Company Name">
+						</a>
+					</div>
+
+				</div><!-- small-12 columns -->
+			
+			</div><!-- row -->
+				
+		</div><!-- child-list -->
+		<!-- END INDUSTRY CHILD CATEGORY 3: CONSUMER -->
+		
+		
+
+
+		<!-- START INDUSTRY CHILD CATEGORY 4: MANUFACTURING -->
+		<div class="child-list">
+			
+			<div class="row">
+				
+				<div class="medium-10 medium-offset-1 columns child-title">
+					<h4>Manufacturing</h4>
+				</div>
+	
+			</div>
+			
+			<div class="row small-collapse">
+		
+				<div class="small-12 columns logos">
+					
+					<!-- item 1 -->
+					<div class="company" data-industry="manufacturing" data-deal-type="entrepreneurs" data-fund="fund-i-" data-status="current">
+						<a href="investments-company.html" class="" data-content="#entry_id_13">
+							<div class="company-filter-placeholder"><p>13 - Industry: Manufacturing<br>Deal: Entrep<br>Fund: I<br>Status: Curr</p></div>
+							<img src="_assets/img/fpo-dev-logo.jpg" alt="Company Name">
+						</a>
+					</div>
+	
+					<!-- item 2 -->
+					<div class="company" data-industry="manufacturing" data-deal-type="recapitalization" data-fund="harrington" data-status="realized">
+						<a href="investments-company.html" class="" data-content="#entry_id_14">
+							<div class="company-filter-placeholder"><p>14 - Industry: Manufacturing<br>Deal: Recap<br>Fund: Harr<br>Status: Real</p></div>
+							<img src="_assets/img/fpo-dev-logo.jpg" alt="Company Name">
+						</a>
+					</div>
+						
+					<!-- item 3 -->
+					<div class="company" data-industry="manufacturing" data-deal-type="corporate-carve-outs, entrepreneurs" data-fund="fund-iii-" data-status="current">
+						<a href="javascript:void(0)" class="" data-content="#entry_id_15">
+							<div class="company-filter-placeholder"><p>15 - Industry: Manufacturing<br>Deal: Carve, Entrep<br>Fund: III<br>Status: Curr</p></div>
+							<img src="_assets/img/fpo-dev-logo.jpg" alt="Company Name">
+						</a>
+					</div>
+
+					<!-- item 4 -->
+					<div class="company" data-industry="manufacturing" data-deal-type="recapitalization" data-fund="fund-i-" data-status="realized">
+						<a href="javascript:void(0)" class="" data-content="#entry_id_16">
+							<div class="company-filter-placeholder"><p>16 - Industry: Manufacturing<br>Deal: Recap<br>Fund: I<br>Status: Real</p></div>
+							<img src="_assets/img/fpo-dev-logo.jpg" alt="Company Name">
+						</a>
+					</div>
+
+				</div><!-- small-12 columns -->
+			
+			</div><!-- row -->
+				
+		</div><!-- child-list -->
+		<!-- END INDUSTRY CHILD CATEGORY 4: MANUFACTURING -->
 
 	
 	</div><!-- block -->
@@ -238,8 +453,137 @@
 		// fade in page content divs on scroll
 		new WOW().init();
 		
+		// display row of child filter buttons from parent button
+		$('.child-categories').hide();
+		$('.industry-list').show();
+		$('.parent-filter').click(function () {
+			$('.active').removeClass('active');
+		    $(this).addClass('active');
+		    $('.child-categories').hide();
+		    $('#child-' + $(this).attr('target')).show();
+		    showParentCat($(this).attr('data-foo'));
+		});
+
 	</script>
 
+    <script>
+		// Production steps of ECMA-262, Edition 5, 15.4.4.21
+		// Reference: http://es5.github.io/#x15.4.4.21
+		if (!Array.prototype.reduce) {
+		  Array.prototype.reduce = function(callback /*, initialValue*/) {
+		    'use strict';
+		    if (this == null) {
+		      throw new TypeError('Array.prototype.reduce called on null or undefined');
+		    }
+		    if (typeof callback !== 'function') {
+		      throw new TypeError(callback + ' is not a function');
+		    }
+		    var t = Object(this), len = t.length >>> 0, k = 0, value;
+		    if (arguments.length == 2) {
+		      value = arguments[1];
+		    } else {
+		      while (k < len && !(k in t)) {
+		        k++; 
+		      }
+		      if (k >= len) {
+		        throw new TypeError('Reduce of empty array with no initial value');
+		      }
+		      value = t[k++];
+		    }
+		    for (; k < len; k++) {
+		      if (k in t) {
+		        value = callback(value, t[k], k, t);
+		      }
+		    }
+		    return value;
+		  };
+		}
+    </script>
+    <script>
+	    // INITIALIZATION
+	    (function(){
+			window.SECTION_TEMPLATE = $('div.child-list')[0].outerHTML;
+			window.NO_RESULTS_TEMPLATE = '<div>NO RESULTS</div>';
+			window.DATA_KEYS = ['industry','deal-type','fund','status'];
+
+			function getAllItems(){
+				return $('.company').toArray();
+			}
+			function gatherAllItemData() {
+				window.DATA = [];
+				getAllItems().forEach(function(elmt, index){
+					var itemData = {}, item=$(elmt);
+					itemData.html = elmt.outerHTML;
+					DATA_KEYS.map(function(key, index){
+						itemData[key] = item.attr('data-' + key);
+					});
+					DATA.push(itemData);
+				});
+			}
+			function gatherCatsAndSubCats(){
+				window.CATEGORIES = {};
+				DATA_KEYS.forEach(function(cat, indx){
+					CATEGORIES[cat] = $('#child-' + cat + ' a')
+						.map(function(index, subcat){ 
+							var elmt = $(subcat);
+							return {
+								value: elmt.attr('data-subcat'),
+								display: elmt.text()
+							}
+						})
+						.toArray();
+				})
+			}
+
+			gatherAllItemData();
+			gatherCatsAndSubCats();
+
+	    })();
+    </script>
+	<script>
+
+		function makeSubcatHTML(parentCat, pcatValue, pcatDisplay){
+			var content = $(SECTION_TEMPLATE);
+			var title = content.find('.child-title');
+			title.html('<h4>' + pcatDisplay + '</h4>');
+			var logos = content.find('.logos');
+
+			var logosHTML = DATA.filter(function(item, index){
+				return item[parentCat].indexOf(pcatValue) >= 0;
+			}).reduce(function(prev, curr){
+				return prev + curr.html;
+			}, "");
+			logosHTML = (logosHTML.length > 0)? logosHTML : NO_RESULTS_TEMPLATE;
+			logos.html(logosHTML);
+			return content[0].outerHTML;
+		}
+		function showParentCat(parentCat){
+			var contentHTML = CATEGORIES[parentCat].reduce(function(prev, curr){
+				if (curr.value === 'all') { return prev;}
+				return prev + makeSubcatHTML(parentCat, curr.value, curr.display);
+			}, '');
+			$('#panel-content').html(contentHTML);
+		}
+		function showSubCat(parentCat, pcatValue, pcatDisplay){
+			if (pcatValue === 'all'){
+				showParentCat(parentCat);
+				return;
+			}
+			$('#panel-content').html(makeSubcatHTML(parentCat, pcatValue, pcatDisplay));
+		};
+
+
+
+		// Attach click event handlers
+		DATA_KEYS.forEach(function(item, index){
+			$('#child-' + item + ' a').click(function(e){
+				var me = $(this);
+				showSubCat(me.parent().attr('id').substr(6), me.attr('data-subcat'), me.text());
+				return false; // prevent scroll to top on click
+			});
+		})
+
+	</script>
 
 </body>
 

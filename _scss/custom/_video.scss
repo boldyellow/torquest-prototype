@@ -9,20 +9,27 @@
 	box-sizing: border-box;
     margin: 0;
 	width: 100%;
-	height: 116vh;
+	height: 65vh;
 	min-height: 100%;
 	z-index: 0;
     background: url(../videos/sample2.jpg) no-repeat center center;
     background-size: cover; 
 	text-decoration: none;
+
+	@include breakpoint(medium) {
+		height: 116vh;
+	}
+
 }
 
 
 .desktop-video-wrap {
 	display: none;
+	
 	@include breakpoint(large) {
 		display: block;
 	}
+	
 }
 
 .mobile-static-wrap {
@@ -36,10 +43,15 @@
 	position: absolute;
 	top: 0;
 	left: 0;
-	height: 90vh;
+	height: 60vh;
     margin: 0;
 	width: 100%;
 	z-index: 100;
+
+	@include breakpoint(medium) {
+		height: 90vh;
+	}
+
 }
 
 .valign {
@@ -60,6 +72,18 @@
     z-index: -100;
 }
 
+.video-overlay-tint {
+    position: absolute;
+    overflow: hidden;
+    top: 0;
+    left:0;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    background-color: $warm-gray-1;
+    opacity: 0.5;
+}
 
 video#bgvid { 
     position: absolute;
