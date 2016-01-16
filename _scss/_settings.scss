@@ -54,11 +54,20 @@ $warning-color: #ffae00;
 $alert-color: #ec5840;
 $light-gray: #e6e6e6;
 $medium-gray: #cacaca;
-$dark-gray: #141f25;
 $black: #0a0a0a;
 $white: #fefefe;
+
+$dark-gray: #141f25;
+$warm-gray-1: #3a454b;
+$warm-gray-2: #8b8782;
+$warm-gray-3: #c4c0bd;
+$warm-gray-4: #e6e4e3;
+$warm-gray-5: #f5f5f6;
+$light-green: #e6edee;
+$steel-blue: #588191;
+
 $body-background: $white;
-$body-font-color: $black;
+$body-font-color: $warm-gray-1;
 $body-font-family: 'proxima-nova', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 $body-antialiased: true;
 $global-margin: 1rem;
@@ -132,7 +141,7 @@ $header-sizes: (
     'h6': 32,
   ),
 );
-$header-color: inherit;
+$header-color: $dark-gray;
 $header-lineheight: 1.1;
 $header-margin-bottom: 0.5rem;
 $header-text-rendering: optimizeLegibility;
@@ -164,12 +173,8 @@ $defnlist-margin-bottom: 1rem;
 $defnlist-term-weight: $global-weight-bold;
 $defnlist-term-margin-bottom: 0.3rem;
 $blockquote-color: $dark-gray;
-$blockquote-padding: rem-calc(9 20 0 19);
-$blockquote-border: 1px solid $medium-gray;
-
 $blockquote-padding: 0;
 $blockquote-border: none;
-
 $cite-font-size: rem-calc(13);
 $cite-color: $dark-gray;
 $keystroke-font: $font-family-monospace;

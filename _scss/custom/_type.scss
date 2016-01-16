@@ -22,8 +22,8 @@ h1 {
 
 h2 {
 	font-family: "adobe-caslon-pro",serif;
-	font-size: rem-calc(30);
-    
+	font-size: rem-calc(27);
+   
 	@include breakpoint(medium) {
 		font-size: 7vw;
 	}
@@ -36,9 +36,9 @@ h2 {
 }
 
 h4 {
-	color: $warm-gray-2;
 	font-family: "proxima-nova",sans-serif;
 	font-size: 1.25rem;
+	color: $warm-gray-2;
 	text-transform: uppercase;
 	letter-spacing: 0.1rem;
 	
@@ -99,12 +99,16 @@ a.view-more {
 	text-align: center;
 	color: #000;
 	opacity: 0.5;
-	font-size: 1.5rem;
 	border-top: 1px solid #151f25;
 	background-image: url('../img/arrow-view-more.svg');
 	background-repeat: no-repeat;
 	background-size: 21px 15px;
 	background-position: 100% 60%;
+	font-size: rem-calc(20);
+	
+	@include breakpoint(medium) {
+		font-size: rem-calc(24);
+	}
 }
 
 a.view-more:hover {

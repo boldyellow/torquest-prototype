@@ -50,7 +50,7 @@
 
 
 .region-glance {
-	border-top: 1px solid #ddd;
+	border-top: 1px solid $warm-gray-3;
 }
 
 .region-glance > .row {
@@ -59,15 +59,20 @@
 
 .region-glance .glance-wrap .row {
 	background-color: $dark-gray;
+}
+
+.region-glance .glance-wrap .row h2,
+.region-glance .glance-wrap .row h6 {
 	color: #fff;
 }
 
 .region-glance .glance-wrap .columns {
 	
-	padding: 11vw 5vw 9vw 5vw;
-	border-bottom: 1px solid #fff;
+	padding: 3.5rem 1rem 1.5rem 1rem;
+	border-bottom: 1px solid $warm-gray-1;
 	
 	@include breakpoint(medium) {
+		padding: 11vw 5vw 9vw 5vw;
 		border-bottom: none;
 	}
 
@@ -97,11 +102,17 @@
     position: absolute;
     top: -1.25rem;
     bottom: -0.75rem;
-    left: 30%;
-    right: 30%;
-    width: 40%;
+    left: 40%;
     border-bottom: 1px solid #fff;
     border-top: 1px solid #fff;
+    right: 40%;
+    width: 20%;
+
+	@include breakpoint(medium) {
+    	left: 30%;
+	    right: 30%;
+	    width: 40%;
+	}
 }
 
 /* ..................................................................... */

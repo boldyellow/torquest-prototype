@@ -17,21 +17,7 @@ footer .row:first-child {
 }
 
 footer h2 {
-	
-	font-size: 1.4rem;
-	margin-bottom: 1.75rem;
-
-	@include breakpoint(medium) {
-		font-size: 5vw;
-	}
-
-	@include breakpoint(large) {
-		font-size: 4vw;
-	}
-
-	@include breakpoint(xlarge) {
-		font-size: 3rem;
-	}
+	margin-bottom: 1.25rem;
 }
 
 footer p {
@@ -56,6 +42,10 @@ footer p span.bullet {
 	}
 }
 
+footer p a {
+	color: $warm-gray-1;
+}
+
 footer .logo {
 	padding: 3rem 0 5rem 0;
 }
@@ -65,7 +55,7 @@ footer .logo a {
 	height: 3.813rem;
 	display: block;
 	margin: 0 auto;
-	background-image: url('../img/brand-tag.svg');
+	background-image: url('../img/brand-tag-blk.svg');
 	background-repeat: no-repeat;
 	background-size: 10.31rem 3.813rem;
 	background-position: 50% 50%;
