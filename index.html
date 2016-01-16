@@ -4,6 +4,24 @@
 	
 <head>
 	
+	<style>
+		#preloader {
+			position: fixed;
+			left: 0;
+			top: 0;
+			z-index: 9999;
+			width: 100%;
+			height: 100%;
+			overflow: visible;
+			background-color: #333;
+			background-image: url(_assets/img/brand-tag-blk.svg);
+			-webkit-background-size: 200px 74px;
+			background-size: 200px 74px;
+			background-repeat: no-repeat;
+			background-position: center center;
+		}
+	</style>
+
 	<meta charset="utf-8">
 	
 	<meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -13,12 +31,15 @@
 	<title>Home | Prototype</title>
 	
 	<link rel="stylesheet" href="_assets/css/app.css">
-	
+		
+
 </head>
 	
 
 <body>
 	
+	<div id="preloader"></div>
+
 	<nav class="navbar">
 			
 		<div id="brand"></div>
@@ -208,11 +229,6 @@
 
 		<div class="row">
 				
-			<small class="show-for-small-only"><strong>Small</strong></small>
-			<small class="show-for-medium-only"><strong>Medium</strong></small>
-			<small class="show-for-large-only"><strong>Large</strong></small>
-			<small class="show-for-xlarge"><strong>XLarge Plus</strong></small>
-
 			<h1>Making good<br>companies great.</h1>
 		
 		</div>
@@ -297,6 +313,14 @@
 
 	<script src="_assets/js/min/app-min.js"></script>
 
+
+	<script>
+	
+	$(window).load(function() { 
+		$("#preloader").delay(2000).fadeOut("slow"); 
+	})
+	
+	</script>
 
 
     <script>

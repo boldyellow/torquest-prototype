@@ -4,6 +4,24 @@
 	
 <head>
 	
+	<style>
+		#preloader {
+			position: fixed;
+			left: 0;
+			top: 0;
+			z-index: 9999;
+			width: 100%;
+			height: 100%;
+			overflow: visible;
+			background-color: #333;
+			background-image: url(_assets/img/brand-tag-blk.svg);
+			-webkit-background-size: 200px 74px;
+			background-size: 200px 74px;
+			background-repeat: no-repeat;
+			background-position: center center;
+		}
+	</style>
+
 	<meta charset="utf-8">
 	
 	<meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -13,13 +31,14 @@
 	<title>Story | Prototype</title>
 	
 	<link rel="stylesheet" href="_assets/css/app.css">
-	
+
 </head>
 	
 
 <body>
 	
-	
+	<div id="preloader"></div>
+
 	<div class="reveal" id="exampleModal12" data-reveal data-reset-on-close="true">
 		
 		<div class="flex-video widescreen vimeo">
@@ -191,7 +210,10 @@
 
     <script>
 	    
-
+		// preloader
+		$(window).load(function() { 
+			$("#preloader").delay(1500).fadeOut("slow"); 
+		})
 	    
 		// hamburger animation
 		function togglescroll() {
