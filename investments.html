@@ -69,32 +69,37 @@
 			<div class="large-10 large-centered columns">
 						
 				<div class="parent-categories">
-					Sort
-					<a href="#">One</a>
-					<a href="#">Two</a>
-					<a href="#">Three</a>
-					<a href="#">Four</a>
+					<span>Sort By:</span>
+					<a href="#">Industry</a>
+					<a href="#">Deal Type</a>
+					<a href="#">Fund</a>
+					<a href="#">Status</a>
 				</div>
 				
 			</div>
 			
 		</div>	
 		
-		<hr>
+		<div class="row">
+			
+			<div class="large-10 large-centered columns">
+						
+				<hr>
+				
+			</div>
+			
+		</div>	
 		
 		<div class="row">
 			
 			<div class="large-8 large-centered columns">
 						
 				<div class="child-categories">
-					<a href="#">Longer Words That Wrap</a>
-					<a href="#">Two Longer Words That Wrap</a>
-					<a href="#">Three Longer Words That Wrap</a>
-					<a href="#">Four Longer Words That Wrap</a>
-					<a href="#">Five Longer Words That Wrap</a>
-					<a href="#">Six Longer Words That Wrap</a>
-					<a href="#">7 Longer Words That Wrap</a>
-					<a href="#">8 Longer Words That Wrap</a>
+					<a href="#">All</a>
+					<a href="#">Corporate Carve-Outs</a>
+					<a href="#">Entrepreneurial Transitions</a>
+					<a href="#">Management Buyout</a>
+					<a href="#">Recapitalization</a>
 				</div>
 				
 			</div>
@@ -227,7 +232,7 @@
 		
 		// animate brand div on scroll
 		$(document).scroll(function(){
-			$('#brand').toggleClass('scrolled', $(this).scrollTop() > 1);
+			$('#brand').toggleClass('scrolled', $(this).scrollTop() > 50);
 		});
 		
 		// fade in page content divs on scroll

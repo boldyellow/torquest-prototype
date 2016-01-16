@@ -63,16 +63,16 @@
 	color: #fff;
 	text-align: center;
 	padding-top: 3rem;
-	height: 30vh;
+	height: 60vh;
 
 	@include breakpoint(medium) {
 		padding-top: 4rem;
-		height: 40vh;
+		height: 50vh;
 	}
 
 	@include breakpoint(large) {
-		height: 50vh;
 		padding-top: 5rem;
+		height: 55vh;
 	}
 
 }

@@ -61,10 +61,10 @@ h4 {
 	letter-spacing: 0.1rem;
 	
 	@include breakpoint(medium) {
-		font-size: 3.5vw;
+		font-size: 3vw;
 	}
 	@include breakpoint(large) {
-		font-size: 3vw;
+		font-size: 2.5vw;
 	}
 	
 }
@@ -160,6 +160,19 @@ h5 span {
 
 
 
+/* reduce fout
+------------------------------------------------------------------------ */
+
+.wf-loading h1 {
+	visibility: hidden;
+}
+
+.wf-active h1 {
+	visibility: visible;
+}
+
+
+
 /* view more style links
 ------------------------------------------------------------------------ */
 
@@ -228,10 +241,10 @@ blockquote {
 		font-size: 4.5vw;
 	}
 	@include breakpoint(large) {
-		font-size: 3.75vw;
+		font-size: 4.25vw;
 	}
 	@include breakpoint(xlarge) {
-		font-size: rem-calc(39);
+		font-size: rem-calc(45);
 	}
 }
 
@@ -250,7 +263,7 @@ blockquote {
 	
 }
 
-.block-team-bio-text h5 {
+.sidebar h5 {
 	margin-top: 0.5rem;
 }
 

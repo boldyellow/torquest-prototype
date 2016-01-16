@@ -63,7 +63,7 @@
 			<div class="large-10 large-centered columns">
 						
 				<div class="parent-categories">
-					Sort By Year
+					<span>Sort By:</span> <span class="selected">Year</span>
 				</div>
 				
 			</div>
@@ -263,7 +263,7 @@
 		
 		// animate brand div on scroll
 		$(document).scroll(function(){
-			$('#brand').toggleClass('scrolled', $(this).scrollTop() > 1);
+			$('#brand').toggleClass('scrolled', $(this).scrollTop() > 50);
 		});
 		
 		// fade in page content divs on scroll

@@ -1,0 +1,59 @@
+/* |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+  
+   FILTERS 
+   
+|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| */
+
+
+
+.parent-categories,
+.child-categories {
+	font-size: 1rem;
+	color: $warm-gray-2;
+	line-height: 2;
+
+	@include breakpoint(medium) {
+		font-size: 1.2rem;
+	}
+}
+
+.parent-categories {
+	text-transform: uppercase;
+}
+
+
+
+
+.parent-categories span,
+.child-categories span,
+.parent-categories a,
+.child-categories a {
+	color: $warm-gray-2;
+	display: block;
+	padding-left: 0.5rem;
+	padding-right: 0.5rem;
+
+	@include breakpoint(medium) {
+		display: inline-block;
+	}
+
+}
+
+.child-categories span,
+.child-categories a {
+	display: inline-block;
+}
+
+.parent-categories span.selected,
+.child-categories span.selected,
+.parent-categories a.selected,
+.child-categories a.selected,
+.parent-categories a:hover,
+.child-categories a:hover {
+	color: $dark-gray;
+}
+
+.child-categories a:hover {
+	color: $dark-gray;
+	text-decoration: underline;
+}
