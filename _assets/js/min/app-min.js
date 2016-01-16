@@ -384,6 +384,672 @@ function hyphenate(str) {
 }(jQuery);
 
 
+/**
+ * Interchange module.
+ * @module foundation.interchange
+ * @requires foundation.util.mediaQuery
+ * @requires foundation.util.timerAndImageLoader
+ */
+!function(Foundation, $) {
+  'use strict';
+
+  /**
+   * Creates a new instance of Interchange.
+   * @class
+   * @fires Interchange#init
+   * @param {Object} element - jQuery object to add the trigger to.
+   * @param {Object} options - Overrides to the default plugin settings.
+   */
+  function Interchange(element, options) {
+    this.$element = element;
+    this.options = $.extend({}, Interchange.defaults, options);
+    this.rules = [];
+    this.currentPath = '';
+
+    this._init();
+    this._events();
+
+    Foundation.registerPlugin(this, 'Interchange');
+  }
+
+  /**
+   * Default settings for plugin
+   */
+  Interchange.defaults = {
+    /**
+     * Rules to be applied to Interchange elements. Set with the `data-interchange` array notation.
+     * @option
+     */
+    rules: null
+  };
+
+  Interchange.SPECIAL_QUERIES = {
+    'landscape': 'screen and (orientation: landscape)',
+    'portrait': 'screen and (orientation: portrait)',
+    'retina': 'only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2/1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx)'
+  };
+
+  /**
+   * Initializes the Interchange plugin and calls functions to get interchange functioning on load.
+   * @function
+   * @private
+   */
+  Interchange.prototype._init = function() {
+    this._addBreakpoints();
+    this._generateRules();
+    this._reflow();
+  };
+
+  /**
+   * Initializes events for Interchange.
+   * @function
+   * @private
+   */
+  Interchange.prototype._events = function() {
+    $(window).on('resize.zf.interchange', Foundation.util.throttle(this._reflow.bind(this), 50));
+  };
+
+  /**
+   * Calls necessary functions to update Interchange upon DOM change
+   * @function
+   * @private
+   */
+  Interchange.prototype._reflow = function() {
+    var match;
+
+    // Iterate through each rule, but only save the last match
+    for (var i in this.rules) {
+      var rule = this.rules[i];
+
+      if (window.matchMedia(rule.query).matches) {
+        match = rule;
+      }
+    }
+
+    if (match) {
+      this.replace(match.path);
+    }
+  };
+
+  /**
+   * Gets the Foundation breakpoints and adds them to the Interchange.SPECIAL_QUERIES object.
+   * @function
+   * @private
+   */
+  Interchange.prototype._addBreakpoints = function() {
+    for (var i in Foundation.MediaQuery.queries) {
+      var query = Foundation.MediaQuery.queries[i];
+      Interchange.SPECIAL_QUERIES[query.name] = query.value;
+    }
+  };
+
+  /**
+   * Checks the Interchange element for the provided media query + content pairings
+   * @function
+   * @private
+   * @param {Object} element - jQuery object that is an Interchange instance
+   * @returns {Array} scenarios - Array of objects that have 'mq' and 'path' keys with corresponding keys
+   */
+  Interchange.prototype._generateRules = function() {
+    var rulesList = [];
+    var rules;
+
+    if (this.options.rules) {
+      rules = this.options.rules;
+    }
+    else {
+      rules = this.$element.data('interchange').match(/\[.*?\]/g);
+    }
+
+    for (var i in rules) {
+      var rule = rules[i].slice(1, -1).split(', ');
+      var path = rule.slice(0, -1).join('');
+      var query = rule[rule.length - 1];
+
+      if (Interchange.SPECIAL_QUERIES[query]) {
+        query = Interchange.SPECIAL_QUERIES[query];
+      }
+
+      rulesList.push({
+        path: path,
+        query: query
+      });
+    }
+
+    this.rules = rulesList;
+  };
+
+  /**
+   * Update the `src` property of an image, or change the HTML of a container, to the specified path.
+   * @function
+   * @param {String} path - Path to the image or HTML partial.
+   * @fires Interchange#replaced
+   */
+  Interchange.prototype.replace = function(path) {
+    if (this.currentPath === path) return;
+
+    var _this = this;
+
+    // Replacing images
+    if (this.$element[0].nodeName === 'IMG') {
+      this.$element.attr('src', path).load(function() {
+        _this.currentPath = path;
+      });
+    }
+    // Replacing background images
+    else if (path.match(/\.(gif|jpg|jpeg|tiff|png)([?#].*)?/i)) {
+      this.$element.css({ 'background-image': 'url('+path+')' });
+    }
+    // Replacing HTML
+    else {
+      $.get(path, function(response) {
+        _this.$element.html(response);
+        $(response).foundation();
+        _this.currentPath = path;
+      });
+    }
+    this.$element.trigger('replaced.zf.interchange');
+  };
+  /**
+   * Destroys an instance of interchange.
+   * @function
+   */
+  Interchange.prototype.destroy = function(){
+    //TODO this.
+  };
+  Foundation.plugin(Interchange, 'Interchange');
+
+  // Exports for AMD/Browserify
+  if (typeof module !== 'undefined' && typeof module.exports !== 'undefined')
+    module.exports = Interchange;
+  if (typeof define === 'function')
+    define(['foundation'], function() {
+      return Interchange;
+    });
+
+}(Foundation, jQuery);
+
+
+/**
+ * Reveal module.
+ * @module foundation.reveal
+ * @requires foundation.util.keyboard
+ * @requires foundation.util.box
+ * @requires foundation.util.triggers
+ * @requires foundation.util.mediaQuery
+ * @requires foundation.util.motion if using animations
+ */
+!function(Foundation, $) {
+  'use strict';
+
+  /**
+   * Creates a new instance of Reveal.
+   * @class
+   * @param {jQuery} element - jQuery object to use for the modal.
+   * @param {Object} options - optional parameters.
+   */
+
+  function Reveal(element, options) {
+    this.$element = element;
+    this.options = $.extend({}, Reveal.defaults, this.$element.data(), options);
+    this._init();
+
+    Foundation.registerPlugin(this, 'Reveal');
+    Foundation.Keyboard.register('Reveal', {
+      'ENTER': 'open',
+      'SPACE': 'open',
+      'ESCAPE': 'close',
+      'TAB': 'tab_forward',
+      'SHIFT_TAB': 'tab_backward'
+    });
+  }
+
+  Reveal.defaults = {
+    /**
+     * Motion-UI class to use for animated elements. If none used, defaults to simple show/hide.
+     * @option
+     * @example 'slide-in-left'
+     */
+    animationIn: '',
+    /**
+     * Motion-UI class to use for animated elements. If none used, defaults to simple show/hide.
+     * @option
+     * @example 'slide-out-right'
+     */
+    animationOut: '',
+    /**
+     * Time, in ms, to delay the opening of a modal after a click if no animation used.
+     * @option
+     * @example 10
+     */
+    showDelay: 0,
+    /**
+     * Time, in ms, to delay the closing of a modal after a click if no animation used.
+     * @option
+     * @example 10
+     */
+    hideDelay: 0,
+    /**
+     * Allows a click on the body/overlay to close the modal.
+     * @option
+     * @example true
+     */
+    closeOnClick: true,
+    /**
+     * Allows the modal to close if the user presses the `ESCAPE` key.
+     * @option
+     * @example true
+     */
+    closeOnEsc: true,
+    /**
+     * If true, allows multiple modals to be displayed at once.
+     * @option
+     * @example false
+     */
+    multipleOpened: false,
+    /**
+     * Distance, in pixels, the modal should push down from the top of the screen.
+     * @option
+     * @example 100
+     */
+    vOffset: 100,
+    /**
+     * Distance, in pixels, the modal should push in from the side of the screen.
+     * @option
+     * @example 0
+     */
+    hOffset: 0,
+    /**
+     * Allows the modal to be fullscreen, completely blocking out the rest of the view. JS checks for this as well.
+     * @option
+     * @example false
+     */
+    fullScreen: false,
+    /**
+     * Percentage of screen height the modal should push up from the bottom of the view.
+     * @option
+     * @example 10
+     */
+    btmOffsetPct: 10,
+    /**
+     * Allows the modal to generate an overlay div, which will cover the view when modal opens.
+     * @option
+     * @example true
+     */
+    overlay: true,
+    /**
+     * Allows the modal to remove and reinject markup on close. Should be true if using video elements w/o using provider's api.
+     * @option
+     * @example false
+     */
+    resetOnClose: false
+  };
+
+  /**
+   * Initializes the modal by adding the overlay and close buttons, (if selected).
+   * @private
+   */
+  Reveal.prototype._init = function(){
+    this.id = this.$element.attr('id');
+    this.isActive = false;
+
+    this.$anchor = $('[data-open="' + this.id + '"]').length ? $('[data-open="' + this.id + '"]') : $('[data-toggle="' + this.id + '"]');
+
+    if(this.$anchor.length){
+      var anchorId = this.$anchor[0].id || Foundation.GetYoDigits(6, 'reveal');
+
+      this.$anchor.attr({
+        'aria-controls': this.id,
+        'id': anchorId,
+        'aria-haspopup': true,
+        'tabindex': 0
+      });
+      this.$element.attr({'aria-labelledby': anchorId});
+    }
+
+    // this.options.fullScreen = this.$element.hasClass('full');
+    if(this.options.fullScreen || this.$element.hasClass('full')){
+      this.options.fullScreen = true;
+      this.options.overlay = false;
+    }
+    if(this.options.overlay && !this.$overlay){
+      this.$overlay = this._makeOverlay(this.id);
+    }
+
+    this.$element.attr({
+        'role': 'dialog',
+        'aria-hidden': true,
+        'data-yeti-box': this.id,
+        'data-resize': this.id
+    });
+
+    this._events();
+  };
+
+  /**
+   * Creates an overlay div to display behind the modal.
+   * @private
+   */
+  Reveal.prototype._makeOverlay = function(id){
+    var $overlay = $('<div></div>')
+                    .addClass('reveal-overlay')
+                    .attr({'tabindex': -1, 'aria-hidden': true})
+                    .appendTo('body');
+    if(this.options.closeOnClick){
+      $overlay.attr({
+        'data-close': id
+      });
+    }
+    return $overlay;
+  };
+
+  /**
+   * Adds event handlers for the modal.
+   * @private
+   */
+  Reveal.prototype._events = function(){
+    var _this = this;
+
+    this.$element.on({
+      'open.zf.trigger': this.open.bind(this),
+      'close.zf.trigger': this.close.bind(this),
+      'toggle.zf.trigger': this.toggle.bind(this),
+      'resizeme.zf.trigger': function(){
+        if(_this.$element.is(':visible')){
+          _this._setPosition(function(){});
+        }
+      }
+    });
+
+    if(this.$anchor.length){
+      this.$anchor.on('keydown.zf.reveal', function(e){
+        if(e.which === 13 || e.which === 32){
+          e.stopPropagation();
+          e.preventDefault();
+          _this.open();
+        }
+      });
+    }
+
+
+    if(this.options.closeOnClick && this.options.overlay){
+      this.$overlay.off('.zf.reveal').on('click.zf.reveal', this.close.bind(this));
+    }
+  };
+  /**
+   * Sets the position of the modal before opening
+   * @param {Function} cb - a callback function to execute when positioning is complete.
+   * @private
+   */
+  Reveal.prototype._setPosition = function(cb){
+    var eleDims = Foundation.Box.GetDimensions(this.$element);
+    var elePos = this.options.fullScreen ? 'reveal full' : (eleDims.height >= (0.5 * eleDims.windowDims.height)) ? 'reveal' : 'center';
+
+    if(elePos === 'reveal full'){
+      //set to full height/width
+      this.$element
+          .offset(Foundation.Box.GetOffsets(this.$element, null, elePos, this.options.vOffset))
+          .css({
+            'height': eleDims.windowDims.height,
+            'width': eleDims.windowDims.width
+          });
+    }else if(!Foundation.MediaQuery.atLeast('medium') || !Foundation.Box.ImNotTouchingYou(this.$element, null, true, false)){
+      //if smaller than medium, resize to 100% width minus any custom L/R margin
+      this.$element
+          .css({
+            'width': eleDims.windowDims.width - (this.options.hOffset * 2)
+          })
+          .offset(Foundation.Box.GetOffsets(this.$element, null, 'center', this.options.vOffset, this.options.hOffset));
+      //flag a boolean so we can reset the size after the element is closed.
+      this.changedSize = true;
+    }else{
+      this.$element
+          .css({
+            'max-height': eleDims.windowDims.height - (this.options.vOffset * (this.options.btmOffsetPct / 100 + 1)),
+            'width': ''
+          })
+          .offset(Foundation.Box.GetOffsets(this.$element, null, elePos, this.options.vOffset));
+          //the max height based on a percentage of vertical offset plus vertical offset
+    }
+
+    cb();
+  };
+
+  /**
+   * Opens the modal controlled by `this.$anchor`, and closes all others by default.
+   * @function
+   * @fires Reveal#closeme
+   * @fires Reveal#open
+   */
+  Reveal.prototype.open = function(){
+    var _this = this;
+    this.isActive = true;
+    //make element invisible, but remove display: none so we can get size and positioning
+    this.$element
+        .css({'visibility': 'hidden'})
+        .show()
+        .scrollTop(0);
+
+    this._setPosition(function(){
+      _this.$element.hide()
+                   .css({'visibility': ''});
+      if(!_this.options.multipleOpened){
+        /**
+         * Fires immediately before the modal opens.
+         * Closes any other modals that are currently open
+         * @event Reveal#closeme
+         */
+        _this.$element.trigger('closeme.zf.reveal', _this.id);
+      }
+      if(_this.options.animationIn){
+        if(_this.options.overlay){
+          Foundation.Motion.animateIn(_this.$overlay, 'fade-in', function(){
+            Foundation.Motion.animateIn(_this.$element, _this.options.animationIn, function(){
+              _this.focusableElements = Foundation.Keyboard.findFocusable(_this.$element);
+            });
+          });
+        }else{
+          Foundation.Motion.animateIn(_this.$element, _this.options.animationIn, function(){
+            _this.focusableElements = Foundation.Keyboard.findFocusable(_this.$element);
+          });
+        }
+      }else{
+        if(_this.options.overlay){
+          _this.$overlay.show(0, function(){
+            _this.$element.show(_this.options.showDelay, function(){
+            });
+          });
+        }else{
+          _this.$element.show(_this.options.showDelay, function(){
+          });
+        }
+      }
+    });
+
+
+    // handle accessibility
+    this.$element.attr({'aria-hidden': false}).attr('tabindex', -1).focus()
+    /**
+     * Fires when the modal has successfully opened.
+     * @event Reveal#open
+     */
+                 .trigger('open.zf.reveal');
+
+    $('body').addClass('is-reveal-open')
+             .attr({'aria-hidden': (this.options.overlay || this.options.fullScreen) ? true : false});
+    setTimeout(function(){
+      _this._extraHandlers();
+      // Foundation.reflow();
+    }, 0);
+  };
+
+  /**
+   * Adds extra event handlers for the body and window if necessary.
+   * @private
+   */
+  Reveal.prototype._extraHandlers = function(){
+    var _this = this;
+    this.focusableElements = Foundation.Keyboard.findFocusable(this.$element);
+
+    if(!this.options.overlay && this.options.closeOnClick && !this.options.fullScreen){
+      $('body').on('click.zf.reveal', function(e){
+        // if()
+          _this.close();
+      });
+    }
+    if(this.options.closeOnEsc){
+      $(window).on('keydown.zf.reveal', function(e){
+        Foundation.Keyboard.handleKey(e, 'Reveal', {
+          close: function() {
+            if (_this.options.closeOnEsc) {
+              _this.close();
+              _this.$anchor.focus();
+            }
+          }
+        });
+        if (_this.focusableElements.length === 0) { // no focusable elements inside the modal at all, prevent tabbing in general
+          e.preventDefault();
+        }
+      });
+    }
+
+    // lock focus within modal while tabbing
+    this.$element.on('keydown.zf.reveal', function(e) {
+      var $target = $(this);
+      // handle keyboard event with keyboard util
+      Foundation.Keyboard.handleKey(e, 'Reveal', {
+        tab_forward: function() {
+          if (_this.$element.find(':focus').is(_this.focusableElements.eq(-1))) { // left modal downwards, setting focus to first element
+            _this.focusableElements.eq(0).focus();
+            e.preventDefault();
+          }
+        },
+        tab_backward: function() {
+          if (_this.$element.find(':focus').is(_this.focusableElements.eq(0)) || _this.$element.is(':focus')) { // left modal upwards, setting focus to last element
+            _this.focusableElements.eq(-1).focus();
+            e.preventDefault();
+          }
+        },
+        open: function() {
+          if (_this.$element.find(':focus').is(_this.$element.find('[data-close]'))) {
+            setTimeout(function() { // set focus back to anchor if close button has been activated
+              _this.$anchor.focus();
+            }, 1);
+          } else if ($target.is(_this.focusableElements)) { // dont't trigger if acual element has focus (i.e. inputs, links, ...)
+            _this.open();
+          }
+        },
+        close: function() {
+          if (_this.options.closeOnEsc) {
+            _this.close();
+            _this.$anchor.focus();
+          }
+        }
+      });
+    });
+
+  };
+
+  /**
+   * Closes the modal.
+   * @function
+   * @fires Reveal#closed
+   */
+  Reveal.prototype.close = function(){
+    if(!this.isActive || !this.$element.is(':visible')){
+      return false;
+    }
+    var _this = this;
+
+    if(this.options.animationOut){
+      Foundation.Motion.animateOut(this.$element, this.options.animationOut, function(){
+        if(_this.options.overlay){
+          Foundation.Motion.animateOut(_this.$overlay, 'fade-out', function(){
+          });
+        }
+      });
+    }else{
+      this.$element.hide(_this.options.hideDelay, function(){
+        if(_this.options.overlay){
+          _this.$overlay.hide(0, function(){
+          });
+        }
+      });
+    }
+    //conditionals to remove extra event listeners added on open
+    if(this.options.closeOnEsc){
+      $(window).off('keydown.zf.reveal');
+    }
+    if(!this.options.overlay && this.options.closeOnClick){
+      $('body').off('click.zf.reveal');
+    }
+    this.$element.off('keydown.zf.reveal');
+
+    //if the modal changed size, reset it
+    if(this.changedSize){
+      this.$element.css({
+        'height': '',
+        'width': ''
+      });
+    }
+
+    $('body').removeClass('is-reveal-open').attr({'aria-hidden': false, 'tabindex': ''});
+
+    /**
+    * Resets the modal content
+    * This prevents a running video to keep going in the background
+    */
+    if(this.options.resetOnClose) {
+      this.$element.html(this.$element.html());
+    }
+
+    this.isActive = false;
+    this.$element.attr({'aria-hidden': true})
+    /**
+     * Fires when the modal is done closing.
+     * @event Reveal#closed
+     */
+                 .trigger('closed.zf.reveal');
+  };
+  /**
+   * Toggles the open/closed state of a modal.
+   * @function
+   */
+  Reveal.prototype.toggle = function(){
+    if(this.isActive){
+      this.close();
+    }else{
+      this.open();
+    }
+  };
+
+  /**
+   * Destroys an instance of a modal.
+   * @function
+   */
+  Reveal.prototype.destroy = function() {
+    if(this.options.overlay){
+      this.$overlay.hide().off().remove();
+    }
+    this.$element.hide();
+    this.$anchor.off();
+
+    Foundation.unregisterPlugin(this);
+  };
+
+  Foundation.plugin(Reveal, 'Reveal');
+
+  // Exports for AMD/Browserify
+  if (typeof module !== 'undefined' && typeof module.exports !== 'undefined')
+    module.exports = Reveal;
+  if (typeof define === 'function')
+    define(['foundation'], function() {
+      return Reveal;
+    });
+
+}(Foundation, jQuery);
+
+
 /*******************************************
  *                                         *
  * This util was created by Marius Olbertz *
@@ -1199,755 +1865,9 @@ Foundation.Motion = Motion;
 }(jQuery, Foundation);
 
 
-!function($, Foundation){
-  'use strict';
-  var Timer = function(elem, options, cb){
-    var _this = this,
-        duration = options.duration,//options is an object for easily adding features later.
-        nameSpace = Object.keys(elem.data())[0] || 'timer',
-        remain = -1,
-        start,
-        timer;
-
-    this.restart = function(){
-      remain = -1;
-      clearTimeout(timer);
-      this.start();
-    };
-
-    this.start = function(){
-      // if(!elem.data('paused')){ return false; }//maybe implement this sanity check if used for other things.
-      clearTimeout(timer);
-      remain = remain <= 0 ? duration : remain;
-      elem.data('paused', false);
-      start = Date.now();
-      timer = setTimeout(function(){
-        if(options.infinite){
-          _this.restart();//rerun the timer.
-        }
-        cb();
-      }, remain);
-      elem.trigger('timerstart.zf.' + nameSpace);
-    };
-
-    this.pause = function(){
-      //if(elem.data('paused')){ return false; }//maybe implement this sanity check if used for other things.
-      clearTimeout(timer);
-      elem.data('paused', true);
-      var end = Date.now();
-      remain = remain - (end - start);
-      elem.trigger('timerpaused.zf.' + nameSpace);
-    };
-  };
-  /**
-   * Runs a callback function when images are fully loaded.
-   * @param {Object} images - Image(s) to check if loaded.
-   * @param {Func} callback - Function to execute when image is fully loaded.
-   */
-  var onImagesLoaded = function(images, callback){
-    var self = this,
-        unloaded = images.length;
-
-    if (unloaded === 0) {
-      callback();
-    }
-
-    var singleImageLoaded = function() {
-      unloaded--;
-      if (unloaded === 0) {
-        callback();
-      }
-    };
-
-    images.each(function() {
-      if (this.complete) {
-        singleImageLoaded();
-      }
-      else if (typeof this.naturalWidth !== 'undefined' && this.naturalWidth > 0) {
-        singleImageLoaded();
-      }
-      else {
-        $(this).one('load', function() {
-          singleImageLoaded();
-        });
-      }
-    });
-  };
-
-  Foundation.Timer = Timer;
-  Foundation.onImagesLoaded = onImagesLoaded;
-}(jQuery, window.Foundation);
-
-
-/**
- * Reveal module.
- * @module foundation.reveal
- * @requires foundation.util.keyboard
- * @requires foundation.util.box
- * @requires foundation.util.triggers
- * @requires foundation.util.mediaQuery
- * @requires foundation.util.motion if using animations
- */
-!function(Foundation, $) {
-  'use strict';
-
-  /**
-   * Creates a new instance of Reveal.
-   * @class
-   * @param {jQuery} element - jQuery object to use for the modal.
-   * @param {Object} options - optional parameters.
-   */
-
-  function Reveal(element, options) {
-    this.$element = element;
-    this.options = $.extend({}, Reveal.defaults, this.$element.data(), options);
-    this._init();
-
-    Foundation.registerPlugin(this, 'Reveal');
-    Foundation.Keyboard.register('Reveal', {
-      'ENTER': 'open',
-      'SPACE': 'open',
-      'ESCAPE': 'close',
-      'TAB': 'tab_forward',
-      'SHIFT_TAB': 'tab_backward'
-    });
-  }
-
-  Reveal.defaults = {
-    /**
-     * Motion-UI class to use for animated elements. If none used, defaults to simple show/hide.
-     * @option
-     * @example 'slide-in-left'
-     */
-    animationIn: '',
-    /**
-     * Motion-UI class to use for animated elements. If none used, defaults to simple show/hide.
-     * @option
-     * @example 'slide-out-right'
-     */
-    animationOut: '',
-    /**
-     * Time, in ms, to delay the opening of a modal after a click if no animation used.
-     * @option
-     * @example 10
-     */
-    showDelay: 0,
-    /**
-     * Time, in ms, to delay the closing of a modal after a click if no animation used.
-     * @option
-     * @example 10
-     */
-    hideDelay: 0,
-    /**
-     * Allows a click on the body/overlay to close the modal.
-     * @option
-     * @example true
-     */
-    closeOnClick: true,
-    /**
-     * Allows the modal to close if the user presses the `ESCAPE` key.
-     * @option
-     * @example true
-     */
-    closeOnEsc: true,
-    /**
-     * If true, allows multiple modals to be displayed at once.
-     * @option
-     * @example false
-     */
-    multipleOpened: false,
-    /**
-     * Distance, in pixels, the modal should push down from the top of the screen.
-     * @option
-     * @example 100
-     */
-    vOffset: 100,
-    /**
-     * Distance, in pixels, the modal should push in from the side of the screen.
-     * @option
-     * @example 0
-     */
-    hOffset: 0,
-    /**
-     * Allows the modal to be fullscreen, completely blocking out the rest of the view. JS checks for this as well.
-     * @option
-     * @example false
-     */
-    fullScreen: false,
-    /**
-     * Percentage of screen height the modal should push up from the bottom of the view.
-     * @option
-     * @example 10
-     */
-    btmOffsetPct: 10,
-    /**
-     * Allows the modal to generate an overlay div, which will cover the view when modal opens.
-     * @option
-     * @example true
-     */
-    overlay: true,
-    /**
-     * Allows the modal to remove and reinject markup on close. Should be true if using video elements w/o using provider's api.
-     * @option
-     * @example false
-     */
-    resetOnClose: false
-  };
-
-  /**
-   * Initializes the modal by adding the overlay and close buttons, (if selected).
-   * @private
-   */
-  Reveal.prototype._init = function(){
-    this.id = this.$element.attr('id');
-    this.isActive = false;
-
-    this.$anchor = $('[data-open="' + this.id + '"]').length ? $('[data-open="' + this.id + '"]') : $('[data-toggle="' + this.id + '"]');
-
-    if(this.$anchor.length){
-      var anchorId = this.$anchor[0].id || Foundation.GetYoDigits(6, 'reveal');
-
-      this.$anchor.attr({
-        'aria-controls': this.id,
-        'id': anchorId,
-        'aria-haspopup': true,
-        'tabindex': 0
-      });
-      this.$element.attr({'aria-labelledby': anchorId});
-    }
-
-    // this.options.fullScreen = this.$element.hasClass('full');
-    if(this.options.fullScreen || this.$element.hasClass('full')){
-      this.options.fullScreen = true;
-      this.options.overlay = false;
-    }
-    if(this.options.overlay && !this.$overlay){
-      this.$overlay = this._makeOverlay(this.id);
-    }
-
-    this.$element.attr({
-        'role': 'dialog',
-        'aria-hidden': true,
-        'data-yeti-box': this.id,
-        'data-resize': this.id
-    });
-
-    this._events();
-  };
-
-  /**
-   * Creates an overlay div to display behind the modal.
-   * @private
-   */
-  Reveal.prototype._makeOverlay = function(id){
-    var $overlay = $('<div></div>')
-                    .addClass('reveal-overlay')
-                    .attr({'tabindex': -1, 'aria-hidden': true})
-                    .appendTo('body');
-    if(this.options.closeOnClick){
-      $overlay.attr({
-        'data-close': id
-      });
-    }
-    return $overlay;
-  };
-
-  /**
-   * Adds event handlers for the modal.
-   * @private
-   */
-  Reveal.prototype._events = function(){
-    var _this = this;
-
-    this.$element.on({
-      'open.zf.trigger': this.open.bind(this),
-      'close.zf.trigger': this.close.bind(this),
-      'toggle.zf.trigger': this.toggle.bind(this),
-      'resizeme.zf.trigger': function(){
-        if(_this.$element.is(':visible')){
-          _this._setPosition(function(){});
-        }
-      }
-    });
-
-    if(this.$anchor.length){
-      this.$anchor.on('keydown.zf.reveal', function(e){
-        if(e.which === 13 || e.which === 32){
-          e.stopPropagation();
-          e.preventDefault();
-          _this.open();
-        }
-      });
-    }
-
-
-    if(this.options.closeOnClick && this.options.overlay){
-      this.$overlay.off('.zf.reveal').on('click.zf.reveal', this.close.bind(this));
-    }
-  };
-  /**
-   * Sets the position of the modal before opening
-   * @param {Function} cb - a callback function to execute when positioning is complete.
-   * @private
-   */
-  Reveal.prototype._setPosition = function(cb){
-    var eleDims = Foundation.Box.GetDimensions(this.$element);
-    var elePos = this.options.fullScreen ? 'reveal full' : (eleDims.height >= (0.5 * eleDims.windowDims.height)) ? 'reveal' : 'center';
-
-    if(elePos === 'reveal full'){
-      //set to full height/width
-      this.$element
-          .offset(Foundation.Box.GetOffsets(this.$element, null, elePos, this.options.vOffset))
-          .css({
-            'height': eleDims.windowDims.height,
-            'width': eleDims.windowDims.width
-          });
-    }else if(!Foundation.MediaQuery.atLeast('medium') || !Foundation.Box.ImNotTouchingYou(this.$element, null, true, false)){
-      //if smaller than medium, resize to 100% width minus any custom L/R margin
-      this.$element
-          .css({
-            'width': eleDims.windowDims.width - (this.options.hOffset * 2)
-          })
-          .offset(Foundation.Box.GetOffsets(this.$element, null, 'center', this.options.vOffset, this.options.hOffset));
-      //flag a boolean so we can reset the size after the element is closed.
-      this.changedSize = true;
-    }else{
-      this.$element
-          .css({
-            'max-height': eleDims.windowDims.height - (this.options.vOffset * (this.options.btmOffsetPct / 100 + 1)),
-            'width': ''
-          })
-          .offset(Foundation.Box.GetOffsets(this.$element, null, elePos, this.options.vOffset));
-          //the max height based on a percentage of vertical offset plus vertical offset
-    }
-
-    cb();
-  };
-
-  /**
-   * Opens the modal controlled by `this.$anchor`, and closes all others by default.
-   * @function
-   * @fires Reveal#closeme
-   * @fires Reveal#open
-   */
-  Reveal.prototype.open = function(){
-    var _this = this;
-    this.isActive = true;
-    //make element invisible, but remove display: none so we can get size and positioning
-    this.$element
-        .css({'visibility': 'hidden'})
-        .show()
-        .scrollTop(0);
-
-    this._setPosition(function(){
-      _this.$element.hide()
-                   .css({'visibility': ''});
-      if(!_this.options.multipleOpened){
-        /**
-         * Fires immediately before the modal opens.
-         * Closes any other modals that are currently open
-         * @event Reveal#closeme
-         */
-        _this.$element.trigger('closeme.zf.reveal', _this.id);
-      }
-      if(_this.options.animationIn){
-        if(_this.options.overlay){
-          Foundation.Motion.animateIn(_this.$overlay, 'fade-in', function(){
-            Foundation.Motion.animateIn(_this.$element, _this.options.animationIn, function(){
-              _this.focusableElements = Foundation.Keyboard.findFocusable(_this.$element);
-            });
-          });
-        }else{
-          Foundation.Motion.animateIn(_this.$element, _this.options.animationIn, function(){
-            _this.focusableElements = Foundation.Keyboard.findFocusable(_this.$element);
-          });
-        }
-      }else{
-        if(_this.options.overlay){
-          _this.$overlay.show(0, function(){
-            _this.$element.show(_this.options.showDelay, function(){
-            });
-          });
-        }else{
-          _this.$element.show(_this.options.showDelay, function(){
-          });
-        }
-      }
-    });
-
-
-    // handle accessibility
-    this.$element.attr({'aria-hidden': false}).attr('tabindex', -1).focus()
-    /**
-     * Fires when the modal has successfully opened.
-     * @event Reveal#open
-     */
-                 .trigger('open.zf.reveal');
-
-    $('body').addClass('is-reveal-open')
-             .attr({'aria-hidden': (this.options.overlay || this.options.fullScreen) ? true : false});
-    setTimeout(function(){
-      _this._extraHandlers();
-      // Foundation.reflow();
-    }, 0);
-  };
-
-  /**
-   * Adds extra event handlers for the body and window if necessary.
-   * @private
-   */
-  Reveal.prototype._extraHandlers = function(){
-    var _this = this;
-    this.focusableElements = Foundation.Keyboard.findFocusable(this.$element);
-
-    if(!this.options.overlay && this.options.closeOnClick && !this.options.fullScreen){
-      $('body').on('click.zf.reveal', function(e){
-        // if()
-          _this.close();
-      });
-    }
-    if(this.options.closeOnEsc){
-      $(window).on('keydown.zf.reveal', function(e){
-        Foundation.Keyboard.handleKey(e, 'Reveal', {
-          close: function() {
-            if (_this.options.closeOnEsc) {
-              _this.close();
-              _this.$anchor.focus();
-            }
-          }
-        });
-        if (_this.focusableElements.length === 0) { // no focusable elements inside the modal at all, prevent tabbing in general
-          e.preventDefault();
-        }
-      });
-    }
-
-    // lock focus within modal while tabbing
-    this.$element.on('keydown.zf.reveal', function(e) {
-      var $target = $(this);
-      // handle keyboard event with keyboard util
-      Foundation.Keyboard.handleKey(e, 'Reveal', {
-        tab_forward: function() {
-          if (_this.$element.find(':focus').is(_this.focusableElements.eq(-1))) { // left modal downwards, setting focus to first element
-            _this.focusableElements.eq(0).focus();
-            e.preventDefault();
-          }
-        },
-        tab_backward: function() {
-          if (_this.$element.find(':focus').is(_this.focusableElements.eq(0)) || _this.$element.is(':focus')) { // left modal upwards, setting focus to last element
-            _this.focusableElements.eq(-1).focus();
-            e.preventDefault();
-          }
-        },
-        open: function() {
-          if (_this.$element.find(':focus').is(_this.$element.find('[data-close]'))) {
-            setTimeout(function() { // set focus back to anchor if close button has been activated
-              _this.$anchor.focus();
-            }, 1);
-          } else if ($target.is(_this.focusableElements)) { // dont't trigger if acual element has focus (i.e. inputs, links, ...)
-            _this.open();
-          }
-        },
-        close: function() {
-          if (_this.options.closeOnEsc) {
-            _this.close();
-            _this.$anchor.focus();
-          }
-        }
-      });
-    });
-
-  };
-
-  /**
-   * Closes the modal.
-   * @function
-   * @fires Reveal#closed
-   */
-  Reveal.prototype.close = function(){
-    if(!this.isActive || !this.$element.is(':visible')){
-      return false;
-    }
-    var _this = this;
-
-    if(this.options.animationOut){
-      Foundation.Motion.animateOut(this.$element, this.options.animationOut, function(){
-        if(_this.options.overlay){
-          Foundation.Motion.animateOut(_this.$overlay, 'fade-out', function(){
-          });
-        }
-      });
-    }else{
-      this.$element.hide(_this.options.hideDelay, function(){
-        if(_this.options.overlay){
-          _this.$overlay.hide(0, function(){
-          });
-        }
-      });
-    }
-    //conditionals to remove extra event listeners added on open
-    if(this.options.closeOnEsc){
-      $(window).off('keydown.zf.reveal');
-    }
-    if(!this.options.overlay && this.options.closeOnClick){
-      $('body').off('click.zf.reveal');
-    }
-    this.$element.off('keydown.zf.reveal');
-
-    //if the modal changed size, reset it
-    if(this.changedSize){
-      this.$element.css({
-        'height': '',
-        'width': ''
-      });
-    }
-
-    $('body').removeClass('is-reveal-open').attr({'aria-hidden': false, 'tabindex': ''});
-
-    /**
-    * Resets the modal content
-    * This prevents a running video to keep going in the background
-    */
-    if(this.options.resetOnClose) {
-      this.$element.html(this.$element.html());
-    }
-
-    this.isActive = false;
-    this.$element.attr({'aria-hidden': true})
-    /**
-     * Fires when the modal is done closing.
-     * @event Reveal#closed
-     */
-                 .trigger('closed.zf.reveal');
-  };
-  /**
-   * Toggles the open/closed state of a modal.
-   * @function
-   */
-  Reveal.prototype.toggle = function(){
-    if(this.isActive){
-      this.close();
-    }else{
-      this.open();
-    }
-  };
-
-  /**
-   * Destroys an instance of a modal.
-   * @function
-   */
-  Reveal.prototype.destroy = function() {
-    if(this.options.overlay){
-      this.$overlay.hide().off().remove();
-    }
-    this.$element.hide();
-    this.$anchor.off();
-
-    Foundation.unregisterPlugin(this);
-  };
-
-  Foundation.plugin(Reveal, 'Reveal');
-
-  // Exports for AMD/Browserify
-  if (typeof module !== 'undefined' && typeof module.exports !== 'undefined')
-    module.exports = Reveal;
-  if (typeof define === 'function')
-    define(['foundation'], function() {
-      return Reveal;
-    });
-
-}(Foundation, jQuery);
-
-
-/**
- * Interchange module.
- * @module foundation.interchange
- * @requires foundation.util.mediaQuery
- * @requires foundation.util.timerAndImageLoader
- */
-!function(Foundation, $) {
-  'use strict';
-
-  /**
-   * Creates a new instance of Interchange.
-   * @class
-   * @fires Interchange#init
-   * @param {Object} element - jQuery object to add the trigger to.
-   * @param {Object} options - Overrides to the default plugin settings.
-   */
-  function Interchange(element, options) {
-    this.$element = element;
-    this.options = $.extend({}, Interchange.defaults, options);
-    this.rules = [];
-    this.currentPath = '';
-
-    this._init();
-    this._events();
-
-    Foundation.registerPlugin(this, 'Interchange');
-  }
-
-  /**
-   * Default settings for plugin
-   */
-  Interchange.defaults = {
-    /**
-     * Rules to be applied to Interchange elements. Set with the `data-interchange` array notation.
-     * @option
-     */
-    rules: null
-  };
-
-  Interchange.SPECIAL_QUERIES = {
-    'landscape': 'screen and (orientation: landscape)',
-    'portrait': 'screen and (orientation: portrait)',
-    'retina': 'only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2/1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx)'
-  };
-
-  /**
-   * Initializes the Interchange plugin and calls functions to get interchange functioning on load.
-   * @function
-   * @private
-   */
-  Interchange.prototype._init = function() {
-    this._addBreakpoints();
-    this._generateRules();
-    this._reflow();
-  };
-
-  /**
-   * Initializes events for Interchange.
-   * @function
-   * @private
-   */
-  Interchange.prototype._events = function() {
-    $(window).on('resize.zf.interchange', Foundation.util.throttle(this._reflow.bind(this), 50));
-  };
-
-  /**
-   * Calls necessary functions to update Interchange upon DOM change
-   * @function
-   * @private
-   */
-  Interchange.prototype._reflow = function() {
-    var match;
-
-    // Iterate through each rule, but only save the last match
-    for (var i in this.rules) {
-      var rule = this.rules[i];
-
-      if (window.matchMedia(rule.query).matches) {
-        match = rule;
-      }
-    }
-
-    if (match) {
-      this.replace(match.path);
-    }
-  };
-
-  /**
-   * Gets the Foundation breakpoints and adds them to the Interchange.SPECIAL_QUERIES object.
-   * @function
-   * @private
-   */
-  Interchange.prototype._addBreakpoints = function() {
-    for (var i in Foundation.MediaQuery.queries) {
-      var query = Foundation.MediaQuery.queries[i];
-      Interchange.SPECIAL_QUERIES[query.name] = query.value;
-    }
-  };
-
-  /**
-   * Checks the Interchange element for the provided media query + content pairings
-   * @function
-   * @private
-   * @param {Object} element - jQuery object that is an Interchange instance
-   * @returns {Array} scenarios - Array of objects that have 'mq' and 'path' keys with corresponding keys
-   */
-  Interchange.prototype._generateRules = function() {
-    var rulesList = [];
-    var rules;
-
-    if (this.options.rules) {
-      rules = this.options.rules;
-    }
-    else {
-      rules = this.$element.data('interchange').match(/\[.*?\]/g);
-    }
-
-    for (var i in rules) {
-      var rule = rules[i].slice(1, -1).split(', ');
-      var path = rule.slice(0, -1).join('');
-      var query = rule[rule.length - 1];
-
-      if (Interchange.SPECIAL_QUERIES[query]) {
-        query = Interchange.SPECIAL_QUERIES[query];
-      }
-
-      rulesList.push({
-        path: path,
-        query: query
-      });
-    }
-
-    this.rules = rulesList;
-  };
-
-  /**
-   * Update the `src` property of an image, or change the HTML of a container, to the specified path.
-   * @function
-   * @param {String} path - Path to the image or HTML partial.
-   * @fires Interchange#replaced
-   */
-  Interchange.prototype.replace = function(path) {
-    if (this.currentPath === path) return;
-
-    var _this = this;
-
-    // Replacing images
-    if (this.$element[0].nodeName === 'IMG') {
-      this.$element.attr('src', path).load(function() {
-        _this.currentPath = path;
-      });
-    }
-    // Replacing background images
-    else if (path.match(/\.(gif|jpg|jpeg|tiff|png)([?#].*)?/i)) {
-      this.$element.css({ 'background-image': 'url('+path+')' });
-    }
-    // Replacing HTML
-    else {
-      $.get(path, function(response) {
-        _this.$element.html(response);
-        $(response).foundation();
-        _this.currentPath = path;
-      });
-    }
-    this.$element.trigger('replaced.zf.interchange');
-  };
-  /**
-   * Destroys an instance of interchange.
-   * @function
-   */
-  Interchange.prototype.destroy = function(){
-    //TODO this.
-  };
-  Foundation.plugin(Interchange, 'Interchange');
-
-  // Exports for AMD/Browserify
-  if (typeof module !== 'undefined' && typeof module.exports !== 'undefined')
-    module.exports = Interchange;
-  if (typeof define === 'function')
-    define(['foundation'], function() {
-      return Interchange;
-    });
-
-}(Foundation, jQuery);
-
+/*! WOW - v1.1.2 - 2015-08-19
+* Copyright (c) 2015 Matthieu Aussaguel; Licensed MIT */(function(){var a,b,c,d,e,f=function(a,b){return function(){return a.apply(b,arguments)}},g=[].indexOf||function(a){for(var b=0,c=this.length;c>b;b++)if(b in this&&this[b]===a)return b;return-1};b=function(){function a(){}return a.prototype.extend=function(a,b){var c,d;for(c in b)d=b[c],null==a[c]&&(a[c]=d);return a},a.prototype.isMobile=function(a){return/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(a)},a.prototype.createEvent=function(a,b,c,d){var e;return null==b&&(b=!1),null==c&&(c=!1),null==d&&(d=null),null!=document.createEvent?(e=document.createEvent("CustomEvent"),e.initCustomEvent(a,b,c,d)):null!=document.createEventObject?(e=document.createEventObject(),e.eventType=a):e.eventName=a,e},a.prototype.emitEvent=function(a,b){return null!=a.dispatchEvent?a.dispatchEvent(b):b in(null!=a)?a[b]():"on"+b in(null!=a)?a["on"+b]():void 0},a.prototype.addEvent=function(a,b,c){return null!=a.addEventListener?a.addEventListener(b,c,!1):null!=a.attachEvent?a.attachEvent("on"+b,c):a[b]=c},a.prototype.removeEvent=function(a,b,c){return null!=a.removeEventListener?a.removeEventListener(b,c,!1):null!=a.detachEvent?a.detachEvent("on"+b,c):delete a[b]},a.prototype.innerHeight=function(){return"innerHeight"in window?window.innerHeight:document.documentElement.clientHeight},a}(),c=this.WeakMap||this.MozWeakMap||(c=function(){function a(){this.keys=[],this.values=[]}return a.prototype.get=function(a){var b,c,d,e,f;for(f=this.keys,b=d=0,e=f.length;e>d;b=++d)if(c=f[b],c===a)return this.values[b]},a.prototype.set=function(a,b){var c,d,e,f,g;for(g=this.keys,c=e=0,f=g.length;f>e;c=++e)if(d=g[c],d===a)return void(this.values[c]=b);return this.keys.push(a),this.values.push(b)},a}()),a=this.MutationObserver||this.WebkitMutationObserver||this.MozMutationObserver||(a=function(){function a(){"undefined"!=typeof console&&null!==console&&console.warn("MutationObserver is not supported by your browser."),"undefined"!=typeof console&&null!==console&&console.warn("WOW.js cannot detect dom mutations, please call .sync() after loading new content.")}return a.notSupported=!0,a.prototype.observe=function(){},a}()),d=this.getComputedStyle||function(a){return this.getPropertyValue=function(b){var c;return"float"===b&&(b="styleFloat"),e.test(b)&&b.replace(e,function(a,b){return b.toUpperCase()}),(null!=(c=a.currentStyle)?c[b]:void 0)||null},this},e=/(\-([a-z]){1})/g,this.WOW=function(){function e(a){null==a&&(a={}),this.scrollCallback=f(this.scrollCallback,this),this.scrollHandler=f(this.scrollHandler,this),this.resetAnimation=f(this.resetAnimation,this),this.start=f(this.start,this),this.scrolled=!0,this.config=this.util().extend(a,this.defaults),null!=a.scrollContainer&&(this.config.scrollContainer=document.querySelector(a.scrollContainer)),this.animationNameCache=new c,this.wowEvent=this.util().createEvent(this.config.boxClass)}return e.prototype.defaults={boxClass:"wow",animateClass:"animated",offset:0,mobile:!0,live:!0,callback:null,scrollContainer:null},e.prototype.init=function(){var a;return this.element=window.document.documentElement,"interactive"===(a=document.readyState)||"complete"===a?this.start():this.util().addEvent(document,"DOMContentLoaded",this.start),this.finished=[]},e.prototype.start=function(){var b,c,d,e;if(this.stopped=!1,this.boxes=function(){var a,c,d,e;for(d=this.element.querySelectorAll("."+this.config.boxClass),e=[],a=0,c=d.length;c>a;a++)b=d[a],e.push(b);return e}.call(this),this.all=function(){var a,c,d,e;for(d=this.boxes,e=[],a=0,c=d.length;c>a;a++)b=d[a],e.push(b);return e}.call(this),this.boxes.length)if(this.disabled())this.resetStyle();else for(e=this.boxes,c=0,d=e.length;d>c;c++)b=e[c],this.applyStyle(b,!0);return this.disabled()||(this.util().addEvent(this.config.scrollContainer||window,"scroll",this.scrollHandler),this.util().addEvent(window,"resize",this.scrollHandler),this.interval=setInterval(this.scrollCallback,50)),this.config.live?new a(function(a){return function(b){var c,d,e,f,g;for(g=[],c=0,d=b.length;d>c;c++)f=b[c],g.push(function(){var a,b,c,d;for(c=f.addedNodes||[],d=[],a=0,b=c.length;b>a;a++)e=c[a],d.push(this.doSync(e));return d}.call(a));return g}}(this)).observe(document.body,{childList:!0,subtree:!0}):void 0},e.prototype.stop=function(){return this.stopped=!0,this.util().removeEvent(this.config.scrollContainer||window,"scroll",this.scrollHandler),this.util().removeEvent(window,"resize",this.scrollHandler),null!=this.interval?clearInterval(this.interval):void 0},e.prototype.sync=function(){return a.notSupported?this.doSync(this.element):void 0},e.prototype.doSync=function(a){var b,c,d,e,f;if(null==a&&(a=this.element),1===a.nodeType){for(a=a.parentNode||a,e=a.querySelectorAll("."+this.config.boxClass),f=[],c=0,d=e.length;d>c;c++)b=e[c],g.call(this.all,b)<0?(this.boxes.push(b),this.all.push(b),this.stopped||this.disabled()?this.resetStyle():this.applyStyle(b,!0),f.push(this.scrolled=!0)):f.push(void 0);return f}},e.prototype.show=function(a){return this.applyStyle(a),a.className=a.className+" "+this.config.animateClass,null!=this.config.callback&&this.config.callback(a),this.util().emitEvent(a,this.wowEvent),this.util().addEvent(a,"animationend",this.resetAnimation),this.util().addEvent(a,"oanimationend",this.resetAnimation),this.util().addEvent(a,"webkitAnimationEnd",this.resetAnimation),this.util().addEvent(a,"MSAnimationEnd",this.resetAnimation),a},e.prototype.applyStyle=function(a,b){var c,d,e;return d=a.getAttribute("data-wow-duration"),c=a.getAttribute("data-wow-delay"),e=a.getAttribute("data-wow-iteration"),this.animate(function(f){return function(){return f.customStyle(a,b,d,c,e)}}(this))},e.prototype.animate=function(){return"requestAnimationFrame"in window?function(a){return window.requestAnimationFrame(a)}:function(a){return a()}}(),e.prototype.resetStyle=function(){var a,b,c,d,e;for(d=this.boxes,e=[],b=0,c=d.length;c>b;b++)a=d[b],e.push(a.style.visibility="visible");return e},e.prototype.resetAnimation=function(a){var b;return a.type.toLowerCase().indexOf("animationend")>=0?(b=a.target||a.srcElement,b.className=b.className.replace(this.config.animateClass,"").trim()):void 0},e.prototype.customStyle=function(a,b,c,d,e){return b&&this.cacheAnimationName(a),a.style.visibility=b?"hidden":"visible",c&&this.vendorSet(a.style,{animationDuration:c}),d&&this.vendorSet(a.style,{animationDelay:d}),e&&this.vendorSet(a.style,{animationIterationCount:e}),this.vendorSet(a.style,{animationName:b?"none":this.cachedAnimationName(a)}),a},e.prototype.vendors=["moz","webkit"],e.prototype.vendorSet=function(a,b){var c,d,e,f;d=[];for(c in b)e=b[c],a[""+c]=e,d.push(function(){var b,d,g,h;for(g=this.vendors,h=[],b=0,d=g.length;d>b;b++)f=g[b],h.push(a[""+f+c.charAt(0).toUpperCase()+c.substr(1)]=e);return h}.call(this));return d},e.prototype.vendorCSS=function(a,b){var c,e,f,g,h,i;for(h=d(a),g=h.getPropertyCSSValue(b),f=this.vendors,c=0,e=f.length;e>c;c++)i=f[c],g=g||h.getPropertyCSSValue("-"+i+"-"+b);return g},e.prototype.animationName=function(a){var b;try{b=this.vendorCSS(a,"animation-name").cssText}catch(c){b=d(a).getPropertyValue("animation-name")}return"none"===b?"":b},e.prototype.cacheAnimationName=function(a){return this.animationNameCache.set(a,this.animationName(a))},e.prototype.cachedAnimationName=function(a){return this.animationNameCache.get(a)},e.prototype.scrollHandler=function(){return this.scrolled=!0},e.prototype.scrollCallback=function(){var a;return!this.scrolled||(this.scrolled=!1,this.boxes=function(){var b,c,d,e;for(d=this.boxes,e=[],b=0,c=d.length;c>b;b++)a=d[b],a&&(this.isVisible(a)?this.show(a):e.push(a));return e}.call(this),this.boxes.length||this.config.live)?void 0:this.stop()},e.prototype.offsetTop=function(a){for(var b;void 0===a.offsetTop;)a=a.parentNode;for(b=a.offsetTop;a=a.offsetParent;)b+=a.offsetTop;return b},e.prototype.isVisible=function(a){var b,c,d,e,f;return c=a.getAttribute("data-wow-offset")||this.config.offset,f=this.config.scrollContainer&&this.config.scrollContainer.scrollTop||window.pageYOffset,e=f+Math.min(this.element.clientHeight,this.util().innerHeight())-c,d=this.offsetTop(a),b=d+a.clientHeight,e>=d&&b>=f},e.prototype.util=function(){return null!=this._util?this._util:this._util=new b},e.prototype.disabled=function(){return!this.config.mobile&&this.util().isMobile(navigator.userAgent)},e}()}).call(this);
 
 $(document).foundation();
 
-
-/*! WOW - v1.1.2 - 2015-08-19
-* Copyright (c) 2015 Matthieu Aussaguel; Licensed MIT */(function(){var a,b,c,d,e,f=function(a,b){return function(){return a.apply(b,arguments)}},g=[].indexOf||function(a){for(var b=0,c=this.length;c>b;b++)if(b in this&&this[b]===a)return b;return-1};b=function(){function a(){}return a.prototype.extend=function(a,b){var c,d;for(c in b)d=b[c],null==a[c]&&(a[c]=d);return a},a.prototype.isMobile=function(a){return/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(a)},a.prototype.createEvent=function(a,b,c,d){var e;return null==b&&(b=!1),null==c&&(c=!1),null==d&&(d=null),null!=document.createEvent?(e=document.createEvent("CustomEvent"),e.initCustomEvent(a,b,c,d)):null!=document.createEventObject?(e=document.createEventObject(),e.eventType=a):e.eventName=a,e},a.prototype.emitEvent=function(a,b){return null!=a.dispatchEvent?a.dispatchEvent(b):b in(null!=a)?a[b]():"on"+b in(null!=a)?a["on"+b]():void 0},a.prototype.addEvent=function(a,b,c){return null!=a.addEventListener?a.addEventListener(b,c,!1):null!=a.attachEvent?a.attachEvent("on"+b,c):a[b]=c},a.prototype.removeEvent=function(a,b,c){return null!=a.removeEventListener?a.removeEventListener(b,c,!1):null!=a.detachEvent?a.detachEvent("on"+b,c):delete a[b]},a.prototype.innerHeight=function(){return"innerHeight"in window?window.innerHeight:document.documentElement.clientHeight},a}(),c=this.WeakMap||this.MozWeakMap||(c=function(){function a(){this.keys=[],this.values=[]}return a.prototype.get=function(a){var b,c,d,e,f;for(f=this.keys,b=d=0,e=f.length;e>d;b=++d)if(c=f[b],c===a)return this.values[b]},a.prototype.set=function(a,b){var c,d,e,f,g;for(g=this.keys,c=e=0,f=g.length;f>e;c=++e)if(d=g[c],d===a)return void(this.values[c]=b);return this.keys.push(a),this.values.push(b)},a}()),a=this.MutationObserver||this.WebkitMutationObserver||this.MozMutationObserver||(a=function(){function a(){"undefined"!=typeof console&&null!==console&&console.warn("MutationObserver is not supported by your browser."),"undefined"!=typeof console&&null!==console&&console.warn("WOW.js cannot detect dom mutations, please call .sync() after loading new content.")}return a.notSupported=!0,a.prototype.observe=function(){},a}()),d=this.getComputedStyle||function(a){return this.getPropertyValue=function(b){var c;return"float"===b&&(b="styleFloat"),e.test(b)&&b.replace(e,function(a,b){return b.toUpperCase()}),(null!=(c=a.currentStyle)?c[b]:void 0)||null},this},e=/(\-([a-z]){1})/g,this.WOW=function(){function e(a){null==a&&(a={}),this.scrollCallback=f(this.scrollCallback,this),this.scrollHandler=f(this.scrollHandler,this),this.resetAnimation=f(this.resetAnimation,this),this.start=f(this.start,this),this.scrolled=!0,this.config=this.util().extend(a,this.defaults),null!=a.scrollContainer&&(this.config.scrollContainer=document.querySelector(a.scrollContainer)),this.animationNameCache=new c,this.wowEvent=this.util().createEvent(this.config.boxClass)}return e.prototype.defaults={boxClass:"wow",animateClass:"animated",offset:0,mobile:!0,live:!0,callback:null,scrollContainer:null},e.prototype.init=function(){var a;return this.element=window.document.documentElement,"interactive"===(a=document.readyState)||"complete"===a?this.start():this.util().addEvent(document,"DOMContentLoaded",this.start),this.finished=[]},e.prototype.start=function(){var b,c,d,e;if(this.stopped=!1,this.boxes=function(){var a,c,d,e;for(d=this.element.querySelectorAll("."+this.config.boxClass),e=[],a=0,c=d.length;c>a;a++)b=d[a],e.push(b);return e}.call(this),this.all=function(){var a,c,d,e;for(d=this.boxes,e=[],a=0,c=d.length;c>a;a++)b=d[a],e.push(b);return e}.call(this),this.boxes.length)if(this.disabled())this.resetStyle();else for(e=this.boxes,c=0,d=e.length;d>c;c++)b=e[c],this.applyStyle(b,!0);return this.disabled()||(this.util().addEvent(this.config.scrollContainer||window,"scroll",this.scrollHandler),this.util().addEvent(window,"resize",this.scrollHandler),this.interval=setInterval(this.scrollCallback,50)),this.config.live?new a(function(a){return function(b){var c,d,e,f,g;for(g=[],c=0,d=b.length;d>c;c++)f=b[c],g.push(function(){var a,b,c,d;for(c=f.addedNodes||[],d=[],a=0,b=c.length;b>a;a++)e=c[a],d.push(this.doSync(e));return d}.call(a));return g}}(this)).observe(document.body,{childList:!0,subtree:!0}):void 0},e.prototype.stop=function(){return this.stopped=!0,this.util().removeEvent(this.config.scrollContainer||window,"scroll",this.scrollHandler),this.util().removeEvent(window,"resize",this.scrollHandler),null!=this.interval?clearInterval(this.interval):void 0},e.prototype.sync=function(){return a.notSupported?this.doSync(this.element):void 0},e.prototype.doSync=function(a){var b,c,d,e,f;if(null==a&&(a=this.element),1===a.nodeType){for(a=a.parentNode||a,e=a.querySelectorAll("."+this.config.boxClass),f=[],c=0,d=e.length;d>c;c++)b=e[c],g.call(this.all,b)<0?(this.boxes.push(b),this.all.push(b),this.stopped||this.disabled()?this.resetStyle():this.applyStyle(b,!0),f.push(this.scrolled=!0)):f.push(void 0);return f}},e.prototype.show=function(a){return this.applyStyle(a),a.className=a.className+" "+this.config.animateClass,null!=this.config.callback&&this.config.callback(a),this.util().emitEvent(a,this.wowEvent),this.util().addEvent(a,"animationend",this.resetAnimation),this.util().addEvent(a,"oanimationend",this.resetAnimation),this.util().addEvent(a,"webkitAnimationEnd",this.resetAnimation),this.util().addEvent(a,"MSAnimationEnd",this.resetAnimation),a},e.prototype.applyStyle=function(a,b){var c,d,e;return d=a.getAttribute("data-wow-duration"),c=a.getAttribute("data-wow-delay"),e=a.getAttribute("data-wow-iteration"),this.animate(function(f){return function(){return f.customStyle(a,b,d,c,e)}}(this))},e.prototype.animate=function(){return"requestAnimationFrame"in window?function(a){return window.requestAnimationFrame(a)}:function(a){return a()}}(),e.prototype.resetStyle=function(){var a,b,c,d,e;for(d=this.boxes,e=[],b=0,c=d.length;c>b;b++)a=d[b],e.push(a.style.visibility="visible");return e},e.prototype.resetAnimation=function(a){var b;return a.type.toLowerCase().indexOf("animationend")>=0?(b=a.target||a.srcElement,b.className=b.className.replace(this.config.animateClass,"").trim()):void 0},e.prototype.customStyle=function(a,b,c,d,e){return b&&this.cacheAnimationName(a),a.style.visibility=b?"hidden":"visible",c&&this.vendorSet(a.style,{animationDuration:c}),d&&this.vendorSet(a.style,{animationDelay:d}),e&&this.vendorSet(a.style,{animationIterationCount:e}),this.vendorSet(a.style,{animationName:b?"none":this.cachedAnimationName(a)}),a},e.prototype.vendors=["moz","webkit"],e.prototype.vendorSet=function(a,b){var c,d,e,f;d=[];for(c in b)e=b[c],a[""+c]=e,d.push(function(){var b,d,g,h;for(g=this.vendors,h=[],b=0,d=g.length;d>b;b++)f=g[b],h.push(a[""+f+c.charAt(0).toUpperCase()+c.substr(1)]=e);return h}.call(this));return d},e.prototype.vendorCSS=function(a,b){var c,e,f,g,h,i;for(h=d(a),g=h.getPropertyCSSValue(b),f=this.vendors,c=0,e=f.length;e>c;c++)i=f[c],g=g||h.getPropertyCSSValue("-"+i+"-"+b);return g},e.prototype.animationName=function(a){var b;try{b=this.vendorCSS(a,"animation-name").cssText}catch(c){b=d(a).getPropertyValue("animation-name")}return"none"===b?"":b},e.prototype.cacheAnimationName=function(a){return this.animationNameCache.set(a,this.animationName(a))},e.prototype.cachedAnimationName=function(a){return this.animationNameCache.get(a)},e.prototype.scrollHandler=function(){return this.scrolled=!0},e.prototype.scrollCallback=function(){var a;return!this.scrolled||(this.scrolled=!1,this.boxes=function(){var b,c,d,e;for(d=this.boxes,e=[],b=0,c=d.length;c>b;b++)a=d[b],a&&(this.isVisible(a)?this.show(a):e.push(a));return e}.call(this),this.boxes.length||this.config.live)?void 0:this.stop()},e.prototype.offsetTop=function(a){for(var b;void 0===a.offsetTop;)a=a.parentNode;for(b=a.offsetTop;a=a.offsetParent;)b+=a.offsetTop;return b},e.prototype.isVisible=function(a){var b,c,d,e,f;return c=a.getAttribute("data-wow-offset")||this.config.offset,f=this.config.scrollContainer&&this.config.scrollContainer.scrollTop||window.pageYOffset,e=f+Math.min(this.element.clientHeight,this.util().innerHeight())-c,d=this.offsetTop(a),b=d+a.clientHeight,e>=d&&b>=f},e.prototype.util=function(){return null!=this._util?this._util:this._util=new b},e.prototype.disabled=function(){return!this.config.mobile&&this.util().isMobile(navigator.userAgent)},e}()}).call(this);
 
