@@ -4155,18 +4155,23 @@ blockquote {
 .investments {
   position: relative; }
 
+/*
 .investments .company {
-  float: left;
-  width: 100%;
-  padding: 2rem;
-  box-shadow: 1px 1px 0 0 #666; }
-  @media screen and (min-width: 28.75em) {
-    .investments .company {
-      width: 50%; } }
-  @media screen and (min-width: 47.9375em) {
-    .investments .company {
-      width: 33.333%; } }
+    float: left;
+    width: 100%;
+    padding: 2rem;
+	box-shadow: 1px 1px 0 0 #666;
 
+	@include breakpoint(medium) {
+	    width: 50%;
+	}
+
+	@include breakpoint(large) {
+	    width: 33.333%;
+	}
+
+}
+*/
 .border-override {
   position: absolute;
   top: -1px;
@@ -4470,17 +4475,56 @@ blockquote {
 .child-categories a {
   display: inline-block; }
 
-.parent-categories span.selected,
-.child-categories span.selected,
-.parent-categories a.selected,
-.child-categories a.selected,
+.parent-categories span.active,
+.child-categories span.active,
+.parent-categories a.active,
+.child-categories a.active,
 .parent-categories a:hover,
 .child-categories a:hover {
   color: #141f25; }
 
 .child-categories a:hover {
-  color: #141f25;
-  text-decoration: underline; }
+  color: #141f25; }
+
+/* grid image width for different screen sizes 
+------------------------------------------------------------------------ */
+.company {
+  float: left;
+  margin: 0;
+  font-size: 0;
+  line-height: 0;
+  cursor: pointer;
+  width: 100%; }
+  @media screen and (min-width: 28.75em) {
+    .company {
+      width: 50%; } }
+  @media screen and (min-width: 47.9375em) {
+    .company {
+      width: 33.333333%; } }
+  @media screen and (min-width: 75em) {
+    .company {
+      width: 25%; } }
+
+.child-list .company a {
+  padding: 1rem;
+  display: block;
+  margin-bottom: 0; }
+
+/* temporary for development 
+------------------------------------------------------------------------ */
+.child-list .company a {
+  position: relative; }
+
+.child-list .company-filter-placeholder {
+  position: absolute;
+  width: auto;
+  text-align: center;
+  left: 1rem;
+  top: 1rem;
+  right: 1rem;
+  bottom: 1rem;
+  color: #fff;
+  padding: 1rem; }
 
 /* |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
   
@@ -4532,125 +4576,6 @@ blockquote {
   color: #fff;
 }
 */
-/* |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
-  
-   GRID VIEW FOR TEAM AND INVESTMENTS 
-   
-|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| */
-/* grid image width for different screen sizes 
------------------------------------------------------------------------- */
-.grid-item {
-  float: left;
-  margin: 0;
-  font-size: 0;
-  line-height: 0;
-  cursor: pointer;
-  width: 100%; }
-  @media screen and (min-width: 28.75em) {
-    .grid-item {
-      width: 50%; } }
-  @media screen and (min-width: 47.9375em) {
-    .grid-item {
-      width: 33.333333%; } }
-  @media screen and (min-width: 75em) {
-    .grid-item {
-      width: 25%; } }
-
-.show-hide-grid .grid-item a {
-  padding: 1rem;
-  display: block;
-  margin-bottom: 0; }
-
-/* details panel that expands under the image row 
------------------------------------------------------------------------- */
-.show-hide-grid .show-hide-panel-wrap {
-  padding-left: 0.9375rem;
-  padding-right: 0.9375rem;
-  margin-top: 0.5rem; }
-
-/* details panel pointer triangle base
------------------------------------------------------------------------- */
-.show-hide-grid .show-hide-panel:before {
-  border-left: 1.5rem solid transparent;
-  border-right: 1.5rem solid transparent;
-  border-bottom: 1.5rem solid #f00;
-  content: "";
-  display: block;
-  height: 0;
-  margin: 0 0 0 -1.5rem;
-  position: absolute;
-  text-align: center;
-  top: -1.5rem;
-  width: 0;
-  z-index: 1; }
-
-/* details panel pointer triangle screen sizes and position 
------------------------------------------------------------------------- */
-.show-hide-grid .show-hide-panel.large-position-1:before {
-  left: 11.25%; }
-
-.show-hide-grid .show-hide-panel.large-position-2:before {
-  left: 37.1%; }
-
-.show-hide-grid .show-hide-panel.large-position-3:before {
-  left: 62.9%; }
-
-.show-hide-grid .show-hide-panel.large-position-4:before {
-  left: 88.75%; }
-
-.show-hide-grid .show-hide-panel.medium-position-1:before {
-  left: 15.25%; }
-
-.show-hide-grid .show-hide-panel.medium-position-2:before {
-  left: 50.0%; }
-
-.show-hide-grid .show-hide-panel.medium-position-3:before {
-  left: 84.5%; }
-
-.show-hide-grid .show-hide-panel.small-position-1:before {
-  left: 23.5%; }
-
-.show-hide-grid .show-hide-panel.small-position-2:before {
-  left: 76.5%; }
-
-.show-hide-grid .show-hide-panel.xsmall-position-1:before {
-  left: 50%; }
-
-/* details panel close button 
------------------------------------------------------------------------- */
-.grid-details-close {
-  position: absolute;
-  top: 0;
-  right: 1.9rem;
-  width: 50px;
-  height: 50px;
-  display: inline-block;
-  background-color: #fcc;
-  cursor: pointer;
-  z-index: 1000; }
-
-.grid-details-close.hidden {
-  display: none; }
-
-.grid-details-close:hover {
-  opacity: 0.5; }
-
-/* temporary for development 
------------------------------------------------------------------------- */
-.show-hide-grid .grid-item a {
-  position: relative; }
-
-.show-hide-grid .grid-filter-placeholder {
-  position: absolute;
-  width: auto;
-  text-align: center;
-  left: 1rem;
-  top: 1rem;
-  right: 1rem;
-  bottom: 1rem;
-  color: #999;
-  padding: 1rem; }
-
 /* |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
   
    IMAGES 

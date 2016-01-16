@@ -44,10 +44,10 @@
 	display: inline-block;
 }
 
-.parent-categories span.selected,
-.child-categories span.selected,
-.parent-categories a.selected,
-.child-categories a.selected,
+.parent-categories span.active,
+.child-categories span.active,
+.parent-categories a.active,
+.child-categories a.active,
 .parent-categories a:hover,
 .child-categories a:hover {
 	color: $dark-gray;
@@ -55,9 +55,65 @@
 
 .child-categories a:hover {
 	color: $dark-gray;
-	text-decoration: underline;
 }
 
+
+
+
+
+
+/* grid image width for different screen sizes 
+------------------------------------------------------------------------ */
+
+.company {
+	float: left;
+	margin: 0;
+	font-size: 0;
+	line-height: 0;
+    cursor: pointer;
+	width: 100%;
+
+	@include breakpoint(medium) {
+		width: 50%;
+	}
+	@include breakpoint(large) {
+		width: 33.333333%;
+	}
+	@include breakpoint(xlarge) {
+		width: 25%;
+	}
+	
+}
+
+
+.child-list .company a {
+	padding: 1rem;
+	display: block;
+	margin-bottom: 0;
+}
+
+
+
+
+
+/* temporary for development 
+------------------------------------------------------------------------ */
+
+.child-list .company a {
+	position: relative;
+}
+
+.child-list .company-filter-placeholder {
+	position: absolute;
+	width: auto;
+	text-align: center;
+	left: 1rem;
+	top: 1rem;
+	right: 1rem;
+	bottom: 1rem;
+	color:#fff;
+	padding: 1rem;
+}
 
 
 
