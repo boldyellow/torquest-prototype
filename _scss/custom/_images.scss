@@ -59,17 +59,17 @@ figcaption a.btn-play {
 	background-position: 50% 50%;
 
 	@include breakpoint(medium) {
-		height: 8vw;
-		width: 8vw;
-		background-size: 8vw 8vw;
-		margin: 6vh auto 0 auto;
+		height: 6vw;
+		width: 6vw;
+		background-size: 6vw 6vw;
+		margin: 3vh auto 0 auto;
 	}
 
-	@include breakpoint(large) {
+	@include breakpoint(xlarge) {
 		height: 4rem;
 		width: 4rem;
 		background-size: 4rem 4rem;
-		margin: 7rem auto 0 auto;
+		margin: 4vh auto 0 auto;
 	}
 
 }

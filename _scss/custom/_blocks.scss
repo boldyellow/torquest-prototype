@@ -157,13 +157,6 @@
 
 
 
-// skew div wrap 
-
-.block-skew-wrap {
-	padding: 0;
-	z-index: 1000;
-}
-
 
 // single story entry 
 
@@ -231,6 +224,18 @@
 }
 
 
+.block-team-bio-header .medium-7 {
+	background-color: $dark-gray;
+	padding-bottom: 1rem;
+	
+	@include breakpoint(medium) {
+		background-color: transparent;
+		padding-bottom: 0;
+	}
+	
+}
+
+
 
 
 
@@ -242,4 +247,12 @@
 	background-color: $warm-gray-5;
 	padding-top: 3rem;
 	padding-bottom: 3rem;
+}
+
+
+
+
+.block-news-highlights h5,
+.block-news-head h5 {
+	margin-bottom: 2rem;
 }

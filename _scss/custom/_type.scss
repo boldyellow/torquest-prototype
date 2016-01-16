@@ -5,9 +5,11 @@
 |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| */
 
 
+// heads
+
 h1 {
     font-family: "adobe-caslon-pro",serif;
-    font-size: 2rem;
+	font-size: rem-calc(32);
     
 	@include breakpoint(medium) {
    		font-size: 8vw;
@@ -16,7 +18,7 @@ h1 {
    		font-size: 7vw;
 	}
 	@include breakpoint(xlarge) {
-		font-size: 5rem;
+		font-size: rem-calc(80);
 	}
 }
 
@@ -35,72 +37,141 @@ h2 {
 	}
 }
 
+h3 {
+	font-family: "adobe-caslon-pro",serif;
+	font-size: rem-calc(24);
+	line-height: 1.2;
+   
+	@include breakpoint(medium) {
+		font-size: 5vw;
+	}
+	@include breakpoint(large) {
+		font-size: 4.5vw;
+	}
+	@include breakpoint(xlarge) {
+		font-size: rem-calc(60);
+	}
+}
+
 h4 {
 	font-family: "proxima-nova",sans-serif;
-	font-size: 1.25rem;
+	font-size: rem-calc(18);
 	color: $warm-gray-2;
 	text-transform: uppercase;
 	letter-spacing: 0.1rem;
 	
 	@include breakpoint(medium) {
-		font-size: 1.5rem;
+		font-size: 3.5vw;
 	}
 	@include breakpoint(large) {
-		font-size: 1.75rem;
+		font-size: 3vw;
 	}
 	
+}
+
+h5 {
+	font-size: rem-calc(15);
+	text-transform: uppercase;
+	letter-spacing: 0.1rem;
+	margin-top: rem-calc(24);
+	color: $warm-gray-2;
+	
+	@include breakpoint(medium) {
+		font-size: rem-calc(16);
+	}
+	@include breakpoint(large) {
+		font-size: rem-calc(19);
+	}
+	
+}
+
+// paragraph
+
+p {
+	
+	font-size: rem-calc(15);
+
+	@include breakpoint(medium) {
+		font-size: rem-calc(16);
+	}
+	@include breakpoint(xlarge) {
+		font-size: rem-calc(19);
+	}
+	
+}
+
+.larger-text p {
+
+	font-size: rem-calc(15);
+
+	@include breakpoint(medium) {
+		font-size: rem-calc(19);
+	}
+	@include breakpoint(large) {
+		font-size: rem-calc(22);
+	}
+	@include breakpoint(xlarge) {
+		font-size: rem-calc(25);
+	}
+	
+}
+
+// paragraph links
+
+p a {
+	color: $warm-gray-1;
+}
+
+p a:hover {
+	color: #000;
+}
+
+
+
+/* heads with bottom border
+------------------------------------------------------------------------ */
+
+h3 span {
+	display: inline-block;
+	margin-bottom: 0.5rem;
+	padding-bottom: 0.3rem;
+	border-bottom: 1px solid $warm-gray-2;
+
+	@include breakpoint(medium) {
+		font-size: 4vw;
+	}
+	@include breakpoint(xlarge) {
+		font-size: rem-calc(50);
+	}
 }
 
 h4 span {
 	display: inline-block;
 	padding-bottom: 0.5rem;
 	border-bottom: 1px solid $warm-gray-2;
-	
+}
+
+h5 span {
+	display: inline-block;
+	margin-bottom: 0.5rem;
+	padding-bottom: 0.5rem;
+	border-bottom: 1px solid $warm-gray-2;
 }
 
 
-p {
-	
-	font-size: rem-calc(13);
 
-	@include breakpoint(medium) {
-		font-size: rem-calc(15);
-	}
-	@include breakpoint(large) {
-		font-size: rem-calc(18);
-	}
-	@include breakpoint(xlarge) {
-		font-size: rem-calc(21);
-	}
-	
-}
-
-p.intro {
-
-	font-size: rem-calc(16);
-
-	@include breakpoint(medium) {
-		font-size: rem-calc(21);
-	}
-	@include breakpoint(large) {
-		font-size: rem-calc(25);
-	}
-	@include breakpoint(xlarge) {
-		font-size: rem-calc(28);
-	}
-	
-}
-
+/* view more style links
+------------------------------------------------------------------------ */
 
 a.view-more {
 	display: inline-block;
-	margin-top: 2rem;
-	padding: 0.25rem 2rem 0 0;
+	margin-top: rem-calc(32);
+	padding: rem-calc(4) rem-calc(32) 0 0;
 	text-align: center;
 	color: #000;
 	opacity: 0.5;
 	border-top: 1px solid #151f25;
-	background-image: url('../img/arrow-view-more.svg');
+	background-image: url('../img/arrow-right-blk.svg');
 	background-repeat: no-repeat;
 	background-size: 21px 15px;
 	background-position: 100% 60%;
@@ -117,13 +188,73 @@ a.view-more:hover {
 
 
 
+/* specific page styles
+------------------------------------------------------------------------ */
 
-small {
-	display: block;
+// single entry story page
+
+.block-story-header h4 {
+	color: #fff;
 }
-
 
 blockquote {
+	font-family: "adobe-caslon-pro",serif;
 	font-style: italic;
-	font-size: 1.5rem;
+	font-size: rem-calc(16);
+	line-height: 1.25;
+	margin-top: 2rem;
+   
+	@include breakpoint(medium) {
+		font-size: 4.5vw;
+	}
+	@include breakpoint(large) {
+		font-size: 5vw;
+	}
+	@include breakpoint(xlarge) {
+		font-size: rem-calc(50);
+	}
+
 }
+
+// featured stories page 
+
+.region-featured-stories h2 {
+	text-transform: uppercase;
+	font-size: rem-calc(18);
+	letter-spacing: 0.1rem;
+	margin-top: 1rem;
+   
+	@include breakpoint(medium) {
+		font-size: 4.5vw;
+	}
+	@include breakpoint(large) {
+		font-size: 3.75vw;
+	}
+	@include breakpoint(xlarge) {
+		font-size: rem-calc(39);
+	}
+}
+
+// team bio page 
+
+.block-team-bio-header h2,
+.block-team-bio-header h4 {
+	color: #fff;
+	text-align: center;
+	margin-top: 1rem;
+	
+	@include breakpoint(medium) {
+		text-align: left;
+		margin-top: 0;
+	}
+	
+}
+
+.block-team-bio-text h5 {
+	margin-top: 0.5rem;
+}
+
+
+
+
+
