@@ -100,6 +100,7 @@ p {
 	
 }
 
+p.larger-text,
 .larger-text p {
 
 	font-size: rem-calc(15);
@@ -116,6 +117,10 @@ p {
 	
 }
 
+small {
+	font-size: rem-calc(15);
+}
+
 // paragraph links
 
 p a {
@@ -126,6 +131,28 @@ p a:hover {
 	color: #000;
 }
 
+
+/* well, just, because it was designed in indesign
+------------------------------------------------------------------------ */
+
+h2.small-caps {
+	text-transform: uppercase;
+	font-size: rem-calc(18);
+	letter-spacing: 0.1rem;
+	color: $dark-gray;
+   
+	@include breakpoint(medium) {
+		margin-top: 1rem;
+		color: #fff;
+		font-size: 4.5vw;
+	}
+	@include breakpoint(large) {
+		font-size: 4.25vw;
+	}
+	@include breakpoint(xlarge) {
+		font-size: rem-calc(45);
+	}
+}
 
 
 /* heads with bottom border
@@ -188,9 +215,13 @@ a.view-more {
 	background-repeat: no-repeat;
 	background-size: 21px 15px;
 	background-position: 100% 60%;
-	font-size: rem-calc(20);
+	font-size: rem-calc(16);
 	
 	@include breakpoint(medium) {
+		font-size: rem-calc(20);
+	}
+
+	@include breakpoint(large) {
 		font-size: rem-calc(24);
 	}
 }
@@ -229,25 +260,6 @@ blockquote {
 
 }
 
-// featured stories page 
-
-.region-featured-stories h2 {
-	text-transform: uppercase;
-	font-size: rem-calc(18);
-	letter-spacing: 0.1rem;
-	margin-top: 1rem;
-   
-	@include breakpoint(medium) {
-		font-size: 4.5vw;
-	}
-	@include breakpoint(large) {
-		font-size: 4.25vw;
-	}
-	@include breakpoint(xlarge) {
-		font-size: rem-calc(45);
-	}
-}
-
 // team bio page 
 
 .block-team-bio-header h2,
@@ -274,6 +286,37 @@ blockquote {
 	margin-top: 1.5rem;
 }
 
+// strategy page 
+
+.region-strategies h1 {
+	color: $dark-gray;
+	
+	@include breakpoint(medium) {
+		color: #fff;
+	}
+	
+}
+
+.region-strategies h2 {
+	margin-bottom: 2rem;	
+}
+
+.region-strategies p,
+.region-strategies li {
+	
+	font-size: rem-calc(15);
+
+	@include breakpoint(medium) {
+		font-size: rem-calc(19);
+	}
+	@include breakpoint(large) {
+		font-size: rem-calc(22);
+	}
+	@include breakpoint(xlarge) {
+		font-size: rem-calc(25);
+	}
+
+}
 
 
 

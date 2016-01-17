@@ -221,6 +221,24 @@
 
 
 
+// news page
+
+.search-field {
+	background-color: $light-green;
+	border: 1px solid $light-green;
+	box-shadow: none;
+}
+
+.search-arrow {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    background-color: $dark-gray;
+	background-image: url('../img/arrow-right-wht.svg');
+	background-repeat: no-repeat;
+	background-size: 21px 15px;
+	background-position: 50% 50%;
+}
+
 
 
 
