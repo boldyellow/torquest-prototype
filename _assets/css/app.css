@@ -3782,94 +3782,81 @@ body.is-reveal-open {
 |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| */
 h1 {
   font-family: "adobe-caslon-pro",serif;
-  font-size: 2rem; }
+  font-size: 5.5vmax; }
   @media screen and (min-width: 28.75em) {
     h1 {
-      font-size: 8vw; } }
-  @media screen and (min-width: 47.9375em) {
-    h1 {
-      font-size: 7vw; } }
+      font-size: 7.5vw; } }
   @media screen and (min-width: 75em) {
     h1 {
-      font-size: 5rem; } }
+      font-size: 11vmin; } }
 
 h2 {
   font-family: "adobe-caslon-pro",serif;
-  font-size: 1.6875rem; }
+  font-size: 4.76vmax; }
   @media screen and (min-width: 28.75em) {
     h2 {
-      font-size: 7vw; } }
-  @media screen and (min-width: 47.9375em) {
-    h2 {
-      font-size: 6vw; } }
+      font-size: 6.3vw; } }
   @media screen and (min-width: 75em) {
     h2 {
-      font-size: 4.375rem; } }
+      font-size: 9.53vmin; } }
 
 h3 {
   font-family: "adobe-caslon-pro",serif;
-  font-size: 1.5rem;
+  font-size: 4.03vmax;
   line-height: 1.2; }
   @media screen and (min-width: 28.75em) {
     h3 {
-      font-size: 5vw; } }
-  @media screen and (min-width: 47.9375em) {
-    h3 {
-      font-size: 4.5vw; } }
+      font-size: 5.3vw; } }
   @media screen and (min-width: 75em) {
     h3 {
-      font-size: 3.75rem; } }
+      font-size: 8.06vmin; } }
 
 h4 {
   font-family: "proxima-nova",sans-serif;
-  font-size: 1.125rem;
+  font-size: 3.3vmax;
   color: #8b8782;
   text-transform: uppercase;
   letter-spacing: 0.1rem; }
   @media screen and (min-width: 28.75em) {
     h4 {
-      font-size: 3vw; } }
-  @media screen and (min-width: 47.9375em) {
+      font-size: 4.3vw; } }
+  @media screen and (min-width: 75em) {
     h4 {
-      font-size: 2.5vw; } }
+      font-size: 6.6vmin; } }
 
 h5 {
-  font-size: 0.9375rem;
+  font-size: 3vmax;
   text-transform: uppercase;
   letter-spacing: 0.1rem;
   margin-top: 1.5rem;
   color: #8b8782; }
   @media screen and (min-width: 28.75em) {
     h5 {
-      font-size: 1rem; } }
-  @media screen and (min-width: 47.9375em) {
-    h5 {
-      font-size: 1.1875rem; } }
-
-p {
-  font-size: 0.9375rem; }
-  @media screen and (min-width: 28.75em) {
-    p {
-      font-size: 1rem; } }
+      font-size: 3.4vw; } }
   @media screen and (min-width: 75em) {
-    p {
-      font-size: 1.1875rem; } }
+    h5 {
+      font-size: 5.13vmin; } }
 
 p.larger-text,
 .larger-text p {
-  font-size: 0.9375rem; }
+  font-size: 2.9vmax; }
   @media screen and (min-width: 28.75em) {
     p.larger-text,
     .larger-text p {
-      font-size: 1.1875rem; } }
-  @media screen and (min-width: 47.9375em) {
-    p.larger-text,
-    .larger-text p {
-      font-size: 1.375rem; } }
+      font-size: 2.8vw; } }
   @media screen and (min-width: 75em) {
     p.larger-text,
     .larger-text p {
-      font-size: 1.5625rem; } }
+      font-size: 3.6vmin; } }
+
+p, li {
+  font-size: 2.5vmax; }
+  @media screen and (min-width: 28.75em) {
+    p, li {
+      font-size: 2.3vw; } }
+  @media screen and (min-width: 75em) {
+    p, li {
+      font-size: 3vmin; } }
 
 small {
   font-size: 0.9375rem; }
@@ -3880,8 +3867,6 @@ p a {
 p a:hover {
   color: #000; }
 
-/* well, just, because it was designed in indesign
------------------------------------------------------------------------- */
 h2.small-caps {
   text-transform: uppercase;
   font-size: 1.125rem;
@@ -3899,8 +3884,6 @@ h2.small-caps {
     h2.small-caps {
       font-size: 2.8125rem; } }
 
-/* heads with bottom border
------------------------------------------------------------------------- */
 h3 span {
   display: inline-block;
   margin-bottom: 0.5rem;
@@ -3924,21 +3907,15 @@ h5 span {
   padding-bottom: 0.5rem;
   border-bottom: 1px solid #8b8782; }
 
-/* other special head styles
------------------------------------------------------------------------- */
 .sidebar h5 {
   margin-top: 0.5rem; }
 
-/* reduce flash of unstyled text
------------------------------------------------------------------------- */
 .wf-loading h1 {
   visibility: hidden; }
 
 .wf-active h1 {
   visibility: visible; }
 
-/* links with right arrow
------------------------------------------------------------------------- */
 a.view-more {
   display: inline-block;
   margin-top: 2rem;
@@ -4602,6 +4579,73 @@ blockquote {
 
 /* |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
   
+   IMAGES 
+   
+|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| */
+figure {
+  position: relative;
+  margin: 0;
+  display: table;
+  table-layout: fixed;
+  width: 100%; }
+
+figcaption {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  display: block; }
+
+figcaption span {
+  position: relative;
+  display: inline-block;
+  z-index: 2;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+          transform: translateY(-50%); }
+
+figcaption span h1,
+figcaption span h2,
+figcaption span h3 {
+  color: #fff; }
+
+figcaption.tint {
+  background: rgba(50, 50, 50, 0.5); }
+
+figcaption a.btn-play {
+  display: block;
+  height: 2rem;
+  width: 2rem;
+  margin: 2vh auto 0 auto;
+  background-image: url("../img/btn-play.svg");
+  background-repeat: no-repeat;
+  background-size: 2rem 2rem;
+  background-position: 50% 50%; }
+  @media screen and (min-width: 28.75em) {
+    figcaption a.btn-play {
+      height: 6vw;
+      width: 6vw;
+      background-size: 6vw 6vw;
+      margin: 3vh auto 0 auto; } }
+  @media screen and (min-width: 75em) {
+    figcaption a.btn-play {
+      height: 4rem;
+      width: 4rem;
+      background-size: 4rem 4rem;
+      margin: 4vh auto 0 auto; } }
+
+figcaption a.btn-play:hover {
+  opacity: 0.75; }
+
+/* |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+  
    SPACING TWEAKS 
    
 |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| */
@@ -4763,73 +4807,6 @@ blockquote {
   color: #fff;
 }
 */
-/* |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
-  
-   IMAGES 
-   
-|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| */
-figure {
-  position: relative;
-  margin: 0;
-  display: table;
-  table-layout: fixed;
-  width: 100%; }
-
-figcaption {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  margin: 0;
-  padding: 0;
-  text-align: center;
-  display: block; }
-
-figcaption span {
-  position: relative;
-  display: inline-block;
-  z-index: 2;
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-      -ms-transform: translateY(-50%);
-          transform: translateY(-50%); }
-
-figcaption span h1,
-figcaption span h2,
-figcaption span h3 {
-  color: #fff; }
-
-figcaption.tint {
-  background: rgba(50, 50, 50, 0.5); }
-
-figcaption a.btn-play {
-  display: block;
-  height: 2rem;
-  width: 2rem;
-  margin: 2vh auto 0 auto;
-  background-image: url("../img/btn-play.svg");
-  background-repeat: no-repeat;
-  background-size: 2rem 2rem;
-  background-position: 50% 50%; }
-  @media screen and (min-width: 28.75em) {
-    figcaption a.btn-play {
-      height: 6vw;
-      width: 6vw;
-      background-size: 6vw 6vw;
-      margin: 3vh auto 0 auto; } }
-  @media screen and (min-width: 75em) {
-    figcaption a.btn-play {
-      height: 4rem;
-      width: 4rem;
-      background-size: 4rem 4rem;
-      margin: 4vh auto 0 auto; } }
-
-figcaption a.btn-play:hover {
-  opacity: 0.75; }
-
 /* |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
   
    MODAL 
