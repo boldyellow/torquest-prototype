@@ -3777,7 +3777,7 @@ body.is-reveal-open {
 
 /* |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
   
-   TYPOGRAPHY 
+   BASE TYPOGRAPHY 
    
 |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| */
 h1 {
@@ -3924,7 +3924,12 @@ h5 span {
   padding-bottom: 0.5rem;
   border-bottom: 1px solid #8b8782; }
 
-/* reduce fout
+/* other special head styles
+------------------------------------------------------------------------ */
+.sidebar h5 {
+  margin-top: 0.5rem; }
+
+/* reduce flash of unstyled text
 ------------------------------------------------------------------------ */
 .wf-loading h1 {
   visibility: hidden; }
@@ -3932,7 +3937,7 @@ h5 span {
 .wf-active h1 {
   visibility: visible; }
 
-/* view more style links
+/* links with right arrow
 ------------------------------------------------------------------------ */
 a.view-more {
   display: inline-block;
@@ -3956,69 +3961,6 @@ a.view-more {
 
 a.view-more:hover {
   opacity: 1; }
-
-/* specific page styles
------------------------------------------------------------------------- */
-.block-story-header h4 {
-  color: #fff; }
-
-blockquote {
-  font-family: "adobe-caslon-pro",serif;
-  font-style: italic;
-  font-size: 1rem;
-  line-height: 1.25;
-  margin-top: 2rem; }
-  @media screen and (min-width: 28.75em) {
-    blockquote {
-      font-size: 4.5vw; } }
-  @media screen and (min-width: 47.9375em) {
-    blockquote {
-      font-size: 5vw; } }
-  @media screen and (min-width: 75em) {
-    blockquote {
-      font-size: 3.125rem; } }
-
-.block-team-bio-header h2,
-.block-team-bio-header h4 {
-  color: #fff;
-  text-align: center;
-  margin-top: 1rem; }
-  @media screen and (min-width: 28.75em) {
-    .block-team-bio-header h2,
-    .block-team-bio-header h4 {
-      text-align: left;
-      margin-top: 0; } }
-
-.sidebar h5 {
-  margin-top: 0.5rem; }
-
-.child-list h4 {
-  margin-top: 1.5rem; }
-
-.region-strategies h1 {
-  color: #141f25; }
-  @media screen and (min-width: 28.75em) {
-    .region-strategies h1 {
-      color: #fff; } }
-
-.region-strategies h2 {
-  margin-bottom: 2rem; }
-
-.region-strategies p,
-.region-strategies li {
-  font-size: 0.9375rem; }
-  @media screen and (min-width: 28.75em) {
-    .region-strategies p,
-    .region-strategies li {
-      font-size: 1.1875rem; } }
-  @media screen and (min-width: 47.9375em) {
-    .region-strategies p,
-    .region-strategies li {
-      font-size: 1.375rem; } }
-  @media screen and (min-width: 75em) {
-    .region-strategies p,
-    .region-strategies li {
-      font-size: 1.5625rem; } }
 
 /* |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
   
@@ -4307,207 +4249,14 @@ blockquote {
 
 /* |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
   
-   HOME PAGE 
+   PAGE SPECIFIC STYLES 
    
 |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| */
-.desktop-video-wrap h1,
-.mobile-static-wrap h1 {
-  font-style: italic;
-  color: #fff; }
-
-.region-ideals h1 {
-  font-size: 2.75rem; }
-  @media screen and (min-width: 28.75em) {
-    .region-ideals h1 {
-      font-size: 10vw; } }
-
-/* AT A GLANCE 
+/* COMMON ELEMENTS
 ======================================================================== */
-/* vertical border treatment
------------------------------------------------------------------------- */
-@media screen and (min-width: 28.75em) {
-  .region-glance .glance-wrap .columns:nth-of-type(odd) {
-    box-shadow: 1px 0 0 0 #fff; } }
-
-@media screen and (min-width: 28.75em) {
-  .region-glance .glance-wrap .columns:nth-of-type(even) {
-    box-shadow: 1px 0 0 0 #fff inset; } }
-
-/* ..................................................................... */
-.region-glance {
-  border-top: 1px solid #c4c0bd; }
-
-.region-glance > .row {
-  padding: 9vw 0 3vw 0; }
-
-.region-glance .glance-wrap .row {
-  background-color: #141f25; }
-
-.region-glance .glance-wrap .row h2,
-.region-glance .glance-wrap .row h6 {
-  color: #fff; }
-
-.region-glance .glance-wrap .columns {
-  padding: 3.5rem 1rem 1.5rem 1rem;
-  border-bottom: 1px solid #3a454b; }
-  @media screen and (min-width: 28.75em) {
-    .region-glance .glance-wrap .columns {
-      padding: 11vw 5vw 9vw 5vw;
-      border-bottom: none; } }
-
-.region-glance .glance-wrap .row:nth-of-type(2) {
-  border-top: none; }
-  @media screen and (min-width: 28.75em) {
-    .region-glance .glance-wrap .row:nth-of-type(2) {
-      border-top: 1px solid #fff; } }
-
-/* head with shortened top/bot rule 
-........................................................................ */
-.region-glance .glance-wrap h2 {
-  position: relative;
-  margin-bottom: 4rem; }
-
-.region-glance .glance-wrap h2:after {
-  content: '';
-  position: absolute;
-  top: -1.25rem;
-  bottom: -0.75rem;
-  left: 40%;
-  border-bottom: 1px solid #fff;
-  border-top: 1px solid #fff;
-  right: 40%;
-  width: 20%; }
-  @media screen and (min-width: 28.75em) {
-    .region-glance .glance-wrap h2:after {
-      left: 30%;
-      right: 30%;
-      width: 40%; } }
-
-/* ..................................................................... */
-/* INVESTMENTS 
-======================================================================== */
-.investments {
-  position: relative; }
-
-/*
-.investments .company {
-    float: left;
-    width: 100%;
-    padding: 2rem;
-	box-shadow: 1px 1px 0 0 #666;
-
-	@include breakpoint(medium) {
-	    width: 50%;
-	}
-
-	@include breakpoint(large) {
-	    width: 33.333%;
-	}
-
-}
-*/
-.border-override {
-  position: absolute;
-  top: -1px;
-  bottom: -1px;
-  left: -1px;
-  right: -1px;
-  border: 2px solid #fff; }
-
-/* |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
-  
-   TEAM PAGE 
-   
-|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| */
-.region-team-headshots {
-  padding-bottom: 0; }
-  @media screen and (min-width: 28.75em) {
-    .region-team-headshots {
-      padding-bottom: 3rem; } }
-  @media screen and (min-width: 47.9375em) {
-    .region-team-headshots {
-      padding-bottom: 7rem; } }
-
-/*
-.region-team-headshots .row {
-	
-	padding-bottom: 3rem;
-
-	@include breakpoint(large) {
-	    padding-bottom: 7rem;
-	}
-	
-}
-*/
-.region-team-headshots a {
-  background-color: #141f25;
-  display: inline-block;
-  width: 100%; }
-
-.region-team-headshots a img {
-  opacity: 0.65; }
-
-.region-team-headshots a:hover {
-  background-color: white; }
-
-.region-team-headshots a img:hover {
-  opacity: 1; }
-
-.search-field {
-  background-color: #e6edee;
-  border: 1px solid #e6edee;
-  box-shadow: none; }
-
-.search-arrow {
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
-  background-color: #141f25;
-  background-image: url("../img/arrow-right-wht.svg");
-  background-repeat: no-repeat;
-  background-size: 21px 15px;
-  background-position: 50% 50%; }
-
-/* |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
-  
-   BLOCKS 
-   
-|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| */
 .block {
   position: relative; }
 
-/*
-.block-page-head {
-	position: relative;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	text-align: center;
-	box-sizing: border-box;
-    margin: 0;
-	width: 100%;
-	height: 65vh;
-	min-height: 0%;
-	z-index: 0;
-	text-decoration: none;
-}
-
-.text-containerx {
-	position: absolute;
-	top: 0;
-	left: 0;
-	height: 55vh;
-    margin: 0;
-	width: 100%;
-	z-index: 100;
-	color: #fff;
-}
-
-.valignx {
-    position: relative;
-    top: 50%;
-    transform: translateY(-50%);	
-}
-*/
 .block-skew {
   display: -webkit-box;
   display: -webkit-flex;
@@ -4624,6 +4373,178 @@ blockquote {
         -ms-flex-pack: center;
             justify-content: center; } }
 
+/* HOME PAGE 
+======================================================================== */
+.region-ideals h1 {
+  font-size: 2.75rem; }
+  @media screen and (min-width: 28.75em) {
+    .region-ideals h1 {
+      font-size: 10vw; } }
+
+.region-glance {
+  border-top: 1px solid #c4c0bd; }
+
+.region-glance > .row {
+  padding: 9vw 0 3vw 0; }
+
+.region-glance .glance-wrap .row {
+  background-color: #141f25; }
+
+.region-glance .glance-wrap .row:nth-of-type(2) {
+  border-top: none; }
+  @media screen and (min-width: 28.75em) {
+    .region-glance .glance-wrap .row:nth-of-type(2) {
+      border-top: 1px solid #fff; } }
+
+.region-glance .glance-wrap .row h2,
+.region-glance .glance-wrap .row h6 {
+  color: #fff; }
+
+.region-glance .glance-wrap .columns {
+  padding: 3.5rem 1rem 1.5rem 1rem;
+  border-bottom: 1px solid #3a454b; }
+  @media screen and (min-width: 28.75em) {
+    .region-glance .glance-wrap .columns {
+      padding: 11vw 5vw 9vw 5vw;
+      border-bottom: none; } }
+
+@media screen and (min-width: 28.75em) {
+  .region-glance .glance-wrap .columns:nth-of-type(odd) {
+    box-shadow: 1px 0 0 0 #fff; } }
+
+@media screen and (min-width: 28.75em) {
+  .region-glance .glance-wrap .columns:nth-of-type(even) {
+    box-shadow: 1px 0 0 0 #fff inset; } }
+
+.region-glance .glance-wrap h2 {
+  position: relative;
+  margin-bottom: 4rem; }
+
+.region-glance .glance-wrap h2:after {
+  content: '';
+  position: absolute;
+  top: -1.25rem;
+  bottom: -0.75rem;
+  left: 40%;
+  border-bottom: 1px solid #fff;
+  border-top: 1px solid #fff;
+  right: 40%;
+  width: 20%; }
+  @media screen and (min-width: 28.75em) {
+    .region-glance .glance-wrap h2:after {
+      left: 30%;
+      right: 30%;
+      width: 40%; } }
+
+.investments {
+  position: relative; }
+
+.border-override {
+  position: absolute;
+  top: -1px;
+  bottom: -1px;
+  left: -1px;
+  right: -1px;
+  border: 2px solid #fff; }
+
+/* TEAM: OVERVIEW PAGE 
+======================================================================== */
+.region-team-headshots {
+  padding-bottom: 0; }
+  @media screen and (min-width: 28.75em) {
+    .region-team-headshots {
+      padding-bottom: 3rem; } }
+  @media screen and (min-width: 47.9375em) {
+    .region-team-headshots {
+      padding-bottom: 7rem; } }
+
+.region-team-headshots a {
+  background-color: #141f25;
+  display: inline-block;
+  width: 100%; }
+
+.region-team-headshots a img {
+  opacity: 0.65; }
+
+.region-team-headshots a:hover {
+  background-color: white; }
+
+.region-team-headshots a img:hover {
+  opacity: 1; }
+
+/* TEAM: SINGLE ENTRY (BIO) PAGE 
+======================================================================== */
+.block-team-bio-header {
+  background-color: #588191; }
+
+.block-team-bio-header .medium-7 {
+  background-color: #141f25;
+  padding-bottom: 1rem; }
+  @media screen and (min-width: 28.75em) {
+    .block-team-bio-header .medium-7 {
+      background-color: transparent;
+      padding-bottom: 0; } }
+
+.block-team-bio-header h2,
+.block-team-bio-header h4 {
+  color: #fff;
+  text-align: center;
+  margin-top: 1rem; }
+  @media screen and (min-width: 28.75em) {
+    .block-team-bio-header h2,
+    .block-team-bio-header h4 {
+      text-align: left;
+      margin-top: 0; } }
+
+/* NEWS: OVERVIEW PAGE 
+======================================================================== */
+.search-field {
+  background-color: #e6edee;
+  border: 1px solid #e6edee;
+  box-shadow: none; }
+
+.search-arrow {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  background-color: #141f25;
+  background-image: url("../img/arrow-right-wht.svg");
+  background-repeat: no-repeat;
+  background-size: 21px 15px;
+  background-position: 50% 50%; }
+
+.block-news-highlights .row {
+  margin-bottom: 0.25rem;
+  background-color: #f5f5f6;
+  padding-top: 3rem;
+  padding-bottom: 3rem; }
+
+.block-news-highlights h5,
+.block-news-head h5 {
+  margin-bottom: 2rem; }
+
+/* STORIES: OVERVIEW PAGE 
+======================================================================== */
+/* STORIES: SINGLE ENTRY PAGE 
+======================================================================== */
+.block-story-header h4 {
+  color: #fff; }
+
+blockquote {
+  font-family: "adobe-caslon-pro",serif;
+  font-style: italic;
+  font-size: 1rem;
+  line-height: 1.25;
+  margin-top: 2rem; }
+  @media screen and (min-width: 28.75em) {
+    blockquote {
+      font-size: 4.5vw; } }
+  @media screen and (min-width: 47.9375em) {
+    blockquote {
+      font-size: 5vw; } }
+  @media screen and (min-width: 75em) {
+    blockquote {
+      font-size: 3.125rem; } }
+
 .block-story-images {
   background-color: #e6e4e3; }
 
@@ -4647,6 +4568,45 @@ blockquote {
       width: 80%;
       margin-left: 10%; } }
 
+/* INVESTMENTS PAGE 
+======================================================================== */
+.child-list h4 {
+  margin-top: 1.5rem; }
+
+/* STRATEGIES PAGE 
+======================================================================== */
+.region-strategies h1 {
+  color: #141f25; }
+  @media screen and (min-width: 28.75em) {
+    .region-strategies h1 {
+      color: #fff; } }
+
+.region-strategies h2 {
+  margin-bottom: 2rem; }
+
+.region-strategies p,
+.region-strategies li {
+  font-size: 0.9375rem; }
+  @media screen and (min-width: 28.75em) {
+    .region-strategies p,
+    .region-strategies li {
+      font-size: 1.1875rem; } }
+  @media screen and (min-width: 47.9375em) {
+    .region-strategies p,
+    .region-strategies li {
+      font-size: 1.375rem; } }
+  @media screen and (min-width: 75em) {
+    .region-strategies p,
+    .region-strategies li {
+      font-size: 1.5625rem; } }
+
+/* |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+  
+   SPACING TWEAKS 
+   
+|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| */
+/* PADDING 
+======================================================================== */
 .block-pad-sm {
   padding: 4vw 0; }
 
@@ -4664,27 +4624,6 @@ blockquote {
 
 .block-pad-lg-bot {
   padding-bottom: 12vw; }
-
-.block-team-bio-header {
-  background-color: #588191; }
-
-.block-team-bio-header .medium-7 {
-  background-color: #141f25;
-  padding-bottom: 1rem; }
-  @media screen and (min-width: 28.75em) {
-    .block-team-bio-header .medium-7 {
-      background-color: transparent;
-      padding-bottom: 0; } }
-
-.block-news-highlights .row {
-  margin-bottom: 0.25rem;
-  background-color: #f5f5f6;
-  padding-top: 3rem;
-  padding-bottom: 3rem; }
-
-.block-news-highlights h5,
-.block-news-head h5 {
-  margin-bottom: 2rem; }
 
 /* |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
   
@@ -4957,6 +4896,11 @@ figcaption a.btn-play:hover {
   @media screen and (min-width: 47.9375em) {
     .mobile-static-wrap {
       display: none; } }
+
+.desktop-video-wrap h1,
+.mobile-static-wrap h1 {
+  font-style: italic;
+  color: #fff; }
 
 .text-container {
   position: absolute;

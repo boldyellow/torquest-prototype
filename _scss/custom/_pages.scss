@@ -1,22 +1,126 @@
 /* |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
   
-   HOME PAGE 
+   PAGE SPECIFIC STYLES 
    
 |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| */
 
 
 
 
-.desktop-video-wrap h1,
-.mobile-static-wrap h1 {
-	font-style: italic;
+/* COMMON ELEMENTS
+======================================================================== */
+
+
+// basic block ..........................................................
+
+.block {
+	position: relative;
+}
+
+
+// skewed block with page head..........................................
+
+.block-skew {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	margin-bottom: 5rem;
 	color: #fff;
+	text-align: center;
+	padding-top: 3rem;
+	height: 60vh;
+
+	@include breakpoint(medium) {
+		padding-top: 4rem;
+		height: 50vh;
+	}
+
+	@include breakpoint(large) {
+		padding-top: 5rem;
+		height: 55vh;
+	}
+
+}
+
+.block-skew:after {
+	background: inherit;
+	bottom: 0;
+	content: '';
+	display: block;
+	height: 50%;
+	left: 0;
+	position: absolute;
+	right: 0;
+	transform: skewY(-5deg);
+	transform-origin: 100%;
+	z-index: -1;
+}
+
+.block-skew h1 {
+	color: #fff;
+}
+
+
+// block background colors..............................................
+
+.dark-gray {
+	background-color: $dark-gray;
+}
+
+.warm-gray-1 {
+	background-color: $warm-gray-1;
+}
+
+.warm-gray-2 {
+	background-color: $warm-gray-2;
+}
+
+.warm-gray-3 {
+	background-color: $warm-gray-3;
+}
+
+.warm-gray-4 {
+	background-color: $warm-gray-4;
+}
+
+.warm-gray-5 {
+	background-color: $warm-gray-5;
+}
+
+
+// flex box vertical center ............................................
+
+.vertical-center {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+
+	@include breakpoint(medium) {
+		flex-direction: row;
+	}
+
+}
+
+.vertical-center-row {
+	
+	@include breakpoint(medium) {
+	    display: flex;
+	    flex-direction: row;
+	    align-items: center;
+	    justify-content: center;
+	}
 }
 
 
 
 
-// home page ideals
+/* HOME PAGE 
+======================================================================== */
+
+
+// ideals ..............................................................
 
 .region-ideals h1 {
 	
@@ -28,36 +132,7 @@
 }
 
 
-
-/* AT A GLANCE 
-======================================================================== */
-
-
-
-/* vertical border treatment
------------------------------------------------------------------------- */
-
-// using box shadow so we can overlap 1px borders
-// doing even left and odd right in case one is deeper than the other
-// heads stay aligned and not jump with vertical center
-
-.region-glance .glance-wrap .columns:nth-of-type(odd) {	
-
-	@include breakpoint(medium) {
-		box-shadow: 1px 0 0 0 #fff;
-	}	    
-}
-
-.region-glance .glance-wrap .columns:nth-of-type(even) {
-		
-	@include breakpoint(medium) {
-		box-shadow: 1px 0 0 0 #fff inset;
-	}
-}
-
-/* ..................................................................... */
-
-
+// at a glance .........................................................
 
 .region-glance {
 	border-top: 1px solid $warm-gray-3;
@@ -69,6 +144,17 @@
 
 .region-glance .glance-wrap .row {
 	background-color: $dark-gray;
+}
+
+// horizontal border
+
+.region-glance .glance-wrap .row:nth-of-type(2) {
+		
+	border-top: none;
+
+	@include breakpoint(medium) {
+		border-top: 1px solid #fff;
+	}
 }
 
 .region-glance .glance-wrap .row h2,
@@ -88,19 +174,26 @@
 
 }
 
-.region-glance .glance-wrap .row:nth-of-type(2) {
-		
-	border-top: none;
+// vertical borders:
+// using box shadow so we can overlap 1px borders
+// doing even left and odd right in case one is deeper than the other
+// heads stay aligned and don't jump with vertical center
+
+.region-glance .glance-wrap .columns:nth-of-type(odd) {	
 
 	@include breakpoint(medium) {
-		border-top: 1px solid #fff;
+		box-shadow: 1px 0 0 0 #fff;
+	}	    
+}
+
+.region-glance .glance-wrap .columns:nth-of-type(even) {
+		
+	@include breakpoint(medium) {
+		box-shadow: 1px 0 0 0 #fff inset;
 	}
 }
 
-
-
-/* head with shortened top/bot rule 
-........................................................................ */
+// the heads have shorter top/bot rules 
 
 .region-glance .glance-wrap h2 {
     position: relative;
@@ -125,34 +218,14 @@
 	}
 }
 
-/* ..................................................................... */
 
+// investments .........................................................
 
-
-/* INVESTMENTS 
-======================================================================== */
+// gotta redo this to click logo links
 
 .investments {
 	position: relative;
 }
-
-/*
-.investments .company {
-    float: left;
-    width: 100%;
-    padding: 2rem;
-	box-shadow: 1px 1px 0 0 #666;
-
-	@include breakpoint(medium) {
-	    width: 50%;
-	}
-
-	@include breakpoint(large) {
-	    width: 33.333%;
-	}
-
-}
-*/
 
 .border-override {
     position: absolute;
@@ -166,14 +239,11 @@
 
 
 
-
-/* |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
-  
-   TEAM PAGE 
-   
-|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| */
+/* TEAM: OVERVIEW PAGE 
+======================================================================== */
 
 
+// headshots ...........................................................
 
 .region-team-headshots{
 	
@@ -188,18 +258,6 @@
 	}
 	
 }
-
-/*
-.region-team-headshots .row {
-	
-	padding-bottom: 3rem;
-
-	@include breakpoint(large) {
-	    padding-bottom: 7rem;
-	}
-	
-}
-*/
 
 .region-team-headshots a {
     background-color: $dark-gray;
@@ -221,7 +279,48 @@
 
 
 
-// news page
+
+/* TEAM: SINGLE ENTRY (BIO) PAGE 
+======================================================================== */
+
+
+.block-team-bio-header {
+	background-color: $steel-blue;
+}
+
+
+.block-team-bio-header .medium-7 {
+	background-color: $dark-gray;
+	padding-bottom: 1rem;
+	
+	@include breakpoint(medium) {
+		background-color: transparent;
+		padding-bottom: 0;
+	}
+	
+}
+
+.block-team-bio-header h2,
+.block-team-bio-header h4 {
+	color: #fff;
+	text-align: center;
+	margin-top: 1rem;
+	
+	@include breakpoint(medium) {
+		text-align: left;
+		margin-top: 0;
+	}
+	
+}
+
+
+
+
+/* NEWS: OVERVIEW PAGE 
+======================================================================== */
+
+
+// search field ........................................................
 
 .search-field {
 	background-color: $light-green;
@@ -237,6 +336,149 @@
 	background-repeat: no-repeat;
 	background-size: 21px 15px;
 	background-position: 50% 50%;
+}
+
+
+// highlighted stories .................................................
+
+.block-news-highlights .row {
+	margin-bottom: 0.25rem;
+	background-color: $warm-gray-5;
+	padding-top: 3rem;
+	padding-bottom: 3rem;
+}
+
+
+.block-news-highlights h5,
+.block-news-head h5 {
+	margin-bottom: 2rem;
+}
+
+
+
+
+/* STORIES: OVERVIEW PAGE 
+======================================================================== */
+
+
+
+
+
+
+/* STORIES: SINGLE ENTRY PAGE 
+======================================================================== */
+
+
+// head in image .......................................................
+
+.block-story-header h4 {
+	color: #fff;
+}
+
+
+// quote ............................................................... 
+
+blockquote {
+	font-family: "adobe-caslon-pro",serif;
+	font-style: italic;
+	font-size: rem-calc(16);
+	line-height: 1.25;
+	margin-top: 2rem;
+   
+	@include breakpoint(medium) {
+		font-size: 4.5vw;
+	}
+	@include breakpoint(large) {
+		font-size: 5vw;
+	}
+	@include breakpoint(xlarge) {
+		font-size: rem-calc(50);
+	}
+
+}
+
+
+// logo and spot photo row .............................................
+
+.block-story-images {
+	background-color: $warm-gray-4;
+}
+
+.block-story-company-logo img {
+	padding: 3rem 0;
+	max-width: 50vw;
+	max-height: 50vw;
+	
+	@include breakpoint(medium) {
+		padding: 0;
+		max-width: 25vw;
+		max-height: 25vw;
+	}
+}
+
+
+// bodt text columns ...................................................
+
+// these are on a slightly different grid (of course!)
+// may be changed, we'll see, hahaha
+
+.block-story-text .left,
+.block-story-text .right {
+	width: 90%;
+	margin-left: 5%;
+	
+	@include breakpoint(large) {
+		width: 80%;
+		margin-left: 10%;
+	}
+}
+
+
+
+
+/* INVESTMENTS PAGE 
+======================================================================== */
+
+// header for each child category section ..............................
+
+.child-list h4 {
+	margin-top: 1.5rem;
+}
+
+
+
+
+/* STRATEGIES PAGE 
+======================================================================== */
+
+.region-strategies h1 {
+	color: $dark-gray;
+	
+	@include breakpoint(medium) {
+		color: #fff;
+	}
+	
+}
+
+.region-strategies h2 {
+	margin-bottom: 2rem;	
+}
+
+.region-strategies p,
+.region-strategies li {
+	
+	font-size: rem-calc(15);
+
+	@include breakpoint(medium) {
+		font-size: rem-calc(19);
+	}
+	@include breakpoint(large) {
+		font-size: rem-calc(22);
+	}
+	@include breakpoint(xlarge) {
+		font-size: rem-calc(25);
+	}
+
 }
 
 

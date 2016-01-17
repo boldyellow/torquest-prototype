@@ -1,6 +1,6 @@
 /* |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
   
-   TYPOGRAPHY 
+   BASE TYPOGRAPHY 
    
 |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| */
 
@@ -186,8 +186,15 @@ h5 span {
 }
 
 
+/* other special head styles
+------------------------------------------------------------------------ */
 
-/* reduce fout
+.sidebar h5 {
+	margin-top: 0.5rem;
+}
+
+
+/* reduce flash of unstyled text
 ------------------------------------------------------------------------ */
 
 .wf-loading h1 {
@@ -199,8 +206,7 @@ h5 span {
 }
 
 
-
-/* view more style links
+/* links with right arrow
 ------------------------------------------------------------------------ */
 
 a.view-more {
@@ -231,92 +237,6 @@ a.view-more:hover {
 }
 
 
-
-/* specific page styles
------------------------------------------------------------------------- */
-
-// single entry story page
-
-.block-story-header h4 {
-	color: #fff;
-}
-
-blockquote {
-	font-family: "adobe-caslon-pro",serif;
-	font-style: italic;
-	font-size: rem-calc(16);
-	line-height: 1.25;
-	margin-top: 2rem;
-   
-	@include breakpoint(medium) {
-		font-size: 4.5vw;
-	}
-	@include breakpoint(large) {
-		font-size: 5vw;
-	}
-	@include breakpoint(xlarge) {
-		font-size: rem-calc(50);
-	}
-
-}
-
-// team bio page 
-
-.block-team-bio-header h2,
-.block-team-bio-header h4 {
-	color: #fff;
-	text-align: center;
-	margin-top: 1rem;
-	
-	@include breakpoint(medium) {
-		text-align: left;
-		margin-top: 0;
-	}
-	
-}
-
-.sidebar h5 {
-	margin-top: 0.5rem;
-}
-
-
-// investments page
-
-.child-list h4 {
-	margin-top: 1.5rem;
-}
-
-// strategy page 
-
-.region-strategies h1 {
-	color: $dark-gray;
-	
-	@include breakpoint(medium) {
-		color: #fff;
-	}
-	
-}
-
-.region-strategies h2 {
-	margin-bottom: 2rem;	
-}
-
-.region-strategies p,
-.region-strategies li {
-	
-	font-size: rem-calc(15);
-
-	@include breakpoint(medium) {
-		font-size: rem-calc(19);
-	}
-	@include breakpoint(large) {
-		font-size: rem-calc(22);
-	}
-	@include breakpoint(xlarge) {
-		font-size: rem-calc(25);
-	}
-
-}
 
 
 
