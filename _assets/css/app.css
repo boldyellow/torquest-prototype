@@ -4486,7 +4486,7 @@ a.view-more:hover {
   line-height: 0;
   cursor: pointer;
   width: 100vw;
-  height: 100vw;
+  height: 98vw;
   border-bottom: 1px solid #000;
   display: -webkit-box;
   display: -webkit-flex;
@@ -4503,15 +4503,15 @@ a.view-more:hover {
   @media screen and (min-width: 28.75em) {
     .logo-grid {
       width: 50%;
-      height: 50vw; } }
+      height: 48vw; } }
   @media screen and (min-width: 47.9375em) {
     .logo-grid {
       width: 33.333333%;
-      height: 33.333333vw; } }
+      height: 30vw; } }
   @media screen and (min-width: 75em) {
     .logo-grid {
       width: 25%;
-      height: 25vw; } }
+      height: 300px; } }
 
 .logo-grid:hover {
   opacity: 0.8; }
@@ -4544,21 +4544,26 @@ a.view-more:hover {
   .logo-grid:nth-last-child(-n+4) {
     border-bottom: none; } }
 .logo-grid img {
+  display: block;
   padding: 0;
-  max-width: 80vw;
-  max-height: 80vw; }
+  max-width: 60%;
+  max-height: 60%;
+  width: auto;
+  height: auto;
+  -o-object-fit: contain;
+     object-fit: contain; }
   @media screen and (min-width: 28.75em) {
     .logo-grid img {
-      max-width: 40vw;
-      max-height: 40vw; } }
+      max-width: 35vw;
+      max-height: 35vw; } }
   @media screen and (min-width: 47.9375em) {
     .logo-grid img {
       max-width: 25vw;
       max-height: 25vw; } }
   @media screen and (min-width: 75em) {
     .logo-grid img {
-      max-width: 20vw;
-      max-height: 20vw; } }
+      max-width: 250px;
+      max-height: 250px; } }
 
 /* TEAM: OVERVIEW PAGE 
 ======================================================================== */
