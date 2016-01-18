@@ -4479,13 +4479,86 @@ a.view-more:hover {
 .investments {
   position: relative; }
 
-.border-override {
-  position: absolute;
-  top: -1px;
-  bottom: -1px;
-  left: -1px;
-  right: -1px;
-  border: 2px solid #fff; }
+.logo-grid {
+  float: left;
+  margin: 0;
+  font-size: 0;
+  line-height: 0;
+  cursor: pointer;
+  width: 100vw;
+  height: 100vw;
+  border-bottom: 1px solid #000;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center; }
+  @media screen and (min-width: 28.75em) {
+    .logo-grid {
+      width: 50%;
+      height: 50vw; } }
+  @media screen and (min-width: 47.9375em) {
+    .logo-grid {
+      width: 33.333333%;
+      height: 33.333333vw; } }
+  @media screen and (min-width: 75em) {
+    .logo-grid {
+      width: 25%;
+      height: 25vw; } }
+
+.logo-grid:hover {
+  opacity: 0.8; }
+
+@media screen and (min-width: 28.75em) {
+  .logo-grid {
+    border-right: 1px solid #000; }
+
+  .logo-grid:nth-child(2n+2) {
+    border-right: none; }
+
+  .logo-grid:nth-last-child(-n+2) {
+    border-bottom: none; } }
+@media screen and (min-width: 47.9375em) {
+  .logo-grid:nth-child(2n+2) {
+    border-right: 1px solid #000; }
+
+  .logo-grid:nth-child(3n+3) {
+    border-right: none; }
+
+  .logo-grid:nth-last-child(-n+3) {
+    border-bottom: none; } }
+@media screen and (min-width: 75em) {
+  .logo-grid:nth-child(3n+3) {
+    border-right: 1px solid #000; }
+
+  .logo-grid:nth-child(4n+4) {
+    border-right: none; }
+
+  .logo-grid:nth-last-child(-n+4) {
+    border-bottom: none; } }
+.logo-grid img {
+  padding: 0;
+  max-width: 80vw;
+  max-height: 80vw; }
+  @media screen and (min-width: 28.75em) {
+    .logo-grid img {
+      max-width: 40vw;
+      max-height: 40vw; } }
+  @media screen and (min-width: 47.9375em) {
+    .logo-grid img {
+      max-width: 25vw;
+      max-height: 25vw; } }
+  @media screen and (min-width: 75em) {
+    .logo-grid img {
+      max-width: 20vw;
+      max-height: 20vw; } }
 
 /* TEAM: OVERVIEW PAGE 
 ======================================================================== */
@@ -4714,6 +4787,12 @@ figcaption a.btn-play:hover {
 
 .block-pad-lg-bot {
   padding-bottom: 12vw; }
+
+.pad-sm-top-bot {
+  padding: 4vw 0; }
+
+.pad-md-top-bot {
+  padding: 7vw 0; }
 
 .margin-bottom-30 {
   margin-bottom: 2.5rem; }
