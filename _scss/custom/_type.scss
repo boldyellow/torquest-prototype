@@ -7,7 +7,20 @@
 
 
 
-// heads ...........................................................    
+// reduce flash of unstyled text .......................................
+
+.wf-loading h1 {
+	visibility: hidden;
+}
+
+.wf-active h1 {
+	visibility: visible;
+}
+
+
+
+
+// heads: h1 ...........................................................    
 
 
 h1 {
@@ -21,6 +34,43 @@ h1 {
 		font-size: 11vmin;
 	}
 }
+
+.sham-modal h1, 
+.news-highlights h1, 
+.news-articles h1 {
+	
+	font-size: 4.76vmax;
+   
+	@include breakpoint(medium) {
+		font-size: 6.3vw;
+	}
+	@include breakpoint(xlarge) {
+		font-size: 9.53vmin;
+	}
+}
+
+.desktop-video-wrap h1,
+.mobile-static-wrap h1 {
+	font-style: italic;
+	color: #fff;
+}
+
+.region-ideals h1 {
+	font-size: 6.5vmax;
+    
+	@include breakpoint(medium) {
+   		font-size: 12vw;
+	}
+	@include breakpoint(xlarge) {
+		font-size: 16vmin;
+	}
+}
+
+
+
+
+// heads: h2 ...........................................................    
+
 
 h2 {
 	font-family: "adobe-caslon-pro",serif;
@@ -48,11 +98,10 @@ h3 {
 }
 
 h4 {
-	font-family: "proxima-nova",sans-serif;
-	font-size: 3.3vmax;
 	color: $warm-gray-2;
-	text-transform: uppercase;
-	letter-spacing: 0.1rem;
+	font-family: "adobe-caslon-pro",serif;
+	font-size: 3.3vmax;
+	padding-bottom: 0.5rem;
 	
 	@include breakpoint(medium) {
 		font-size: 4.3vw;
@@ -63,27 +112,118 @@ h4 {
 	
 }
 
+h4 span {
+	display: inline-block;
+	margin-bottom: 0.5rem;
+	padding-bottom: 0.5rem;
+	border-bottom: 1px solid $warm-gray-2;
+}
+
 h5 {
-	font-size: 3vmax;
+	font-size: 3.2vmax;
 	text-transform: uppercase;
 	letter-spacing: 0.1rem;
-	margin-top: rem-calc(24);
 	color: $warm-gray-2;
 	
 	@include breakpoint(medium) {
-		font-size: 3.4vw;
+		font-size: 3.2vw;
 	}
 	@include breakpoint(xlarge) {
-		font-size: 5.13vmin;
+		font-size: 4.7vmin;
 	}
 	
 }
 
+h5 span {
+	display: inline-block;
+	margin-bottom: 0.5rem;
+	padding-bottom: 0.5rem;
+	border-bottom: 1px solid $warm-gray-2;
+}
+
+h6 {
+	color: $warm-gray-2;
+	font-size: 2.75vmax;
+	letter-spacing: 0.1rem;
+	text-transform: uppercase;
+	
+	@include breakpoint(medium) {
+		font-size: 2.3vw;
+	}
+	@include breakpoint(xlarge) {
+		font-size: 3.1vmin;
+	}
+	
+}
+
+h6 span {
+	display: inline-block;
+	margin-bottom: 0.5rem;
+	padding-bottom: 0.5rem;
+	border-bottom: 1px solid $warm-gray-2;
+}
+
+.sidebar h6 {
+	margin-top: 0.75rem;
+}
+
+
+
+
+// blockquote ............................................................... 
+
+blockquote {
+	font-family: "adobe-caslon-pro",serif;
+	margin-top: 2rem;
+	margin-bottom: 2rem;
+	font-size: 3.26vmax;
+	line-height: 1.35;
+	padding: 0;
+   
+	@include breakpoint(medium) {
+		font-size: 4.3vw;
+		padding: 0 5vw;
+	}
+	@include breakpoint(xlarge) {
+		font-size: 6.52vmin;
+	}
+
+}
+
+blockquote span {
+	font-style: italic;
+}
+
+
+
+// small caps ..........................................................
+
+.small-caps {
+    font-family: "adobe-caslon-pro",serif;
+	text-transform: uppercase;
+	font-size: rem-calc(18);
+	letter-spacing: 0.1rem;
+	color: $dark-gray;
+   
+	@include breakpoint(medium) {
+		margin-top: 1rem;
+		color: #fff;
+		font-size: 4.5vw;
+	}
+	@include breakpoint(large) {
+		font-size: 4.25vw;
+	}
+	@include breakpoint(xlarge) {
+		font-size: rem-calc(45);
+	}
+}
+
+
+
 
 // paragraph ...........................................................
 
-p.larger-text,
-.larger-text p {
+p, li {
 
 	font-size: 2.9vmax;
 
@@ -96,7 +236,10 @@ p.larger-text,
 	
 }
 
-p, li {
+.reduced-text p, 
+.reduced-text li,
+p.reduced-text, 
+li.reduced-text {
 	
 	font-size: 2.5vmax;
 
@@ -124,75 +267,6 @@ p a:hover {
 }
 
 
-// well, just, because it was designed in indesign .....................
-
-h2.small-caps {
-	text-transform: uppercase;
-	font-size: rem-calc(18);
-	letter-spacing: 0.1rem;
-	color: $dark-gray;
-   
-	@include breakpoint(medium) {
-		margin-top: 1rem;
-		color: #fff;
-		font-size: 4.5vw;
-	}
-	@include breakpoint(large) {
-		font-size: 4.25vw;
-	}
-	@include breakpoint(xlarge) {
-		font-size: rem-calc(45);
-	}
-}
-
-
-// heads with bottom border ............................................
-
-h3 span {
-	display: inline-block;
-	margin-bottom: 0.5rem;
-	padding-bottom: 0.3rem;
-	border-bottom: 1px solid $warm-gray-2;
-
-	@include breakpoint(medium) {
-		font-size: 4vw;
-	}
-	@include breakpoint(xlarge) {
-		font-size: rem-calc(50);
-	}
-}
-
-h4 span {
-	display: inline-block;
-	padding-bottom: 0.5rem;
-	border-bottom: 1px solid $warm-gray-2;
-}
-
-h5 span {
-	display: inline-block;
-	margin-bottom: 0.5rem;
-	padding-bottom: 0.5rem;
-	border-bottom: 1px solid $warm-gray-2;
-}
-
-
-// other special head styles ...........................................
-
-
-.sidebar h5 {
-	margin-top: 0.5rem;
-}
-
-
-// reduce flash of unstyled text .......................................
-
-.wf-loading h1 {
-	visibility: hidden;
-}
-
-.wf-active h1 {
-	visibility: visible;
-}
 
 
 // links with right arrow ..............................................
@@ -209,15 +283,15 @@ a.view-more {
 	background-repeat: no-repeat;
 	background-size: 21px 15px;
 	background-position: 100% 60%;
-	font-size: rem-calc(16);
-	
+	font-size: 2.9vmax;
+
 	@include breakpoint(medium) {
-		font-size: rem-calc(20);
+		font-size: 2.8vw;
+	}
+	@include breakpoint(xlarge) {
+		font-size: 3.6vmin;
 	}
 
-	@include breakpoint(large) {
-		font-size: rem-calc(24);
-	}
 }
 
 a.view-more:hover {

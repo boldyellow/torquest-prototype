@@ -55,7 +55,7 @@
 	     
 	<div class="block block-pad-md text-center content light">
 
-		<h4><span>Our Investments</span></h4>
+		<h5><span>Our Investments</span></h5>
 		
 	</div>
 
@@ -150,7 +150,7 @@
 			<div class="row">
 				
 				<div class="medium-10 medium-offset-1 columns child-title">
-					<h4>Technology</h4>
+					<h6>Technology</h6>
 				</div>
 	
 			</div>
@@ -206,7 +206,7 @@
 			<div class="row">
 				
 				<div class="medium-10 medium-offset-1 columns child-title">
-					<h4>Genetics</h4>
+					<h6>Genetics</h6>
 				</div>
 	
 			</div>
@@ -254,7 +254,7 @@
 			<div class="row">
 				
 				<div class="medium-10 medium-offset-1 columns child-title">
-					<h4>Consumer</h4>
+					<h6>Consumer</h6>
 				</div>
 	
 			</div>
@@ -319,7 +319,7 @@
 			<div class="row">
 				
 				<div class="medium-10 medium-offset-1 columns child-title">
-					<h4>Manufacturing</h4>
+					<h6>Manufacturing</h6>
 				</div>
 	
 			</div>
@@ -378,7 +378,7 @@
 		
 		<div class="row expanded">
 			
-			<h2>Every successful relationship <br class="show-for-medium"> starts with a&nbsp;conversation.</h2>
+			<h3>Every successful relationship <br class="show-for-medium"> starts with a&nbsp;conversation.</h3>
 			
 			<p>
 				416-956-7022
@@ -456,12 +456,13 @@
 		// display row of child filter buttons from parent button
 		$('.child-categories').hide();
 		$('.industry-list').show();
-		$('.parent-filter').click(function () {
+		$('.parent-filter').click(function (e) {
 			$('.active').removeClass('active');
 		    $(this).addClass('active');
 		    $('.child-categories').hide();
 		    $('#child-' + $(this).attr('target')).show();
 		    showParentCat($(this).attr('data-foo'));
+		    e.preventDefault();
 		});
 
 	</script>
@@ -545,7 +546,7 @@
 		function makeSubcatHTML(parentCat, pcatValue, pcatDisplay){
 			var content = $(SECTION_TEMPLATE);
 			var title = content.find('.child-title');
-			title.html('<h4>' + pcatDisplay + '</h4>');
+			title.html('<h6>' + pcatDisplay + '</h6>');
 			var logos = content.find('.logos');
 
 			var logosHTML = DATA.filter(function(item, index){

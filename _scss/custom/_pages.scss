@@ -120,17 +120,6 @@
 ======================================================================== */
 
 
-// ideals ..............................................................
-
-.region-ideals h1 {
-	
-	font-size: 2.75rem;
-	
-	@include breakpoint(medium) {
-		font-size: 10vw;
-	}
-}
-
 
 // at a glance .........................................................
 
@@ -157,9 +146,21 @@
 	}
 }
 
-.region-glance .glance-wrap .row h2,
-.region-glance .glance-wrap .row h6 {
+.region-glance .glance-wrap .row h2 {
+	font-style: italic;
 	color: #fff;
+}
+
+.region-glance .glance-wrap .row p {
+	color: #fff;
+	font-size: 3.48vmax;
+
+	@include breakpoint(medium) {
+		font-size: 3.36vw;
+	}
+	@include breakpoint(xlarge) {
+		font-size: 4.32vmin;
+	}
 }
 
 .region-glance .glance-wrap .columns {
@@ -301,7 +302,7 @@
 }
 
 .block-team-bio-header h2,
-.block-team-bio-header h4 {
+.block-team-bio-header h5 {
 	color: #fff;
 	text-align: center;
 	margin-top: 1rem;
@@ -313,6 +314,14 @@
 	
 }
 
+.block-team-bio-text .sidebar {
+	margin-top: 1rem;
+	margin-bottom: 1rem;
+	
+	@include breakpoint(medium) {
+		margin-top: 0.5rem;
+	}
+}
 
 
 
@@ -349,8 +358,10 @@
 }
 
 
-.block-news-highlights h5,
-.block-news-head h5 {
+.block-news-highlights h1,
+.block-news-highlights h6,
+.block-news-article h1,
+.block-news-article h6 {
 	margin-bottom: 2rem;
 }
 
@@ -362,40 +373,17 @@
 
 
 
-
-
-
 /* STORIES: SINGLE ENTRY PAGE 
 ======================================================================== */
 
 
 // head in image .......................................................
 
-.block-story-header h4 {
+.block-story-header h6 {
 	color: #fff;
 }
 
 
-// quote ............................................................... 
-
-blockquote {
-	font-family: "adobe-caslon-pro",serif;
-	font-style: italic;
-	font-size: rem-calc(16);
-	line-height: 1.25;
-	margin-top: 2rem;
-   
-	@include breakpoint(medium) {
-		font-size: 4.5vw;
-	}
-	@include breakpoint(large) {
-		font-size: 5vw;
-	}
-	@include breakpoint(xlarge) {
-		font-size: rem-calc(50);
-	}
-
-}
 
 
 // logo and spot photo row .............................................
@@ -416,22 +404,6 @@ blockquote {
 	}
 }
 
-
-// bodt text columns ...................................................
-
-// these are on a slightly different grid (of course!)
-// may be changed, we'll see, hahaha
-
-.block-story-text .left,
-.block-story-text .right {
-	width: 90%;
-	margin-left: 5%;
-	
-	@include breakpoint(large) {
-		width: 80%;
-		margin-left: 10%;
-	}
-}
 
 
 
