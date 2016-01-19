@@ -3788,7 +3788,8 @@ body.is-reveal-open {
 
 h1 {
   font-family: "adobe-caslon-pro",serif;
-  font-size: 5.5vmax; }
+  font-size: 5.5vmax;
+  letter-spacing: -0.1rem; }
   @media screen and (min-width: 28.75em) {
     h1 {
       font-size: 7.5vw; } }
@@ -3820,10 +3821,10 @@ h1 {
   font-size: 6.5vmax; }
   @media screen and (min-width: 28.75em) {
     .region-ideals h1 {
-      font-size: 12vw; } }
+      font-size: 15vw; } }
   @media screen and (min-width: 75em) {
     .region-ideals h1 {
-      font-size: 16vmin; } }
+      font-size: 22vmin; } }
 
 h2 {
   font-family: "adobe-caslon-pro",serif;
@@ -3865,16 +3866,19 @@ h4 span {
   border-bottom: 1px solid #8b8782; }
 
 h5 {
-  font-size: 3.2vmax;
+  font-size: 1rem;
   text-transform: uppercase;
   letter-spacing: 0.1rem;
   color: #8b8782; }
   @media screen and (min-width: 28.75em) {
     h5 {
-      font-size: 3.2vw; } }
+      font-size: 1.2rem; } }
+  @media screen and (min-width: 47.9375em) {
+    h5 {
+      font-size: 1.6rem; } }
   @media screen and (min-width: 75em) {
     h5 {
-      font-size: 4.7vmin; } }
+      font-size: 2rem; } }
 
 h5 span {
   display: inline-block;
@@ -4773,8 +4777,6 @@ figcaption a.btn-play:hover {
    SPACING TWEAKS 
    
 |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| */
-/* PADDING 
-======================================================================== */
 .block-pad-sm {
   padding: 4vw 0; }
 
@@ -4784,22 +4786,34 @@ figcaption a.btn-play:hover {
 .block-pad-lg {
   padding: 12vw 3vw; }
 
-.block-pad-sm-bot {
+.padding-sm-top {
+  padding-top: 4vw; }
+
+.padding-sm-bot {
   padding-bottom: 4vw; }
 
-.block-pad-md-bot {
+.padding-md-top {
+  padding-top: 7vw; }
+
+.padding-md-bot {
   padding-bottom: 7vw; }
 
-.block-pad-lg-bot {
+.padding-lg-top {
+  padding-top: 12vw; }
+
+.padding-lg-bot {
   padding-bottom: 12vw; }
 
-.pad-sm-top-bot {
+.padding-sm-top-bot {
   padding: 4vw 0; }
 
-.pad-md-top-bot {
+.padding-md-top-bot {
   padding: 7vw 0; }
 
-.margin-bottom-30 {
+.padding-lg-top-bot {
+  padding: 12vw 0; }
+
+.margin-md-bot {
   margin-bottom: 2.5rem; }
 
 /* |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||

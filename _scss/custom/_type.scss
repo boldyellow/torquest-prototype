@@ -26,6 +26,7 @@
 h1 {
     font-family: "adobe-caslon-pro",serif;
 	font-size: 5.5vmax;
+	letter-spacing: -0.1rem;
     
 	@include breakpoint(medium) {
    		font-size: 7.5vw;
@@ -59,10 +60,10 @@ h1 {
 	font-size: 6.5vmax;
     
 	@include breakpoint(medium) {
-   		font-size: 12vw;
+   		font-size: 15vw;
 	}
 	@include breakpoint(xlarge) {
-		font-size: 16vmin;
+		font-size: 22vmin;
 	}
 }
 
@@ -120,16 +121,19 @@ h4 span {
 }
 
 h5 {
-	font-size: 3.2vmax;
+	font-size: 1rem;
 	text-transform: uppercase;
 	letter-spacing: 0.1rem;
 	color: $warm-gray-2;
 	
 	@include breakpoint(medium) {
-		font-size: 3.2vw;
+		font-size: 1.2rem;
+	}
+	@include breakpoint(large) {
+		font-size: 1.6rem;
 	}
 	@include breakpoint(xlarge) {
-		font-size: 4.7vmin;
+		font-size: 2rem;
 	}
 	
 }

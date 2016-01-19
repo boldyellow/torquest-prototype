@@ -6,10 +6,7 @@
 
 
 
-/* PADDING 
-======================================================================== */
-
-// block pad options ...................................................
+// block padding options ...............................................
 
 .block-pad-sm {
 	padding: 4vw 0;
@@ -23,27 +20,53 @@
 	padding: 12vw 3vw;
 }
 
-.block-pad-sm-bot {
+
+
+
+// general pad options .................................................
+
+.padding-sm-top {
+	padding-top: 4vw;
+}
+
+.padding-sm-bot {
 	padding-bottom: 4vw;
 }
 
-.block-pad-md-bot {
+.padding-md-top {
+	padding-top: 7vw;
+}
+
+.padding-md-bot {
 	padding-bottom: 7vw;
 }
 
-.block-pad-lg-bot {
+.padding-lg-top {
+	padding-top: 12vw;
+}
+
+.padding-lg-bot {
 	padding-bottom: 12vw;
 }
 
-.pad-sm-top-bot {
+.padding-sm-top-bot {
 	padding: 4vw 0;
 }
 
-.pad-md-top-bot {
+.padding-md-top-bot {
 	padding: 7vw 0;
 }
 
-.margin-bottom-30 {
+.padding-lg-top-bot {
+	padding: 12vw 0;
+}
+
+
+
+
+// margin options .................................................
+
+.margin-md-bot {
 	margin-bottom: 2.5rem;
 }
 
