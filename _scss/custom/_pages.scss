@@ -457,6 +457,10 @@
 	margin-bottom: 2rem;
 }
 
+.block-news-article .reduced-text h6 {
+	margin-bottom: 0.5rem;
+}
+
 
 
 
@@ -525,26 +529,27 @@
 }
 
 .region-strategies h2 {
-	margin-bottom: 2rem;	
-}
-
-.region-strategies p,
-.region-strategies li {
 	
-	font-size: rem-calc(15);
-
+	margin-bottom: 0.25rem;
+	
 	@include breakpoint(medium) {
-		font-size: rem-calc(19);
+		margin-bottom: 1rem;
 	}
 	@include breakpoint(large) {
-		font-size: rem-calc(22);
-	}
-	@include breakpoint(xlarge) {
-		font-size: rem-calc(25);
+		margin-bottom: 2rem;
 	}
 
 }
 
+.region-strategies h6 {
+	
+	margin-top: 1.5rem;
+	
+	@include breakpoint(large) {
+		margin-top: 2rem;
+	}
+
+}
 
 
 

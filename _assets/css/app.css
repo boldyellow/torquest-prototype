@@ -3818,7 +3818,7 @@ h1 {
   color: #fff; }
 
 .region-ideals h1 {
-  font-size: 6.5vmax; }
+  font-size: 8vmax; }
   @media screen and (min-width: 28.75em) {
     .region-ideals h1 {
       font-size: 15vw; } }
@@ -3850,14 +3850,17 @@ h3 {
 h4 {
   color: #8b8782;
   font-family: "adobe-caslon-pro",serif;
-  font-size: 3.3vmax;
-  padding-bottom: 0.5rem; }
+  padding-bottom: 0.5rem;
+  font-size: 1.6rem; }
   @media screen and (min-width: 28.75em) {
     h4 {
-      font-size: 4.3vw; } }
+      font-size: 2rem; } }
+  @media screen and (min-width: 47.9375em) {
+    h4 {
+      font-size: 2.1rem; } }
   @media screen and (min-width: 75em) {
     h4 {
-      font-size: 6.6vmin; } }
+      font-size: 2.2rem; } }
 
 h4 span {
   display: inline-block;
@@ -3865,17 +3868,20 @@ h4 span {
   padding-bottom: 0.5rem;
   border-bottom: 1px solid #8b8782; }
 
+h4:not(:first-child) {
+  margin-top: 2.5rem; }
+
 h5 {
-  font-size: 1rem;
   text-transform: uppercase;
   letter-spacing: 0.1rem;
-  color: #8b8782; }
+  color: #8b8782;
+  font-size: 1.2rem; }
   @media screen and (min-width: 28.75em) {
     h5 {
-      font-size: 1.2rem; } }
+      font-size: 1.4rem; } }
   @media screen and (min-width: 47.9375em) {
     h5 {
-      font-size: 1.6rem; } }
+      font-size: 1.7rem; } }
   @media screen and (min-width: 75em) {
     h5 {
       font-size: 2rem; } }
@@ -3888,15 +3894,15 @@ h5 span {
 
 h6 {
   color: #8b8782;
-  font-size: 2.75vmax;
   letter-spacing: 0.1rem;
-  text-transform: uppercase; }
-  @media screen and (min-width: 28.75em) {
+  text-transform: uppercase;
+  font-size: 1.1rem; }
+  @media screen and (min-width: 47.9375em) {
     h6 {
-      font-size: 2.3vw; } }
+      font-size: 1.2rem; } }
   @media screen and (min-width: 75em) {
     h6 {
-      font-size: 3.1vmin; } }
+      font-size: 1.3rem; } }
 
 h6 span {
   display: inline-block;
@@ -3905,22 +3911,25 @@ h6 span {
   border-bottom: 1px solid #8b8782; }
 
 .sidebar h6 {
-  margin-top: 0.75rem; }
+  margin-top: 0.5rem; }
 
 blockquote {
   font-family: "adobe-caslon-pro",serif;
   margin-top: 2rem;
   margin-bottom: 2rem;
-  font-size: 3.26vmax;
+  font-size: 2rem;
   line-height: 1.35;
   padding: 0; }
   @media screen and (min-width: 28.75em) {
     blockquote {
-      font-size: 4.3vw;
+      font-size: 2.5rem;
       padding: 0 5vw; } }
+  @media screen and (min-width: 47.9375em) {
+    blockquote {
+      font-size: 3rem; } }
   @media screen and (min-width: 75em) {
     blockquote {
-      font-size: 6.52vmin; } }
+      font-size: 4.5rem; } }
 
 blockquote span {
   font-style: italic; }
@@ -3930,11 +3939,10 @@ blockquote span {
   text-transform: uppercase;
   font-size: 1.125rem;
   letter-spacing: 0.1rem;
-  color: #141f25; }
+  color: #fff; }
   @media screen and (min-width: 28.75em) {
     .small-caps {
       margin-top: 1rem;
-      color: #fff;
       font-size: 4.5vw; } }
   @media screen and (min-width: 47.9375em) {
     .small-caps {
@@ -3944,31 +3952,40 @@ blockquote span {
       font-size: 2.8125rem; } }
 
 p, li {
-  font-size: 2.9vmax; }
+  font-size: 1.2rem; }
   @media screen and (min-width: 28.75em) {
     p, li {
-      font-size: 2.8vw; } }
+      font-size: 1.4rem; } }
+  @media screen and (min-width: 47.9375em) {
+    p, li {
+      font-size: 1.5rem; } }
   @media screen and (min-width: 75em) {
     p, li {
-      font-size: 3.6vmin; } }
+      font-size: 1.6rem; } }
 
 .reduced-text p,
 .reduced-text li,
 p.reduced-text,
 li.reduced-text {
-  font-size: 2.5vmax; }
+  font-size: 1rem; }
   @media screen and (min-width: 28.75em) {
     .reduced-text p,
     .reduced-text li,
     p.reduced-text,
     li.reduced-text {
-      font-size: 2.3vw; } }
+      font-size: 1.15rem; } }
+  @media screen and (min-width: 47.9375em) {
+    .reduced-text p,
+    .reduced-text li,
+    p.reduced-text,
+    li.reduced-text {
+      font-size: 1.3rem; } }
   @media screen and (min-width: 75em) {
     .reduced-text p,
     .reduced-text li,
     p.reduced-text,
     li.reduced-text {
-      font-size: 3vmin; } }
+      font-size: 1.45rem; } }
 
 small {
   font-size: 0.9375rem; }
@@ -3981,7 +3998,7 @@ p a:hover {
 
 a.view-more {
   display: inline-block;
-  margin-top: 2rem;
+  margin-top: 1.4rem;
   padding: 0.25rem 2rem 0 0;
   text-align: center;
   color: #000;
@@ -3991,13 +4008,18 @@ a.view-more {
   background-repeat: no-repeat;
   background-size: 21px 15px;
   background-position: 100% 60%;
-  font-size: 2.9vmax; }
+  font-size: 1.2rem; }
   @media screen and (min-width: 28.75em) {
     a.view-more {
-      font-size: 2.8vw; } }
+      font-size: 1.4rem;
+      margin-top: 2rem; } }
+  @media screen and (min-width: 47.9375em) {
+    a.view-more {
+      font-size: 1.6rem;
+      margin-top: 2.4rem; } }
   @media screen and (min-width: 75em) {
     a.view-more {
-      font-size: 3.6vmin; } }
+      font-size: 1.8rem; } }
 
 a.view-more:hover {
   opacity: 1; }
@@ -4653,6 +4675,9 @@ a.view-more:hover {
 .block-news-article h6 {
   margin-bottom: 2rem; }
 
+.block-news-article .reduced-text h6 {
+  margin-bottom: 0.5rem; }
+
 /* STORIES: OVERVIEW PAGE 
 ======================================================================== */
 /* STORIES: SINGLE ENTRY PAGE 
@@ -4687,23 +4712,19 @@ a.view-more:hover {
       color: #fff; } }
 
 .region-strategies h2 {
-  margin-bottom: 2rem; }
-
-.region-strategies p,
-.region-strategies li {
-  font-size: 0.9375rem; }
+  margin-bottom: 0.25rem; }
   @media screen and (min-width: 28.75em) {
-    .region-strategies p,
-    .region-strategies li {
-      font-size: 1.1875rem; } }
+    .region-strategies h2 {
+      margin-bottom: 1rem; } }
   @media screen and (min-width: 47.9375em) {
-    .region-strategies p,
-    .region-strategies li {
-      font-size: 1.375rem; } }
-  @media screen and (min-width: 75em) {
-    .region-strategies p,
-    .region-strategies li {
-      font-size: 1.5625rem; } }
+    .region-strategies h2 {
+      margin-bottom: 2rem; } }
+
+.region-strategies h6 {
+  margin-top: 1.5rem; }
+  @media screen and (min-width: 47.9375em) {
+    .region-strategies h6 {
+      margin-top: 2rem; } }
 
 /* |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
   
@@ -4812,6 +4833,12 @@ figcaption a.btn-play:hover {
 
 .padding-lg-top-bot {
   padding: 12vw 0; }
+
+.margin-none-bot {
+  margin-bottom: 0; }
+
+.margin-sm-bot {
+  margin-bottom: 1.25rem; }
 
 .margin-md-bot {
   margin-bottom: 2.5rem; }
