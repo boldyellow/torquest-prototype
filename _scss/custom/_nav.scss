@@ -77,11 +77,11 @@
     font-family: "adobe-caslon-pro",serif;
 	list-style-type: none;
 	text-align: center;
-	padding: 0.5vh;
+	padding: 0.25vh;
 	font-size: 5.5vh;
 	
 	@include breakpoint(medium) {
-		padding: 0.75vh;
+		padding: 0.25vh;
 		font-size: 6vh;
 	}
 }
@@ -107,9 +107,9 @@
 
 .mobilenav li:last-child {
   	margin-top: 6vh;
- 	font-size: 4.25vh;
+ 	font-size: 3.75vh;
  	text-transform: uppercase;
- 	letter-spacing: 0.2rem;
+ 	letter-spacing: 0.3rem;
  	
 }
 
@@ -196,8 +196,8 @@
 
 .menui {
 	// 	background: red;
-	transition: 0.6s ease;
-	transition-timing-function: cubic-bezier(.75, 0, .29, 1.01);
+	transition: 0.8s ease-in;
+	transition-timing-function: linear(.75, 0, 2.29, 1.01);
 	margin-top: 10px;
 	position: absolute;
 }

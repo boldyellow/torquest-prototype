@@ -29,16 +29,16 @@
 	color: #fff;
 	text-align: center;
 	padding-top: 3rem;
-	height: 60vh;
+	height: 33vh;
 
 	@include breakpoint(medium) {
 		padding-top: 4rem;
-		height: 50vh;
+		height: 33vh;
 	}
 
 	@include breakpoint(large) {
 		padding-top: 5rem;
-		height: 55vh;
+		height: 33vh;
 	}
 
 }
@@ -52,7 +52,7 @@
 	left: 0;
 	position: absolute;
 	right: 0;
-	transform: skewY(-5deg);
+	transform: skewY(-3deg);
 	transform-origin: 100%;
 	z-index: -1;
 }
@@ -226,6 +226,7 @@
 
 .investments {
 	position: relative;
+	padding: 7vw 2.5vw;
 }
 
 .logo-grid {
@@ -236,7 +237,7 @@
     cursor: pointer;
 	width: 100vw;
 	height: 98vw;
-	border-bottom: 1px solid #000;
+	border-bottom: 1px solid #ccc;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -261,7 +262,7 @@
 
 @include breakpoint(medium) {
 	.logo-grid {
-		border-right: 1px solid #000;
+		border-right: 1px solid #ccc;
 	}
 	.logo-grid:nth-child(2n+2) {
 		border-right: none;
@@ -273,7 +274,7 @@
 
 @include breakpoint(large) {
 	.logo-grid:nth-child(2n+2) {
-		border-right: 1px solid #000;
+		border-right: 1px solid #ccc;
 	}
 	.logo-grid:nth-child(3n+3) {
 		border-right: none;
@@ -285,7 +286,7 @@
 
 @include breakpoint(xlarge) {
 	.logo-grid:nth-child(3n+3) {
-		border-right: 1px solid #000;
+		border-right: 1px solid #ccc;
 	}
 	.logo-grid:nth-child(4n+4) {
 		border-right: none;
@@ -299,25 +300,13 @@
 .logo-grid img {
 	display: block;
     padding: 0;
-    max-width: 60%;
-    max-height: 60%;
+    max-width: 50%;
+    max-height: 50%;
 	width: auto;
     height: auto;
     object-fit: contain;
 
 
-	@include breakpoint(medium) {
-	    max-width: 35vw;
-	    max-height: 35vw;
-	}
-	@include breakpoint(large) {
-	    max-width: 25vw;
-	    max-height: 25vw;
-	}
-	@include breakpoint(xlarge) {
-	    max-width: 250px;
-	    max-height: 250px;
-	}
 }
 
 
