@@ -37,7 +37,7 @@ h1 {
 }
 
 .sham-modal h1, 
-.news-articles h1 {
+.news-article h1 {
 	
 	font-size: 4.76vmax;
    
@@ -248,6 +248,7 @@ blockquote {
 p, li {
 
 	font-size: 1.2rem;
+	line-height: 1.5;
 
 	@include breakpoint(medium) {
 		font-size: 1.4rem;
@@ -277,9 +278,9 @@ p, li {
 	
 }
 
-.reduced-text p, 
-.reduced-text li,
-p.reduced-text, 
+.reduced-text p,
+.reduced-text li, 
+p.reduced-text,
 li.reduced-text {
 	
 	font-size: 1rem;
@@ -304,14 +305,26 @@ small {
 
 p a {
 	color: $warm-gray-1;
+	transition: color 0.375s linear;
 }
 
 p a:hover {
 	color: #000;
 }
 
+.block li {
+	list-style: none;
+}
 
-
+.block li:before {
+  content: '\2022';
+  font-size: 1rem;
+  display: inline-block;
+  margin-top: -0.5rem;
+  padding-right: 0.85rem;
+  margin-left: -1.25rem;
+  vertical-align: middle;
+}
 
 // links with right arrow ..............................................
 
@@ -328,6 +341,7 @@ a.view-more {
 	background-size: 21px 15px;
 	background-position: 100% 60%;
 	font-size: 1.2rem;
+	transition: opacity 0.375s linear;
 
 	@include breakpoint(medium) {
 		font-size: 1.4rem;

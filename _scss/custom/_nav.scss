@@ -26,7 +26,7 @@
 	background-repeat: no-repeat;
 	background-size: rem-calc(131) rem-calc(23);
 	background-position: 50% 50%;
-	transition: top 300ms;
+	transition: top 0.2s;
 	@include breakpoint(medium) {
 		width: rem-calc(164);
 		height: rem-calc(61);
@@ -38,6 +38,7 @@
 
 #brand:hover {
 	opacity: 0.8;
+	transition: opacity 0.375s linear;
 }
 
 #brand.scrolled {

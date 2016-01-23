@@ -37,6 +37,7 @@ $hover-opacity: 0.75;
 	background-repeat: no-repeat;
 	background-size: 1rem 1rem;
 	background-position: 0 50%;
+	transition: opacity 0.375s linear;
 }
 
 .close-bar .left a:hover {
@@ -56,6 +57,7 @@ $hover-opacity: 0.75;
 
 .close-bar .right a {
 	color: #fff;
+	transition: opacity 0.375s linear;
 }
 
 .close-bar .right a:hover {

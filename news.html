@@ -124,14 +124,14 @@
 
 
 
-	<div class="block block-news-highlights news-highlights content block-pad-sm light text-center">
+	<div class="block news-highlights content block-pad-sm light text-center">
 		
 		
 		<div class="row wow fadeIn" data-wow-delay=".4s">
 			
 			<div class="medium-8 medium-centered column">
 				
-				<h6>October 9, 2015</h6>
+				<h5>October 9, 2015</h5>
 				
 				<h1>TorQuest Announces Purchase of Spinrite</h1>
 				
@@ -149,7 +149,7 @@
 			
 			<div class="medium-8 medium-centered column">
 				
-				<h6>October 9, 2015</h6>
+				<h5>October 9, 2015</h5>
 				
 				<h1>TorQuest Announces Purchase of Spinrite</h1>
 				
@@ -167,7 +167,7 @@
 			
 			<div class="medium-8 medium-centered column">
 				
-				<h6>October 9, 2015</h6>
+				<h5>October 9, 2015</h5>
 				
 				<h1>TorQuest Announces Purchase of Spinrite</h1>
 				
@@ -245,49 +245,49 @@
 
 	<script src="_assets/js/min/app-min.js"></script>
 
-
-
     <script>
 	    
-
-	    
-		// hamburger animation
-		function togglescroll() {
-		  $('body').on('touchstart');
-		}
-		
-		$(document).ready(function() {
-		  togglescroll()
-		  $(".icon").click(function() {
-		    $(".mobilenav").fadeToggle(500);
-		    $(".top-menu").toggleClass("top-animate");
-		    $("body").toggleClass("noscroll");
-		    $(".mid-menu").toggleClass("mid-animate");
-		    $(".bottom-menu").toggleClass("bottom-animate");
-		  });
-		});
-		
-		// hamburger color over dark/light panels
-		var stickyOffset = $("#hamburger").offset();
-		var $contentDivs = $(".content");
-		$(document).scroll(function() {
-			$contentDivs.each(function(k) {
-				var _thisOffset = $(this).offset();
-				var _actPosition = _thisOffset.top - $(window).scrollTop();
-				if (_actPosition < stickyOffset.top && _actPosition + $(this).height() > 0) {
-					$("#hamburger").removeClass("light dark").addClass($(this).hasClass("light") ? "light" : "dark");
-					return false;
-				}
-			});
-		});		
-		
-		// animate brand div on scroll
-		$(document).scroll(function(){
-			$('#brand').toggleClass('scrolled', $(this).scrollTop() > 50);
-		});
-		
 		// fade in page content divs on scroll
 		new WOW().init();
+			    
+		// hamburger/brand scripts not for sham modal pages
+		if (!$('body').hasClass('sham-modal')) {
+			
+			// hamburger animation
+			function togglescroll() {
+			  $('body').on('touchstart');
+			}
+			
+			$(document).ready(function() {
+			  togglescroll()
+			  $(".icon").click(function() {
+			    $(".mobilenav").fadeToggle(500);
+			    $(".top-menu").toggleClass("top-animate");
+			    $("body").toggleClass("noscroll");
+			    $(".mid-menu").toggleClass("mid-animate");
+			    $(".bottom-menu").toggleClass("bottom-animate");
+			  });
+			});
+			
+			// hamburger color over dark/light panels
+			var stickyOffset = $("#hamburger").offset();
+			var $contentDivs = $(".content");
+			$(document).scroll(function() {
+				$contentDivs.each(function(k) {
+					var _thisOffset = $(this).offset();
+					var _actPosition = _thisOffset.top - $(window).scrollTop();
+					if (_actPosition < stickyOffset.top && _actPosition + $(this).height() > 0) {
+						$("#hamburger").removeClass("light dark").addClass($(this).hasClass("light") ? "light" : "dark");
+						return false;
+					}
+				});
+			});		
+			
+			// animate brand div on scroll
+			$(document).scroll(function(){
+				$('#brand').toggleClass('scrolled', $(this).scrollTop() > 1);
+			});
+		}
 		
 	</script>
 
