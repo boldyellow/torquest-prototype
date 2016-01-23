@@ -222,8 +222,6 @@
 
 // investments .........................................................
 
-// gotta redo this to click logo links
-
 .investments {
 	position: relative;
 	padding: 7vw 2.5vw;
@@ -256,8 +254,13 @@
 	}
 }
 
-.logo-grid:hover {
-	opacity: 0.8;
+.logo-grid img {
+	filter: grayscale(1);
+	transition: filter 0.375s linear;
+}
+
+.logo-grid:hover img {
+	filter: grayscale(0);
 }
 
 @include breakpoint(medium) {
