@@ -54,6 +54,17 @@
 	color: $dark-gray;
 }
 
+// for news page with single parent item
+.parent-categories span.single.active {
+	padding-left: 0;
+	padding-right: 0;
+
+	@include breakpoint(medium) {
+		display: inline-block;
+	}
+
+}
+
 
 
 
