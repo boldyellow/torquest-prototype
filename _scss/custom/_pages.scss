@@ -479,7 +479,7 @@ img.full-width {
 
 .investments {
 	position: relative;
-	padding: 7vw 2.5vw;
+	padding: 6vh 2.5vw;
 }
 
 .logo-grid {
@@ -646,7 +646,7 @@ img.full-width {
 .block-team-bio-header h5 {
 	color: #fff;
 	text-align: center;
-	margin-top: 1rem;
+	margin-top: 1.5rem;
 	
 	@include breakpoint(medium) {
 		text-align: left;
@@ -672,7 +672,8 @@ img.full-width {
 
 // search field ........................................................
 
-.search-field {
+.search-field,
+.search-field:focus {
 	background-color: $light-green;
 	border: 1px solid $light-green;
 	box-shadow: none;

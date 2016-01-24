@@ -29,6 +29,7 @@
 	display: block;
 	padding-left: 0.5rem;
 	padding-right: 0.5rem;
+	transition: color 0.375s linear;
 
 	@include breakpoint(medium) {
 		display: inline-block;
@@ -50,6 +51,7 @@
 	color: $dark-gray;
 }
 
+.parent-categories a:hover,
 .child-categories a:hover {
 	color: $dark-gray;
 }
