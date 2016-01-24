@@ -11,11 +11,125 @@
 ======================================================================== */
 
 
-// basic block ..........................................................
+// basic block .........................................................
 
 .block {
 	position: relative;
 }
+
+
+
+// slant block .........................................................
+
+.slant-wrap {
+	position: relative;
+	width: 100%;
+	height: 33vh;
+	margin-bottom: 5rem;
+}
+
+.slant-head {
+	position: absolute;
+	left: 0;
+	right: 0;
+	top:0;
+	bottom: 0;
+	padding-top: 5rem;
+}
+
+.slant-head span {
+	position: relative;
+	top: 0;
+	bottom: 0;
+	height: 100%;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+}
+			
+.slant-head h1 {
+	color: #fff;
+}
+
+.slant-foot {
+	position: absolute;
+	content: '';
+	left: 0px;
+	right: 0px;
+	top: 33vh;
+	border-width: 1rem 50vw;
+	margin-left: -20px;
+	margin-right: 15px;
+	border-style: solid;
+	border-color: $warm-gray-1 #fff #fff $warm-gray-1;
+	box-sizing: border-box;
+
+	@include breakpoint(medium) {
+		border-width: 1.5rem 50vw;
+	}
+
+	@include breakpoint(large) {
+		border-width: 2rem 50vw;
+	}
+
+	@include breakpoint(xlarge) {
+		border-width: 2.5rem 50vw;
+	}
+}
+
+.slant-foot.borders-dark-gray {
+	border-top-color: $dark-gray;
+	border-left-color: $dark-gray;
+}
+
+.slant-foot.borders-warm-gray-1 {
+	border-top-color: $warm-gray-1;
+	border-left-color: $warm-gray-1;
+}
+
+.slant-foot.borders-warm-gray-2 {
+	border-top-color: $warm-gray-2;
+	border-left-color: $warm-gray-2;
+}
+
+.slant-foot.borders-warm-gray-3 {
+	border-top-color: $warm-gray-3;
+	border-left-color: $warm-gray-3;
+}
+
+.slant-foot.borders-warm-gray-4 {
+	border-top-color: $warm-gray-4;
+	border-left-color: $warm-gray-4;
+}
+
+.slant-foot.borders-warm-gray-5 {
+	border-top-color: $warm-gray-5;
+	border-left-color: $warm-gray-5;
+}
+
+@media screen and (max-width: 800px) and (orientation: landscape) {
+
+	.slant-wrap {
+		height: 60vh;
+	}
+	.slant-foot {
+		top: 60vh;
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -71,6 +185,9 @@
 */
 }
 
+.block-skewfuck-wrap {
+	position:relative;width:100%;height:30vh;
+}
 
 .block-skewfuck {
 	position: absolute;
@@ -130,46 +247,27 @@
 	color: #fff;
 }
 
+.block-skewfuck span {
+	position: relative;
+	top: 0;
+	bottom: 0;
+	height: 100%;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+}
+			
+.block-skewfuck h1 {
+	color: #fff;
+}
 
 
 
 
 
-		.shape {
-		    position: absolute;
-		    left: 0;
-		    right: 0;
-		    top:0;
-		    bottom: 0;
-		    background: #d0c;
-		    
-		}
-		.shape:after {
-		    position: absolute;
-		    content: '';
-		    left: 0px;
-		    right: 0px;
-		    top: 100%;
-		    border-top-width: 2rem;
-		    border-right-width: 49vw;
-		    border-bottom-width: 2rem;
-		    border-left-width: 49vw;
-		    border-style: solid;
-		    border-color: blue rgba(0,0,0,0) rgba(0,0,0,0) red;
-		}	
-		
-		.shape span {
-			position: relative;
-			top: 0;
-			bottom: 0;
-			height: 100%;
-			width: 100%;
-			display: flex;
-			flex-direction: column;
-			align-items: center;
-			justify-content: center;
-			text-align: center;
-		}
 
 
 
