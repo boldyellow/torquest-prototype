@@ -7,7 +7,7 @@
 
 
 
-/* COMMON ELEMENTS
+/* SHARED ELEMENTS
 ======================================================================== */
 
 
@@ -16,6 +16,36 @@
 .block {
 	position: relative;
 }
+
+
+
+
+// block backgrounds (colors in _settings)..............................
+
+.dark-gray {
+	background-color: $dark-gray;
+}
+
+.warm-gray-1 {
+	background-color: $warm-gray-1;
+}
+
+.warm-gray-2 {
+	background-color: $warm-gray-2;
+}
+
+.warm-gray-3 {
+	background-color: $warm-gray-3;
+}
+
+.warm-gray-4 {
+	background-color: $warm-gray-4;
+}
+
+.warm-gray-5 {
+	background-color: $warm-gray-5;
+}
+
 
 
 
@@ -66,6 +96,8 @@
 	border-style: solid;
 	border-color: $warm-gray-1 #fff #fff $warm-gray-1;
 	box-sizing: border-box;
+	
+	// change angle based on width so it does not flatten out
 
 	@include breakpoint(medium) {
 		border-width: 1.5rem 50vw;
@@ -79,6 +111,11 @@
 		border-width: 2.5rem 50vw;
 	}
 }
+
+
+
+
+// colors for slant borders ............................................
 
 .slant-foot.borders-dark-gray {
 	border-top-color: $dark-gray;
@@ -110,6 +147,11 @@
 	border-left-color: $warm-gray-5;
 }
 
+
+
+
+// change slant wrap height for small landscape view ...................
+
 @media screen and (max-width: 800px) and (orientation: landscape) {
 
 	.slant-wrap {
@@ -123,364 +165,16 @@
 
 
 
+// so wide images don't fall short on mega screens .....................
 
-
-
-
-
-
-
-
-
-
-// tests
-
-.block-skewx-wrap {
-	position: relative;
-	width: 100%;
-	height: 33vh;
-	margin-bottom: 5rem;
-	
-	@media screen and (max-width: 766px) and (orientation: landscape) {
-		height: 66vh;
-	}
-		
-}
-
-.block-skewx {
-	position: absolute;
-	left: 0;
-	right: 0;
-	top:0;
-	bottom: 0;
-	padding-top: 5rem;
-}
-
-.block-skewx:after {
-	position: absolute;
-	content: '';
-	left: 0px;
-	right: 0px;
-	top: 100%;
-	border-width: 3vw 50vw;
-	padding: 0;
-	margin-left: -20px;
-	margin-right: 15px;
-	border-style: solid;
-	border-color: $dark-gray #fff #fff $dark-gray;
-	box-sizing: border-box;
-
-/*
-	@include breakpoint(medium) {
-		border-width: 1rem 46vw;
-	}
-
-	@include breakpoint(large) {
-		border-width: 1.5rem 47vw;
-	}
-
-	@include breakpoint(xlarge) {
-		border-width: 2rem 48vw;
-	}
-*/
-}
-
-.block-skewfuck-wrap {
-	position:relative;width:100%;height:30vh;
-}
-
-.block-skewfuck {
-	position: absolute;
-	left: 0;
-	right: 0;
-	top:0;
-	bottom: 0;
-	padding-top: 5rem;
-}
-
-.skewfucker {
-	position: absolute;
-	content: '';
-	left: 0px;
-	right: 0px;
-	top: 30vh;
-	border-width: 3vw 50vw;
-	margin-left: -20px;
-	margin-right: 15px;
-	border-style: solid;
-	border-color: $warm-gray-1 #fff #fff $warm-gray-1;
-	box-sizing: border-box;
-
-	@include breakpoint(medium) {
-		border-width: 1rem 50vw;
-	}
-
-	@include breakpoint(large) {
-		border-width: 1.5rem 50vw;
-	}
-
-	@include breakpoint(xlarge) {
-		border-width: 2rem 50vw;
-	}
-}
-
-/*
-.block-skewx.warm-gray-1:after {
-	border-color: $warm-gray-1 rgba(0,0,0,0) rgba(0,0,0,0) $warm-gray-1;
-}	
-*/
-		
-.block-skewx span {
-	position: relative;
-	top: 0;
-	bottom: 0;
-	height: 100%;
-	width: 100%;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	text-align: center;
-}
-			
-.block-skewx h1 {
-	color: #fff;
-}
-
-.block-skewfuck span {
-	position: relative;
-	top: 0;
-	bottom: 0;
-	height: 100%;
-	width: 100%;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	text-align: center;
-}
-			
-.block-skewfuck h1 {
-	color: #fff;
-}
-
-
-
-
-
-
-
-
-// skewed block with page head..........................................
-
-.block-skew {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	margin-bottom: 5rem;
-	color: #fff;
-	text-align: center;
-	padding-top: 3rem;
-	height: 33vh;
-
-	@include breakpoint(medium) {
-		padding-top: 4rem;
-		height: 33vh;
-	}
-
-	@include breakpoint(large) {
-		padding-top: 5rem;
-		height: 33vh;
-	}
-
-}
-
-.block-skew:after {
-	background: inherit;
-	bottom: 0;
-	content: '';
-	display: block;
-	height: 50%;
-	left: 0;
-	position: absolute;
-	right: 0;
-	transform: skewY(-3deg);
-	transform-origin: 100%;
-	z-index: -1;
-}
-
-.block-skew h1 {
-	color: #fff;
-}
-
-
-// block background colors..............................................
-
-.dark-gray {
-	background-color: $dark-gray;
-}
-
-.warm-gray-1 {
-	background-color: $warm-gray-1;
-}
-
-.warm-gray-2 {
-	background-color: $warm-gray-2;
-}
-
-.warm-gray-3 {
-	background-color: $warm-gray-3;
-}
-
-.warm-gray-4 {
-	background-color: $warm-gray-4;
-}
-
-.warm-gray-5 {
-	background-color: $warm-gray-5;
-}
-
-
-// flex box vertical center ............................................
-
-.vertical-center {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-
-	@include breakpoint(medium) {
-		flex-direction: row;
-	}
-
-}
-
-.vertical-center-row {
-	
-	@include breakpoint(medium) {
-	    display: flex;
-	    flex-direction: row;
-	    align-items: center;
-	    justify-content: center;
-	}
-}
-
-img.full-width {
+@img.full-width {
 	width: 100%;
 }
 
 
-/* HOME PAGE 
-======================================================================== */
 
 
-
-// at a glance .........................................................
-
-.region-glance {
-	border-top: 1px solid $warm-gray-3;
-}
-
-.region-glance > .row {
-	padding: 9vw 0 3vw 0;
-}
-
-.region-glance .glance-wrap .row {
-	background-color: $dark-gray;
-}
-
-// horizontal border
-
-.region-glance .glance-wrap .row:nth-of-type(2) {
-		
-	border-top: none;
-
-	@include breakpoint(medium) {
-		border-top: 1px solid #fff;
-	}
-}
-
-.region-glance .glance-wrap .row h2 {
-	font-style: italic;
-	color: #fff;
-}
-
-.region-glance .glance-wrap .row p {
-	color: #fff;
-	font-size: 3.48vmax;
-
-	@include breakpoint(medium) {
-		font-size: 3.36vw;
-	}
-	@include breakpoint(xlarge) {
-		font-size: 4.32vmin;
-	}
-}
-
-.region-glance .glance-wrap .columns {
-	
-	padding: 3.5rem 1rem 1.5rem 1rem;
-	border-bottom: 1px solid $warm-gray-1;
-	
-	@include breakpoint(medium) {
-		padding: 11vw 5vw 9vw 5vw;
-		border-bottom: none;
-	}
-
-}
-
-// vertical borders:
-// using box shadow so we can overlap 1px borders
-// doing even left and odd right in case one is deeper than the other
-// heads stay aligned and don't jump with vertical center
-
-.region-glance .glance-wrap .columns:nth-of-type(odd) {	
-
-	@include breakpoint(medium) {
-		box-shadow: 1px 0 0 0 #fff;
-	}	    
-}
-
-.region-glance .glance-wrap .columns:nth-of-type(even) {
-		
-	@include breakpoint(medium) {
-		box-shadow: 1px 0 0 0 #fff inset;
-	}
-}
-
-// the heads have shorter top/bot rules 
-
-.region-glance .glance-wrap h2 {
-    position: relative;
-    margin-bottom: 4rem;
-}
-
-.region-glance .glance-wrap h2:after {
-    content: '';
-    position: absolute;
-    top: -1.25rem;
-    bottom: -0.75rem;
-    left: 40%;
-    border-bottom: 1px solid #fff;
-    border-top: 1px solid #fff;
-    right: 40%;
-    width: 20%;
-
-	@include breakpoint(medium) {
-    	left: 30%;
-	    right: 30%;
-	    width: 40%;
-	}
-}
-
-
-// investments .........................................................
-
-.investments {
-	position: relative;
-	padding: 6vh 2.5vw;
-}
+// logo grid on home and investment pages ..............................
 
 .logo-grid {
 	float: left;
@@ -509,14 +203,25 @@ img.full-width {
 	}
 }
 
+// edgy: grayscale filter and object fit, oooh!
+
 .logo-grid img {
 	filter: grayscale(1);
 	transition: filter 0.375s linear;
+	display: block;
+    padding: 0;
+    max-width: 50%;
+    max-height: 50%;
+	width: auto;
+    height: auto;
+    object-fit: contain;
 }
 
 .logo-grid:hover img {
 	filter: grayscale(0);
 }
+
+// removing outer borders for each size
 
 @include breakpoint(medium) {
 	.logo-grid {
@@ -555,26 +260,122 @@ img.full-width {
 }
 
 
-.logo-grid img {
-	display: block;
-    padding: 0;
-    max-width: 50%;
-    max-height: 50%;
-	width: auto;
-    height: auto;
-    object-fit: contain;
 
+
+
+/* HOME PAGE
+======================================================================== */
+
+
+// at a glance .........................................................
+
+.region-glance {
+	border-top: 1px solid $warm-gray-3;
+}
+
+.region-glance > .row {
+	padding: 9vw 0 3vw 0;
+}
+
+.region-glance .glance-wrap .row {
+	background-color: $dark-gray;
+}
+
+// type
+
+.region-glance .glance-wrap .row h2 {
+	font-style: italic;
+	color: #fff;
+}
+
+.region-glance .glance-wrap .row p {
+	color: #fff;
+	font-size: 3.48vmax;
+
+	@include breakpoint(medium) {
+		font-size: 3.36vw;
+	}
+	@include breakpoint(xlarge) {
+		font-size: 4.32vmin;
+	}
+}
+
+// horizontal border
+
+.region-glance .glance-wrap .row:nth-of-type(2) {
+		
+	border-top: none;
+
+	@include breakpoint(medium) {
+		border-top: 1px solid #fff;
+	}
+}
+
+// horizontal border at small size
+
+.region-glance .glance-wrap .columns {
+	
+	padding: 3.5rem 1rem 1.5rem 1rem;
+	border-bottom: 1px solid $warm-gray-1;
+	
+	@include breakpoint(medium) {
+		padding: 11vw 5vw 9vw 5vw;
+		border-bottom: none;
+	}
 
 }
 
+// vertical borders:
+// using box shadow so we can overlap 1px borders
+// doing even left and odd right in case one is deeper than the other
+// heads stay aligned and don't jump with vertical center
+
+.region-glance .glance-wrap .columns:nth-of-type(odd) {	
+
+	@include breakpoint(medium) {
+		box-shadow: 1px 0 0 0 #fff;
+	}	    
+}
+
+.region-glance .glance-wrap .columns:nth-of-type(even) {
+		
+	@include breakpoint(medium) {
+		box-shadow: 1px 0 0 0 #fff inset;
+	}
+}
+
+// the heads have shortened top/bot rules 
+
+.region-glance .glance-wrap h2 {
+    position: relative;
+    margin-bottom: 4rem;
+}
+
+.region-glance .glance-wrap h2:after {
+    content: '';
+    position: absolute;
+    top: -1.25rem;
+    bottom: -0.75rem;
+    left: 40%;
+    border-bottom: 1px solid #fff;
+    border-top: 1px solid #fff;
+    right: 40%;
+    width: 20%;
+
+	@include breakpoint(medium) {
+    	left: 30%;
+	    right: 30%;
+	    width: 40%;
+	}
+}
 
 
+// company investments grid ............................................
 
-
-
-
-
-
+.investments {
+	position: relative;
+	padding: 6vh 2.5vw;
+}
 
 
 
@@ -666,6 +467,7 @@ img.full-width {
 
 
 
+
 /* NEWS: OVERVIEW PAGE 
 ======================================================================== */
 
@@ -714,11 +516,6 @@ img.full-width {
 
 
 
-/* STORIES: OVERVIEW PAGE 
-======================================================================== */
-
-
-
 /* STORIES: SINGLE ENTRY PAGE 
 ======================================================================== */
 
@@ -750,18 +547,6 @@ img.full-width {
 	}
 }
 
-
-
-
-
-/* INVESTMENTS PAGE 
-======================================================================== */
-
-// header for each child category section ..............................
-
-.child-list h4 {
-	margin-top: 1.5rem;
-}
 
 
 
@@ -800,10 +585,6 @@ img.full-width {
 	}
 
 }
-
-
-
-
 
 
 

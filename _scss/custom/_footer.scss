@@ -6,6 +6,9 @@
 
 
 
+
+// footer block ........................................................
+
 footer .row:first-child {
 	background-color: $light-green;
 	padding: 10vw 4vw;
@@ -15,6 +18,11 @@ footer .row:first-child {
 	}
 
 }
+
+
+
+
+// footer type .........................................................
 
 footer h2 {
 	margin-bottom: 1.25rem;
@@ -37,6 +45,11 @@ footer p span.bullet {
 footer p a {
 	color: $warm-gray-1;
 }
+
+
+
+
+// footer logo .........................................................
 
 footer .logo {
 	padding: 3rem 0 5rem 0;
@@ -65,21 +78,6 @@ footer .logo a:after {
 footer .logo a:hover {
 	opacity: 0.6;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

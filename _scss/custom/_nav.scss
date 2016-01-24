@@ -7,12 +7,17 @@
 
 
 
+// for some androids ...................................................
+
 * {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   -webkit-tap-highlight-color: transparent;
-  /* For some Androids */
 }
 
+
+
+
+// brand ...............................................................
 
 #brand {
 	position: absolute;
@@ -46,8 +51,9 @@
 }
 
 
-/* nav elements 
------------------------------------------------------------------------- */
+
+
+// nav elements ........................................................
 
 .navbar {
 	position: fixed;
@@ -71,8 +77,9 @@
 }
 
 
-/* nav primary list items 
------------------------------------------------------------------------- */
+
+
+// nav primary list items ..............................................
 
 .mobilenav li {
     font-family: "adobe-caslon-pro",serif;
@@ -88,14 +95,14 @@
 }
 
 .mobilenav li a {
-  text-decoration: none;
-  color: $dark-gray;
-  display: block;
-  width: 100%;
+	text-decoration: none;
+	color: $dark-gray;
+	display: block;
+	width: 100%;
 }
 
 .mobilenav li a:hover {
-  color: $warm-gray-2;
+	color: $warm-gray-2;
 }
 
 .mobilenav li:first-child {
@@ -111,14 +118,12 @@
  	font-size: 3.75vh;
  	text-transform: uppercase;
  	letter-spacing: 0.3rem;
- 	
 }
 
 
 
 
-/* nav secondary list items 
------------------------------------------------------------------------- */
+// nav secondary list items ............................................
 
 .secondary-nav {
 	display: none;
@@ -140,8 +145,8 @@
 
 
 
-/* hamburger 
------------------------------------------------------------------------- */
+
+// hamburger ...........................................................
 
 .top-animate {
 	background: #444 !important;
@@ -194,7 +199,6 @@
 }
 
 .menui {
-	// 	background: red;
 	transition: 0.8s ease-in;
 	transition-timing-function: linear(.75, 0, 2.29, 1.01);
 	margin-top: 10px;
@@ -226,3 +230,6 @@
 .noscroll {
 	overflow-y: hidden; 
 }
+
+
+

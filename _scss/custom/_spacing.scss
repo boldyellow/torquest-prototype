@@ -6,91 +6,8 @@
 
 
 
-// block padding options ...............................................
 
-.block-pad-sm {
-	padding: 4vw 0;
-}
-
-.block-pad-md {
-	padding: 7vw 3vw;
-}
-
-.block-pad-lg {
-	padding: 12vw 3vw;
-}
-
-
-
-
-// general pad options .................................................
-
-.padding-sm-top {
-	padding-top: 4vw;
-}
-
-.padding-sm-bot {
-	padding-bottom: 4vw;
-}
-
-.padding-md-top {
-	padding-top: 7vw;
-}
-
-.padding-md-bot {
-	padding-bottom: 7vw;
-}
-
-.padding-lg-top {
-	padding-top: 12vw;
-}
-
-.padding-lg-bot {
-	padding-bottom: 12vw;
-}
-
-.padding-sm-top-bot {
-	padding: 4vw 0;
-}
-
-.padding-md-top-bot {
-	padding: 7vw 0;
-}
-
-.padding-lg-top-bot {
-	padding: 12vw 0;
-}
-
-
-
-
-// margin options .................................................
-
-.margin-none-bot {
-	margin-bottom: 0;
-}
-
-.margin-sm-bot {
-	margin-bottom: 1.25rem;
-}
-
-.margin-md-bot {
-	margin-bottom: 2.5rem;
-}
-
-
-
-
-
-/* |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
-  
-   SPACING TWEAKS 
-   
-|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| */
-
-
-
-// padding .............................................................
+// proportional padding (top-right-bot-left)............................
 
 .padding-x-3-x-3 {
 	padding-left: 3vw;
@@ -152,7 +69,7 @@
 
 
 
-// margins .............................................................
+// normal margins (top-right-bot-left) .................................
 
 .margin-x-x-0-x {
 	margin-bottom: 0;
@@ -177,20 +94,6 @@
 .margin-md-bot {
 	margin-bottom: 2.5rem;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
