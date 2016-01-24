@@ -24,7 +24,7 @@
 .slant-wrap {
 	position: relative;
 	width: 100%;
-	height: 33vh;
+	height: 36vh; // depth here must match top of slant foot
 	margin-bottom: 5rem;
 }
 
@@ -59,7 +59,7 @@
 	content: '';
 	left: 0px;
 	right: 0px;
-	top: 33vh;
+	top: 36vh;
 	border-width: 1rem 50vw;
 	margin-left: -20px;
 	margin-right: 15px;
