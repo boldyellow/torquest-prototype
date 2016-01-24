@@ -626,12 +626,12 @@ img.full-width {
 ======================================================================== */
 
 
-.block-team-bio-header {
+.team-bio-header {
 	background-color: $steel-blue;
 }
 
 
-.block-team-bio-header .medium-7 {
+.team-bio-header .medium-7 {
 	background-color: $dark-gray;
 	padding-bottom: 1rem;
 	
@@ -642,8 +642,8 @@ img.full-width {
 	
 }
 
-.block-team-bio-header h2,
-.block-team-bio-header h5 {
+.team-bio-header h2,
+.team-bio-header h5 {
 	color: #fff;
 	text-align: center;
 	margin-top: 1.5rem;
@@ -655,7 +655,7 @@ img.full-width {
 	
 }
 
-.block-team-bio-text .sidebar {
+.team-bio-text .sidebar {
 	margin-top: 1rem;
 	margin-bottom: 1rem;
 	
@@ -725,7 +725,7 @@ img.full-width {
 
 // head in image .......................................................
 
-.block-story-header h6 {
+.story-header h6 {
 	color: #fff;
 }
 
@@ -734,11 +734,11 @@ img.full-width {
 
 // logo and spot photo row .............................................
 
-.block-story-images {
+.story-images {
 	background-color: $warm-gray-4;
 }
 
-.block-story-company-logo img {
+.story-company-logo img {
 	padding: 3rem 0;
 	max-width: 50vw;
 	max-height: 50vw;
