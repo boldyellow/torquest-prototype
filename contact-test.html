@@ -1,0 +1,187 @@
+<!doctype html>
+<html class="no-js" lang="en">
+
+	
+<head>
+	
+	<meta charset="utf-8">
+	
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+	<title>News | Prototype</title>
+	
+	<link rel="stylesheet" href="_assets/css/app.css">
+	
+</head>
+	
+
+<body>
+	
+	<nav class="navbar">
+			
+		<a id="brand" href="index.html"></a>
+	
+		<ul class="mobilenav">
+			<li><a href="strategy.html">Strategy</a></li>
+			<li><a href="stories.html">Stories</a></li>
+			<li><a href="team.html">Team</a></li>
+			<li><a href="investments.html">Investments</a></li>
+			<li><a href="news.html">News</a></li>
+			<li><a href="contact.html">Contact Us</a></li>
+			<li><a href="#">Partner Login</a></li>
+		</ul>
+		
+		<a href="javascript:void(0)" id="hamburger" class="icon">
+			<div class="hamburger">
+				<div class="menui top-menu"></div>
+				<div class="menui mid-menu"></div>
+				<div class="menui bottom-menu"></div>
+			</div>
+		</a>
+							
+	</nav>
+	
+
+	<div style="position:relative;width:100%;height:30vh;background-color:#000;">
+
+	    <div class="block-skewfuck warm-gray-1 content dark">
+		    			    
+				<span><h1>How to contact us</h1></span>
+				    
+	    </div>
+
+	</div>
+
+			<div class="skewfucker"></div>
+	     
+	<div class="block block-pad-md content light">
+
+		<div class="row">
+			
+			<div class="large-5 large-offset-1 columns">
+
+				<h4><span>Address</span></h4>
+				
+				<p> Brookfield Place<br>
+					161 Bay St, Suite 4240<br>
+					Toronto, ON<br>
+					M5J 2S1, Canada
+				</p>
+				
+				<p class="reduced-text margin-none-bot">We are located in the TD Canada Trust Tower</p>
+				 
+				<a class="view-more margin-md-bot" href="#">View Map</a>
+				
+			</div>
+
+			<div class="large-5 columns">
+
+				<h4><span>General inquiries</span></h4>
+				
+				<p>
+					416-956-7022<br>
+					<a href="mailto:">brent@torquest.com</a>
+				</p>
+				
+				<h4><span>For investors</span></h4>
+				
+				<p>
+					416-956-7022<br>
+					<a href="mailto:">brent@torquest.com</a>
+				</p>
+				
+			</div>
+			
+		</div>
+		
+	</div>
+			
+
+
+	<footer class="text-center wow fadeIn" data-wow-delay=".4s">
+		
+		<div class="row expanded">
+			
+			<h3>Every successful relationship <br class="show-for-medium"> starts with a&nbsp;conversation.</h3>
+			
+			<p>
+				416-956-7022
+				<span class="show-for-small-only"><br></span>
+				<span class="bullet">&bull;</span>
+				<a href="#">brock@torquest.com</a>
+			</p>
+		
+		</div>
+		
+		<div class="row logo">
+			
+			<a href="index.html"></a>
+			
+		</div>
+		
+	</footer>
+
+
+
+
+
+
+
+	<script src="https://use.typekit.net/rjh8jhj.js"></script>
+	
+	<script>try{Typekit.load({ async: true });}catch(e){}</script>
+
+	<script src="_assets/js/min/app-min.js"></script>
+
+    <script>
+	    
+		// fade in page content divs on scroll
+		new WOW().init();
+			    
+		// hamburger/brand scripts not for sham modal pages
+		if (!$('body').hasClass('sham-modal')) {
+			
+			// hamburger animation
+			function togglescroll() {
+			  $('body').on('touchstart');
+			}
+			
+			$(document).ready(function() {
+			  togglescroll()
+			  $(".icon").click(function() {
+			    $(".mobilenav").fadeToggle(500);
+			    $(".top-menu").toggleClass("top-animate");
+			    $("body").toggleClass("noscroll");
+			    $(".mid-menu").toggleClass("mid-animate");
+			    $(".bottom-menu").toggleClass("bottom-animate");
+			  });
+			});
+			
+			// hamburger color over dark/light panels
+			var stickyOffset = $("#hamburger").offset();
+			var $contentDivs = $(".content");
+			$(document).scroll(function() {
+				$contentDivs.each(function(k) {
+					var _thisOffset = $(this).offset();
+					var _actPosition = _thisOffset.top - $(window).scrollTop();
+					if (_actPosition < stickyOffset.top && _actPosition + $(this).height() > 0) {
+						$("#hamburger").removeClass("light dark").addClass($(this).hasClass("light") ? "light" : "dark");
+						return false;
+					}
+				});
+			});		
+			
+			// animate brand div on scroll
+			$(document).scroll(function(){
+				$('#brand').toggleClass('scrolled', $(this).scrollTop() > 1);
+			});
+		}
+		
+	</script>
+
+
+</body>
+
+</html>
