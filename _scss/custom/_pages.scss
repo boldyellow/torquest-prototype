@@ -48,11 +48,12 @@
 	left: 0px;
 	right: 0px;
 	top: 100%;
-	border-width: 20px 50vw;
+	border-width: 3vw 50vw;
 	padding: 0;
-	margin: 0;
+	margin-left: -20px;
+	margin-right: 15px;
 	border-style: solid;
-	border-color: $dark-gray green red blue;
+	border-color: $dark-gray #fff #fff $dark-gray;
 	box-sizing: border-box;
 
 /*
