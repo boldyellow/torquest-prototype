@@ -101,6 +101,10 @@
 	width: 100%;
 }
 
+.mobilenav li a.active {
+	text-decoration: underline;
+}
+
 .mobilenav li a:hover {
 	color: $warm-gray-2;
 }
