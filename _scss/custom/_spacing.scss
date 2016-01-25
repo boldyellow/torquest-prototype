@@ -9,33 +9,41 @@
 
 // proportional padding (top-right-bot-left)............................
 
+.padding-x-x-3-x {
+	padding-bottom: 3vh;
+}
+
 .padding-x-3-x-3 {
 	padding-left: 3vw;
 	padding-right: 3vw;
-}
-
-.padding-3-0-3-0 {
-	padding: 3vh 0;
-}
-
-.padding-3-0-0-0 {
-	padding: 3vh 0 0 0;
 }
 
 .padding-0-0-3-0 {
 	padding: 0 0 3vh 0;
 }
 
+.padding-3-0-0-0 {
+	padding: 3vh 0 0 0;
+}
+
+.padding-3-0-3-0 {
+	padding: 3vh 0;
+}
+
 .padding-3-x-x-x {
 	padding-top: 3vh;
 }
 
-.padding-x-x-3-x {
-	padding-bottom: 3vh;
-}
-
 .padding-0-0-4-0 {
 	padding-bottom: 4vh;
+}
+
+.padding-x-x-4-x {
+	padding-bottom: 4vh;
+}
+
+.padding-4-x-x-x {
+	padding-top: 4vh;	
 }
 
 .padding-4-0-0-0 {
@@ -44,14 +52,6 @@
 
 .padding-4-0-4-0 {
 	padding: 4vh 0;
-}
-
-.padding-4-x-x-x {
-	padding-top: 4vh;	
-}
-
-.padding-x-x-4-x {
-	padding-bottom: 4vh;
 }
 
 .padding-7-0-7-0 {
@@ -64,6 +64,10 @@
 
 .padding-12-4-12-4 {
 	padding: 12vh 4vw;
+}
+
+.padding-15-10-15-10 {
+	padding: 15vh 10vw;
 }
 
 
