@@ -446,6 +446,20 @@
 	background-color: $warm-gray-4;
 }
 
+// flex box vertical center
+
+.vertical-center {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+
+	@include breakpoint(medium) {
+		flex-direction: row;
+	}
+
+}
+
 .story-company-logo img {
 	padding: 3rem 0;
 	max-width: 50vw;
