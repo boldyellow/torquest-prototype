@@ -54,7 +54,7 @@
 .slant-wrap {
 	position: relative;
 	width: 100%;
-	height: 36vh; // depth here must match top of slant foot
+	height: 45vh; // depth here must match top of slant foot
 	margin-bottom: 5rem;
 }
 
@@ -115,6 +115,45 @@
 
 
 
+
+
+
+
+		
+		.slant-footxx {
+			position: absolute;
+			left: 0px;
+			right: 0px;
+			bottom: 0;
+			width: 100%;
+			height: auto;
+			padding: 0;
+			margin: 0;
+		}
+		
+		.slant-footxx img {
+			width: 100vw;
+			margin-bottom: -2px;
+			margin-left: 0.1vw;
+		}
+
+		.fucker3 {
+			position: absolute;
+			right: 0;
+			bottom: -5px;
+			width: 100%;
+			height: 60px;
+			padding: 0;
+			margin: 0;
+			overflow: hidden;
+		}
+
+
+
+
+
+
+
 // colors for slant borders ............................................
 
 .slant-foot.borders-dark-gray {
@@ -167,7 +206,7 @@
 
 // so wide images don't fall short on mega screens .....................
 
-@img.full-width {
+img.full-width {
 	width: 100%;
 }
 
@@ -384,6 +423,10 @@
 
 
 // search field ........................................................
+
+.news-search .input-group-field {
+    height: 2.53rem;
+}
 
 .search-field,
 .search-field:focus {

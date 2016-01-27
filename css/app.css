@@ -3832,7 +3832,7 @@ a.view-more.up {
 .slant-wrap {
   position: relative;
   width: 100%;
-  height: 45vh;
+  height: 36vh;
   margin-bottom: 5rem; }
 
 .slant-head {
@@ -3879,31 +3879,6 @@ a.view-more.up {
   @media screen and (min-width: 80em) {
     .slant-foot {
       border-width: 2.5rem 50vw; } }
-
-.slant-footxx {
-  position: absolute;
-  left: 0px;
-  right: 0px;
-  bottom: 0;
-  width: 100%;
-  height: auto;
-  padding: 0;
-  margin: 0; }
-
-.slant-footxx img {
-  width: 100vw;
-  margin-bottom: -2px;
-  margin-left: 0.1vw; }
-
-.fucker3 {
-  position: absolute;
-  right: 0;
-  bottom: -5px;
-  width: 100%;
-  height: 60px;
-  padding: 0;
-  margin: 0;
-  overflow: hidden; }
 
 .slant-foot.borders-dark-gray {
   border-top-color: #151f25;
@@ -4070,7 +4045,7 @@ img.full-width {
 /* NEWS: OVERVIEW PAGE 
 ======================================================================== */
 .news-search .input-group-field {
-  height: 2.53rem; }
+  height: 2.53rem !important; }
 
 .search-field,
 .search-field:focus {
@@ -4089,7 +4064,7 @@ img.full-width {
 
 .news-highlights .row {
   margin-bottom: 0.25rem;
-  background-color: #f5f5f6;
+  background-color: red;
   padding-top: 3rem;
   padding-bottom: 3rem; }
 
