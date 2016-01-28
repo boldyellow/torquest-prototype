@@ -4208,12 +4208,15 @@ h6 {
   letter-spacing: 0.1rem;
   text-transform: uppercase;
   font-size: 1.1rem; }
-  @media screen and (min-width: 47.9375em) {
+  @media screen and (min-width: 28.75em) {
     h6 {
       font-size: 1.2rem; } }
-  @media screen and (min-width: 80em) {
+  @media screen and (min-width: 47.9375em) {
     h6 {
       font-size: 1.3rem; } }
+  @media screen and (min-width: 80em) {
+    h6 {
+      font-size: 1.4rem; } }
 
 h6 span {
   display: inline-block;
@@ -4242,6 +4245,18 @@ blockquote {
   @media screen and (min-width: 80em) {
     blockquote {
       font-size: 3.75rem; } }
+
+blockquote + h6 {
+  margin-top: 1.5rem; }
+  @media screen and (min-width: 28.75em) {
+    blockquote + h6 {
+      margin-top: 1.75rem; } }
+  @media screen and (min-width: 47.9375em) {
+    blockquote + h6 {
+      margin-top: 2rem; } }
+  @media screen and (min-width: 80em) {
+    blockquote + h6 {
+      font-size: 1.4rem; } }
 
 .small-caps {
   font-family: "adobe-caslon-pro",serif;
@@ -5024,9 +5039,6 @@ img.full-width {
 .story-header h6 {
   color: #fff; }
 
-.story-images {
-  background-color: #e6e4e3; }
-
 .vertical-center {
   display: -webkit-box;
   display: -webkit-flex;
@@ -5104,6 +5116,14 @@ figure img {
   height: 12rem; }
   @media screen and (min-width: 28.75em) {
     figure img {
+      height: auto; } }
+
+.story-header figure img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  height: 14rem; }
+  @media screen and (min-width: 28.75em) {
+    .story-header figure img {
       height: auto; } }
 
 figcaption {

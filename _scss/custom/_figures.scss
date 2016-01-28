@@ -26,6 +26,15 @@ figure img {
 	}
 }
 
+.story-header figure img {
+	object-fit: cover;
+	height: 14rem;
+
+	@include breakpoint(medium) {
+		height: auto;
+	}
+}
+
 figcaption {
 	position: absolute;
 	top: 0;
