@@ -481,13 +481,33 @@ img.full-width {
 .news-highlights h5,
 .news-article h1,
 .news-article h5 {
-	margin-bottom: 2rem;
+	margin-bottom: 3rem;
 }
 
 .news-article .reduced-text h6 {
 	margin-bottom: 0.5rem;
 }
 
+
+
+
+/* NEWS: SINGLE ENTRY PAGE 
+======================================================================== */
+
+
+.news-article .sidebar p {
+	font-size: 1rem;
+
+	@include breakpoint(medium) {
+		font-size: 1.1rem;
+	}
+	@include breakpoint(large) {
+		font-size: 1.15rem;
+	}
+	@include breakpoint(xlarge) {
+		font-size: 1.2rem;
+	}
+}
 
 
 

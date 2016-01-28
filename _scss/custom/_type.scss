@@ -39,20 +39,14 @@ h1 {
 }
 
 .sham-modal h1, 
+.news-highlights h1,
 .news-article h1 {
 	
 	@include breakpoint(medium) {
 		font-size: 7.5vw;
 	}
-	@include breakpoint(xlarge) {
-		font-size: 6rem;
-	}
-}
-
-.news-highlights h1 {
-	
-	@include breakpoint(medium) {
-		font-size: 6.3vw;
+	@include breakpoint(large) {
+		font-size: 6.5vw;
 	}
 	@include breakpoint(xlarge) {
 		font-size: 5rem;
@@ -322,7 +316,7 @@ li.reduced-text {
 }
 
 small {
-	font-size: rem-calc(15);
+	font-size: 1rem;
 }
 
 // paragraph links
