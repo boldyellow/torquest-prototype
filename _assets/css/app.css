@@ -4139,10 +4139,10 @@ h1 {
 
 h2 {
   font-family: "adobe-caslon-pro",serif;
-  font-size: 4.76vmax; }
+  font-size: 2rem; }
   @media screen and (min-width: 28.75em) {
     h2 {
-      font-size: 6.3vw; } }
+      font-size: 6.5vw; } }
   @media screen and (min-width: 80em) {
     h2 {
       font-size: 5rem; } }
@@ -4248,14 +4248,14 @@ blockquote {
   text-transform: uppercase;
   font-size: 1.6rem;
   letter-spacing: 0.2rem;
+  margin-top: 0.2rem;
   color: #fff; }
   @media screen and (min-width: 28.75em) {
     .small-caps {
-      margin-top: 1rem;
       font-size: 2.1rem; } }
   @media screen and (min-width: 47.9375em) {
     .small-caps {
-      font-size: 2,6rem; } }
+      font-size: 2.6rem; } }
   @media screen and (min-width: 80em) {
     .small-caps {
       font-size: 3.1rem; } }
@@ -5072,7 +5072,7 @@ img.full-width {
       color: #fff; } }
 
 .region-strategies h2 {
-  margin-bottom: 0.25rem; }
+  margin-bottom: 1.5rem; }
   @media screen and (min-width: 28.75em) {
     .region-strategies h2 {
       margin-bottom: 1rem; } }
@@ -5097,6 +5097,14 @@ figure {
   display: table;
   table-layout: fixed;
   width: 100%; }
+
+figure img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  height: 12rem; }
+  @media screen and (min-width: 28.75em) {
+    figure img {
+      height: auto; } }
 
 figcaption {
   position: absolute;

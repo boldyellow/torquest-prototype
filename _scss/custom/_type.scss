@@ -88,10 +88,10 @@ h1 {
 
 h2 {
 	font-family: "adobe-caslon-pro",serif;
-	font-size: 4.76vmax;
+	font-size: 2rem;
    
 	@include breakpoint(medium) {
-		font-size: 6.3vw;
+		font-size: 6.5vw;
 	}
 	@include breakpoint(xlarge) {
 		font-size: 5rem;
@@ -234,14 +234,14 @@ blockquote {
 	text-transform: uppercase;
 	font-size: 1.6rem;
 	letter-spacing: 0.2rem;
+	margin-top: 0.2rem;
 	color: #fff;
    
 	@include breakpoint(medium) {
-		margin-top: 1rem;
 		font-size: 2.1rem;
 	}
 	@include breakpoint(large) {
-		font-size: 2,6rem;
+		font-size: 2.6rem;
 	}
 	@include breakpoint(xlarge) {
 		font-size: 3.1rem;

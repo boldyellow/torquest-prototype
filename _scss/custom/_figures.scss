@@ -17,6 +17,15 @@ figure {
 	width: 100%;
 }
 
+figure img {
+	object-fit: cover;
+	height: 12rem;
+
+	@include breakpoint(medium) {
+		height: auto;
+	}
+}
+
 figcaption {
 	position: absolute;
 	top: 0;
