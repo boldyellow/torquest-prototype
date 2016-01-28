@@ -30,16 +30,16 @@
 	color: #fff;
 	text-align: center;
 	padding-top: 3rem;
-	height: 60vh;
+	height: 50vh;
 
 	@include breakpoint(medium) {
 		padding-top: 4rem;
-		height: 50vh;
+		height: 40vh;
 	}
 
 	@include breakpoint(large) {
 		padding-top: 5rem;
-		height: 55vh;
+		height: 35vh;
 	}
 
 }
@@ -223,6 +223,30 @@
 */
 
 
+// flex box vertical center ............................................
+
+.vertical-center {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+
+	@include breakpoint(medium) {
+		flex-direction: row;
+	}
+
+}
+
+.vertical-center-row {
+	
+	@include breakpoint(medium) {
+	    display: flex;
+	    flex-direction: row;
+	    align-items: center;
+	    justify-content: center;
+	}
+}
+
 
 
 // so wide images don't fall short on mega screens .....................
@@ -351,6 +375,70 @@ img.full-width {
 
 
 
+/* STRATEGIES PAGE 
+======================================================================== */
+
+.region-strategies h1 {
+	color: $dark-gray;
+	
+	@include breakpoint(medium) {
+		color: #fff;
+	}
+	
+}
+
+.region-strategies h2 {
+	
+	margin-bottom: 1.5rem;
+	
+	@include breakpoint(medium) {
+		margin-bottom: 1rem;
+	}
+	@include breakpoint(large) {
+		margin-bottom: 2rem;
+	}
+
+}
+
+.region-strategies h6 {
+	
+	margin-top: 1.5rem;
+	
+	@include breakpoint(large) {
+		margin-top: 2rem;
+	}
+
+}
+
+
+
+
+/* STORIES: SINGLE ENTRY PAGE 
+======================================================================== */
+
+
+// head in image .......................................................
+
+.story-header h6 {
+	color: #fff;
+}
+
+
+.story-company-logo img {
+	padding: 3rem 0;
+	max-width: 50vw;
+	max-height: 50vw;
+	
+	@include breakpoint(medium) {
+		padding: 0;
+		max-width: 25vw;
+		max-height: 25vw;
+	}
+}
+
+
+
+
 /* TEAM: OVERVIEW PAGE 
 ======================================================================== */
 
@@ -372,25 +460,59 @@ img.full-width {
 }
 
 .region-team-headshots a {
-    background-color: $dark-gray;
+	position: relative;
     display: inline-block;
     width: 100%;
+}
+
+.region-team-headshots a .gradient-overlay {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+    width: 100%;
+    height: 100%;
 	transition: all 0.375s linear;
+	background: linear-gradient(to bottom, rgba(255,255,255,0) 25%,rgba(21,31,37,0.6) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#99151f25',GradientType=0 ); /* IE6-9 */
+	opacity: 1;
+
+	@include breakpoint(large) {
+		opacity: 0;
+	}
 }
 
-.region-team-headshots a img {
-    opacity: 0.65;
-	transition: all 0.375s linear;
+.region-team-headshots a:hover .gradient-overlay {
+
+	@include breakpoint(large) {
+		opacity: 1;
+	}
 }
 
-.region-team-headshots a:hover {
-    background-color: white;
-}
+.region-team-headshots a .gradient-overlay .bio-name {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+    width: 100%;
+    z-index: 1000;
+    color: #fff;
+	font-family: "adobe-caslon-pro",serif;
+	font-size: 1.6rem;
+	line-height: 1.2;
+	padding: 0.5rem 1.5rem;
 
-.region-team-headshots a img:hover {
-    opacity: 1;
+	@include breakpoint(medium) {
+		font-size: 1.5rem;
+	}
+	@include breakpoint(large) {
+		font-size: 1.4rem;
+		padding: 0.75rem 2rem;
+	}
+	@include breakpoint(xlarge) {
+		font-size: 1.6rem;
+	}
 }
-
 
 
 
@@ -414,13 +536,25 @@ img.full-width {
 	
 }
 
-.team-bio-header h2,
-.team-bio-header h5 {
+.team-bio-header h2 {
 	color: #fff;
 	text-align: center;
 	margin-top: 1.5rem;
 	
 	@include breakpoint(medium) {
+		text-align: left;
+		margin-top: 0;
+	}
+	
+}
+
+.team-bio-header h5 {
+	color: #fff;
+	text-align: center;
+	margin-top: 0.75rem;
+	
+	@include breakpoint(medium) {
+		margin-top: 1.5rem;
 		text-align: left;
 		margin-top: 0;
 	}
@@ -484,6 +618,13 @@ img.full-width {
 	margin-bottom: 3rem;
 }
 
+.news-highlights h1 a {
+	color: $dark-gray;
+	&:hover {
+        color: $dark-gray;
+    }
+}
+
 .news-article .reduced-text h6 {
 	margin-bottom: 0.5rem;
 }
@@ -507,84 +648,6 @@ img.full-width {
 	@include breakpoint(xlarge) {
 		font-size: 1.2rem;
 	}
-}
-
-
-
-/* STORIES: SINGLE ENTRY PAGE 
-======================================================================== */
-
-
-// head in image .......................................................
-
-.story-header h6 {
-	color: #fff;
-}
-
-
-// flex box vertical center
-
-.vertical-center {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-
-	@include breakpoint(medium) {
-		flex-direction: row;
-	}
-
-}
-
-.story-company-logo img {
-	padding: 3rem 0;
-	max-width: 50vw;
-	max-height: 50vw;
-	
-	@include breakpoint(medium) {
-		padding: 0;
-		max-width: 25vw;
-		max-height: 25vw;
-	}
-}
-
-
-
-
-
-/* STRATEGIES PAGE 
-======================================================================== */
-
-.region-strategies h1 {
-	color: $dark-gray;
-	
-	@include breakpoint(medium) {
-		color: #fff;
-	}
-	
-}
-
-.region-strategies h2 {
-	
-	margin-bottom: 1.5rem;
-	
-	@include breakpoint(medium) {
-		margin-bottom: 1rem;
-	}
-	@include breakpoint(large) {
-		margin-bottom: 2rem;
-	}
-
-}
-
-.region-strategies h6 {
-	
-	margin-top: 1.5rem;
-	
-	@include breakpoint(large) {
-		margin-top: 2rem;
-	}
-
 }
 
 

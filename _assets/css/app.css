@@ -4137,7 +4137,7 @@ h1 {
 
 h2 {
   font-family: "adobe-caslon-pro",serif;
-  font-size: 2rem; }
+  font-size: 2.1rem; }
   @media screen and (min-width: 28.75em) {
     h2 {
       font-size: 6.5vw; } }
@@ -4329,9 +4329,8 @@ p a {
   color: #3a454b;
   -webkit-transition: color 0.375s linear;
   transition: color 0.375s linear; }
-
-p a:hover {
-  color: #000; }
+  p a:hover {
+    color: #000; }
 
 .block li {
   list-style: none; }
@@ -4711,15 +4710,15 @@ a.view-more.up {
   color: #fff;
   text-align: center;
   padding-top: 3rem;
-  height: 60vh; }
+  height: 50vh; }
   @media screen and (min-width: 28.75em) {
     .block-skew {
       padding-top: 4rem;
-      height: 50vh; } }
+      height: 40vh; } }
   @media screen and (min-width: 47.9375em) {
     .block-skew {
       padding-top: 5rem;
-      height: 55vh; } }
+      height: 35vh; } }
 
 .block-skew:after {
   background: inherit;
@@ -4862,6 +4861,52 @@ a.view-more.up {
 	}
 }
 */
+.vertical-center {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center; }
+  @media screen and (min-width: 28.75em) {
+    .vertical-center {
+      -webkit-box-orient: horizontal;
+      -webkit-box-direction: normal;
+      -webkit-flex-direction: row;
+          -ms-flex-direction: row;
+              flex-direction: row; } }
+
+@media screen and (min-width: 28.75em) {
+  .vertical-center-row {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: row;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+        -ms-flex-pack: center;
+            justify-content: center; } }
+
 img.full-width {
   width: 100%; }
 
@@ -4937,6 +4982,44 @@ img.full-width {
   position: relative;
   padding: 6vh 2.5vw; }
 
+/* STRATEGIES PAGE 
+======================================================================== */
+.region-strategies h1 {
+  color: #151f25; }
+  @media screen and (min-width: 28.75em) {
+    .region-strategies h1 {
+      color: #fff; } }
+
+.region-strategies h2 {
+  margin-bottom: 1.5rem; }
+  @media screen and (min-width: 28.75em) {
+    .region-strategies h2 {
+      margin-bottom: 1rem; } }
+  @media screen and (min-width: 47.9375em) {
+    .region-strategies h2 {
+      margin-bottom: 2rem; } }
+
+.region-strategies h6 {
+  margin-top: 1.5rem; }
+  @media screen and (min-width: 47.9375em) {
+    .region-strategies h6 {
+      margin-top: 2rem; } }
+
+/* STORIES: SINGLE ENTRY PAGE 
+======================================================================== */
+.story-header h6 {
+  color: #fff; }
+
+.story-company-logo img {
+  padding: 3rem 0;
+  max-width: 50vw;
+  max-height: 50vw; }
+  @media screen and (min-width: 28.75em) {
+    .story-company-logo img {
+      padding: 0;
+      max-width: 25vw;
+      max-height: 25vw; } }
+
 /* TEAM: OVERVIEW PAGE 
 ======================================================================== */
 .region-team-headshots {
@@ -4949,22 +5032,54 @@ img.full-width {
       padding-bottom: 7rem; } }
 
 .region-team-headshots a {
-  background-color: #151f25;
+  position: relative;
   display: inline-block;
+  width: 100%; }
+
+.region-team-headshots a .gradient-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
   width: 100%;
+  height: 100%;
   -webkit-transition: all 0.375s linear;
-  transition: all 0.375s linear; }
-
-.region-team-headshots a img {
-  opacity: 0.65;
-  -webkit-transition: all 0.375s linear;
-  transition: all 0.375s linear; }
-
-.region-team-headshots a:hover {
-  background-color: white; }
-
-.region-team-headshots a img:hover {
+  transition: all 0.375s linear;
+  background: -webkit-linear-gradient(top, rgba(255, 255, 255, 0) 25%, rgba(21, 31, 37, 0.6) 100%);
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 25%, rgba(21, 31, 37, 0.6) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#99151f25',GradientType=0 );
+  /* IE6-9 */
   opacity: 1; }
+  @media screen and (min-width: 47.9375em) {
+    .region-team-headshots a .gradient-overlay {
+      opacity: 0; } }
+
+@media screen and (min-width: 47.9375em) {
+  .region-team-headshots a:hover .gradient-overlay {
+    opacity: 1; } }
+
+.region-team-headshots a .gradient-overlay .bio-name {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  z-index: 1000;
+  color: #fff;
+  font-family: "adobe-caslon-pro",serif;
+  font-size: 1.6rem;
+  line-height: 1.2;
+  padding: 0.5rem 1.5rem; }
+  @media screen and (min-width: 28.75em) {
+    .region-team-headshots a .gradient-overlay .bio-name {
+      font-size: 1.5rem; } }
+  @media screen and (min-width: 47.9375em) {
+    .region-team-headshots a .gradient-overlay .bio-name {
+      font-size: 1.4rem;
+      padding: 0.75rem 2rem; } }
+  @media screen and (min-width: 80em) {
+    .region-team-headshots a .gradient-overlay .bio-name {
+      font-size: 1.6rem; } }
 
 /* TEAM: SINGLE ENTRY (BIO) PAGE 
 ======================================================================== */
@@ -4979,14 +5094,22 @@ img.full-width {
       background-color: transparent;
       padding-bottom: 0; } }
 
-.team-bio-header h2,
-.team-bio-header h5 {
+.team-bio-header h2 {
   color: #fff;
   text-align: center;
   margin-top: 1.5rem; }
   @media screen and (min-width: 28.75em) {
-    .team-bio-header h2,
+    .team-bio-header h2 {
+      text-align: left;
+      margin-top: 0; } }
+
+.team-bio-header h5 {
+  color: #fff;
+  text-align: center;
+  margin-top: 0.75rem; }
+  @media screen and (min-width: 28.75em) {
     .team-bio-header h5 {
+      margin-top: 1.5rem;
       text-align: left;
       margin-top: 0; } }
 
@@ -5029,6 +5152,11 @@ img.full-width {
 .news-article h5 {
   margin-bottom: 3rem; }
 
+.news-highlights h1 a {
+  color: #151f25; }
+  .news-highlights h1 a:hover {
+    color: #151f25; }
+
 .news-article .reduced-text h6 {
   margin-bottom: 0.5rem; }
 
@@ -5045,70 +5173,6 @@ img.full-width {
   @media screen and (min-width: 80em) {
     .news-article .sidebar p {
       font-size: 1.2rem; } }
-
-/* STORIES: SINGLE ENTRY PAGE 
-======================================================================== */
-.story-header h6 {
-  color: #fff; }
-
-.vertical-center {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -webkit-flex-direction: column;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-      -ms-flex-pack: center;
-          justify-content: center; }
-  @media screen and (min-width: 28.75em) {
-    .vertical-center {
-      -webkit-box-orient: horizontal;
-      -webkit-box-direction: normal;
-      -webkit-flex-direction: row;
-          -ms-flex-direction: row;
-              flex-direction: row; } }
-
-.story-company-logo img {
-  padding: 3rem 0;
-  max-width: 50vw;
-  max-height: 50vw; }
-  @media screen and (min-width: 28.75em) {
-    .story-company-logo img {
-      padding: 0;
-      max-width: 25vw;
-      max-height: 25vw; } }
-
-/* STRATEGIES PAGE 
-======================================================================== */
-.region-strategies h1 {
-  color: #151f25; }
-  @media screen and (min-width: 28.75em) {
-    .region-strategies h1 {
-      color: #fff; } }
-
-.region-strategies h2 {
-  margin-bottom: 1.5rem; }
-  @media screen and (min-width: 28.75em) {
-    .region-strategies h2 {
-      margin-bottom: 1rem; } }
-  @media screen and (min-width: 47.9375em) {
-    .region-strategies h2 {
-      margin-bottom: 2rem; } }
-
-.region-strategies h6 {
-  margin-top: 1.5rem; }
-  @media screen and (min-width: 47.9375em) {
-    .region-strategies h6 {
-      margin-top: 2rem; } }
 
 /* |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
   
@@ -5241,8 +5305,14 @@ figcaption a.btn-play:hover {
 .padding-7-3-7-3 {
   padding: 7vh 3vw; }
 
+.padding-8-0-0-0 {
+  padding: 8vh 0 0 0; }
+
 .padding-8-0-8-0 {
   padding: 8vh 0; }
+
+.padding-12-0-3-0 {
+  padding: 12vh 0 3vh 0; }
 
 .padding-12-4-12-4 {
   padding: 12vh 4vw; }
