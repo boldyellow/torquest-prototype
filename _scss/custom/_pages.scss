@@ -54,7 +54,7 @@
 .slant-wrap {
 	position: relative;
 	width: 100%;
-	height: 45vh; // depth here must match top of slant foot
+	height: 50vh; // depth here must match top of slant foot
 	margin-bottom: 5rem;
 }
 
@@ -190,6 +190,7 @@
 
 
 // change slant wrap height for small landscape view ...................
+/*
 
 @media screen and (max-width: 800px) and (orientation: landscape) {
 
@@ -200,6 +201,7 @@
 		top: 60vh;
 	}
 }
+*/
 
 
 
