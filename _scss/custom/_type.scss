@@ -24,10 +24,13 @@
 
 h1 {
     font-family: "adobe-caslon-pro",serif;
-	font-size: 5.5vmax;
+	font-size: 2.2rem;
     
 	@include breakpoint(medium) {
    		font-size: 7.5vw;
+   		letter-spacing: -0.1rem;
+	}
+	@include breakpoint(large) {
    		letter-spacing: -0.1rem;
 	}
 	@include breakpoint(xlarge) {
@@ -38,10 +41,8 @@ h1 {
 .sham-modal h1, 
 .news-article h1 {
 	
-	font-size: 4.76vmax;
-   
 	@include breakpoint(medium) {
-		font-size: 6.3vw;
+		font-size: 7.5vw;
 	}
 	@include breakpoint(xlarge) {
 		font-size: 6rem;
@@ -50,8 +51,6 @@ h1 {
 
 .news-highlights h1 {
 	
-	font-size: 4.76vmax;
-   
 	@include breakpoint(medium) {
 		font-size: 6.3vw;
 	}
