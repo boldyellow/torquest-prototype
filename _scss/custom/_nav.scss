@@ -96,17 +96,18 @@
 
 .mobilenav li a {
 	text-decoration: none;
-	color: $dark-gray;
+	color: $warm-gray-2;
 	display: block;
 	width: 100%;
+	transition: color 0.25s linear;
 }
 
 .mobilenav li a.active {
-	text-decoration: underline;
+	color: $dark-gray;
 }
 
 .mobilenav li a:hover {
-	color: $warm-gray-2;
+	color: $dark-gray;
 }
 
 .mobilenav li:first-child {
@@ -119,7 +120,7 @@
 
 .mobilenav li:last-child {
   	margin-top: 6vh;
- 	font-size: 3.75vh;
+ 	font-size: 3.15vh;
  	text-transform: uppercase;
  	letter-spacing: 0.3rem;
 }

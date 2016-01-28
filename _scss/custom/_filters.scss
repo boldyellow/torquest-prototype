@@ -85,17 +85,13 @@
 	font-size: 0;
 	line-height: 0;
     cursor: pointer;
-	width: 100vw;
-	height: 98vw;
+	width: 50%;
+	height: 45vw;
 	border-bottom: 1px solid #ccc;
     display: flex;
     justify-content: center;
     align-items: center;
     
-	@include breakpoint(medium) {
-		width: 50%;
-		height: 48vw;
-	}
 	@include breakpoint(large) {
 		width: 33.333333%;
 		height: 30vw;
@@ -113,11 +109,21 @@
 	transition: filter 0.375s linear;
 	display: block;
     padding: 0;
-    max-width: 50%;
-    max-height: 50%;
+    max-width: 64%;
+    max-height: 64%;
 	width: auto;
     height: auto;
     object-fit: contain;
+    
+	@include breakpoint(medium) {
+	    max-width: 57%;
+	    max-height: 57%;
+	}
+	
+	@include breakpoint(large) {
+	    max-width: 50%;
+	    max-height: 50%;
+	}
 }
 
 .logo-grid:hover img {
@@ -129,28 +135,25 @@
 
 // removing outer borders for each size, oy! ...........................
 
-// 2 columns in medium grid
+// 2 columns in small-medium grid
 
-@include breakpoint(medium) {
-	
-	.logo-grid {
-		border-right: 1px solid #ccc;
-	}
-	
-	// this is crazy pseudo targeting tricks from 
-	//_keithclark.co.uk/articles/targeting-first-and-last-rows-in-css-grid-layouts/
-	.logo-grid:nth-child(2n+1):nth-last-child(-n+2),
-	.logo-grid:nth-child(2n+1):nth-last-child(-n+2) ~ .logo-grid {
-	  	border-bottom: none;
-	}
-	
-	.logo-grid:nth-child(2n+2) {
-		border-right: none;
-	}
-	
-	.logo-grid:last-child {
-	  	border-bottom: none !important;
-	}
+.logo-grid {
+	border-right: 1px solid #ccc;
+}
+
+// this is crazy pseudo targeting tricks from 
+//_keithclark.co.uk/articles/targeting-first-and-last-rows-in-css-grid-layouts/
+.logo-grid:nth-child(2n+1):nth-last-child(-n+2),
+.logo-grid:nth-child(2n+1):nth-last-child(-n+2) ~ .logo-grid {
+  	border-bottom: none;
+}
+
+.logo-grid:nth-child(2n+2) {
+	border-right: none;
+}
+
+.logo-grid:last-child {
+  	border-bottom: none !important;
 }
 
 // 3 columns in large grid

@@ -25,10 +25,10 @@
 h1 {
     font-family: "adobe-caslon-pro",serif;
 	font-size: 5.5vmax;
-	letter-spacing: -0.1rem;
     
 	@include breakpoint(medium) {
    		font-size: 7.5vw;
+   		letter-spacing: -0.1rem;
 	}
 	@include breakpoint(xlarge) {
 		font-size: 6rem;
@@ -68,13 +68,16 @@ h1 {
 }
 
 .region-ideals h1 {
-	font-size: 8vmax;
+	font-size: 3.5rem;
     
 	@include breakpoint(medium) {
-   		font-size: 15vw;
+   		font-size: 12.75vw;
+	}
+	@include breakpoint(large) {
+   		font-size: 12.25vw;
 	}
 	@include breakpoint(xlarge) {
-		font-size: 8.75em;
+		font-size: 10rem;
 	}
 }
 
