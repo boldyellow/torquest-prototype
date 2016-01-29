@@ -4351,7 +4351,7 @@ a.view-more {
   color: #000;
   opacity: 0.5;
   border-top: 1px solid #151f25;
-  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" version="1.1" id="Layer_1" x="0px" y="0px" width="21px" height="15px" viewBox="0 0 21 15" xml:space="preserve" enable-background="new 0 0 21 15"><metadata><x:xmpmeta xmlns:x="adobe:ns:meta/" x:xmptk="Adobe XMP Core 5.6-c067 79.157747, 2015/03/30-23:40:42"><rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"><rdf:Description rdf:about=""/></rdf:RDF></x:xmpmeta></metadata><path d="M13.3 0c-0.4 0-0.7 0.3-0.7 0.7 0 0.2 0 0.4 0.2 0.5l5.9 5.6H0.7C0.3 6.8 0 7.1 0 7.5c0 0.4 0.3 0.7 0.7 0.7h17.9l-5.9 5.6c-0.2 0.1-0.2 0.3-0.2 0.5 0 0.4 0.3 0.7 0.7 0.7 0.2 0 0.3-0.1 0.5-0.2l7-6.8C20.9 7.9 21 7.7 21 7.5c0-0.2-0.1-0.4-0.2-0.5l-7-6.8C13.6 0.1 13.4 0 13.3 0" fill="#151F25"/></svg>');
+  background-image: url(../img/arrow-right-blk.svg);
   background-repeat: no-repeat;
   background-size: 21px 15px;
   background-position: 100% 60%;
@@ -4376,7 +4376,7 @@ a.view-more:hover {
 a.view-more.previous {
   padding: 0.25rem 0 0 2rem;
   margin-right: 1rem;
-  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" version="1.1" id="Layer_1" x="0px" y="0px" width="21px" height="15px" viewBox="0 0 21 15" xml:space="preserve" enable-background="new 0 0 21 15"><metadata><x:xmpmeta xmlns:x="adobe:ns:meta/" x:xmptk="Adobe XMP Core 5.6-c067 79.157747, 2015/03/30-23:40:42"><rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"><rdf:Description rdf:about=""/></rdf:RDF></x:xmpmeta></metadata><path d="M7.7 15c0.4 0 0.7-0.3 0.7-0.7 0-0.2 0-0.4-0.2-0.5L2.4 8.2h17.9c0.4 0 0.7-0.3 0.7-0.7 0-0.4-0.3-0.7-0.7-0.7H2.4l5.9-5.6C8.4 1 8.5 0.9 8.5 0.7 8.5 0.3 8.2 0 7.7 0 7.6 0 7.4 0.1 7.2 0.2L0.2 7C0.1 7.1 0 7.3 0 7.5 0 7.7 0.1 7.9 0.2 8l7 6.8C7.4 14.9 7.6 15 7.7 15" fill="#151F25"/></svg>');
+  background-image: url(../img/arrow-left-blk.svg);
   background-size: 21px 15px;
   background-position: 0 60%; }
 
@@ -4384,7 +4384,7 @@ a.view-more.next {
   margin-left: 1rem; }
 
 a.view-more.up {
-  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" version="1.1" id="Layer_1" x="0px" y="0px" width="15px" height="21px" viewBox="0 0 15 21" xml:space="preserve" enable-background="new 0 0 15 21"><metadata><x:xmpmeta xmlns:x="adobe:ns:meta/" x:xmptk="Adobe XMP Core 5.6-c067 79.157747, 2015/03/30-23:40:42"><rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"><rdf:Description rdf:about=""/></rdf:RDF></x:xmpmeta></metadata><path d="M0 7.7c0 0.4 0.3 0.7 0.7 0.7 0.2 0 0.4 0 0.5-0.2l5.6-5.9v17.9c0 0.4 0.3 0.7 0.7 0.7 0.4 0 0.7-0.3 0.7-0.7V2.4l5.6 5.9c0.1 0.2 0.3 0.2 0.5 0.2 0.4 0 0.7-0.3 0.7-0.7 0-0.2-0.1-0.3-0.2-0.5L8 0.2C7.9 0.1 7.7 0 7.5 0 7.3 0 7.1 0.1 7 0.2l-6.8 7C0.1 7.4 0 7.6 0 7.7" fill="#151F25"/></svg>');
+  background-image: url(../img/arrow-up-blk.svg);
   background-size: 15px 21px;
   background-position: 96% 60%; }
 
