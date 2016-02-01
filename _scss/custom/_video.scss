@@ -125,6 +125,15 @@ video#bgvid {
     right: 0;
     transform: skewY(-5deg);
     transform-origin: 50%;
+    
+	@include breakpoint(xlarge) {
+		transform-origin: 40%;
+	}
+    
+	@include breakpoint(xxlarge) {
+		display: none;
+	}
+
 }
 
 .video-shim-skew .headline {
@@ -133,11 +142,15 @@ video#bgvid {
 	z-index: 200;
 	
 	@include breakpoint(large) {
-		padding: 3vh 10vw 7vh 10vw;
+		padding: 3vh 9vw 7vh 9vw;
 	}
 
 	@include breakpoint(xlarge) {
-		padding: 7vh 14vh 8vh 14vw;
+		padding: 7vh 18vw 8vh 18vw;
+	}
+
+	@include breakpoint(xxlarge) {
+		padding: 12vh 30vw 10vh 30vw;
 	}
 
 }
