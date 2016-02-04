@@ -5450,6 +5450,9 @@ figcaption a.btn-play:hover {
 
   .logo-grid:nth-child(4n):nth-last-child(-n+4) ~ .logo-grid {
     border-bottom: none; } }
+.hide {
+  display: none; }
+
 .child-list .company a {
   position: relative; }
 
