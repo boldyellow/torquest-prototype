@@ -43,3 +43,16 @@ if (!$('body').hasClass('sham-modal')) {
 		$('#brand').toggleClass('scrolled', $(this).scrollTop() > 1);
 	});
 }
+
+// preloader
+$(window).load(function() { 
+	$("#preloader").delay(2000).fadeOut("slow"); 
+})
+
+// scroll to top
+$('.up').click(function () {
+    $("html, body").animate({
+        scrollTop: 0
+    }, 600);
+    return false;
+});
